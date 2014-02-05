@@ -15,7 +15,7 @@ public:
     static int GetHeightOffset();
 
 	static int IsEngineInitialized();
-    static int timeFram();
+    static int timeStep();
     friend class AGE_Widget;
 
 private:

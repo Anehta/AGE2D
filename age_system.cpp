@@ -72,7 +72,7 @@ void AGE_System::Init(int argc, char *argv[])
 	is_init=true;
 }
 
-int AGE_System::timeFram()
+int AGE_System::timeStep()
 {
    return getCurrentTimeFram();
 }

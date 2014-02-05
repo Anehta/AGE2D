@@ -31,20 +31,15 @@ void AGE_SpriteActor::addAnimation(AGE_Animation)
 void AGE_SpriteActor::animate(QString actionName, int frames, bool isCycle)
 {
 
-	for(list<AGE_Animation>::iterator i= m_animationlist.begin ();i!=m_animationlist.end ();i++)
+	AGE_Animation* animation=m_animation_set->findAnimation (actionName);
+	if(isCycle)
 	{
-		if(i->getName ().compare (actionName)==0)//找寻指定的animation
-		{
-			if(isCycle)
-			{
-				frames=frames%(i->totalFrames ());
-			}
-			AGE_Frame frame=i->getFrame (frames);
-			this->setShowRect (frame.bottomLeft ().x (),frame.bottomLeft ().y (),
-					   frame.topRight ().x (),frame.topRight ().y ()
-					   );
-		}
+		frames=frames%(animation->totalFrames ());
 	}
+	AGE_Frame frame=animation->getFrame (frames);
+	this->setShowRect (frame.bottomLeft ().x (),frame.bottomLeft ().y (),
+			   frame.topRight ().x (),frame.topRight ().y ()
+			   );
 }
 
 void AGE_SpriteActor::loadAnimationsFromFile(QString fileName)
@@ -66,6 +61,11 @@ doc.setContent (&file);
 	   m_animationlist.push_back (animation);
 	   child=child.nextSiblingElement ();
    }
+}
+
+void AGE_SpriteActor::bindAnimationSet(AGE_AnimationSet *animation_set)
+{
+	this->m_animation_set=animation_set;
 }
 
 void AGE_SpriteActor::addAnimationFromFile(AGE_Animation *animation, QDomElement node)

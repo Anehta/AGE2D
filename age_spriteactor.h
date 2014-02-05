@@ -6,6 +6,7 @@
 #include <list>
 #include <age_animation.h>
 #include <QDomDocument>
+#include <age_animationset.h>
 using namespace std;
 class AGE_SpriteActor : public AGE_Sprite
 {
@@ -16,9 +17,11 @@ public:
     void animate(QString actionName,int frames,bool isCycle); //执行动作
     void addAnimation(AGE_Animation);
     void loadAnimationsFromFile(QString fileName);
+    void bindAnimationSet(AGE_AnimationSet * animation_set);
 protected:
     void addAnimationFromFile(AGE_Animation * animation,QDomElement node);
     void action();
+     AGE_AnimationSet * m_animation_set;
     list <AGE_Animation> m_animationlist;
 };
 

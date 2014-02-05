@@ -45,7 +45,9 @@ SOURCES += main.cpp\
     age_utility.cpp \
     age_animation.cpp \
     age_frame.cpp \
-    age_matrix4x4.cpp
+    age_matrix4x4.cpp \
+    age_animationset.cpp \
+    age_accumulator.cpp
 
 HEADERS  += \
     amainattribute.h \
@@ -80,7 +82,9 @@ HEADERS  += \
     age_utility.h \
     age_animation.h \
     age_frame.h \
-    age_matrix4x4.h
+    age_matrix4x4.h \
+    age_animationset.h \
+    age_accumulator.h
 
 CONFIG += mobility c++11
 MOBILITY =

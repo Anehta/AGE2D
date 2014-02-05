@@ -110,6 +110,7 @@ void setCurrentMouseEvent(QMouseEvent * s_mouseEvent)
 
 void setCurrentTimeFram(int time)
 {
+	qDebug()<<time;
     time_temp = time;
 }
 
