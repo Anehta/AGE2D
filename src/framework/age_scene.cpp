@@ -47,6 +47,8 @@ void AGE_Scene::renderScene()
         temp->renderLayer();
         temp->action();
     }
+
+    action();
 }
 
 void AGE_Scene::action()

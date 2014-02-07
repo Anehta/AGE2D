@@ -32,4 +32,7 @@ void setCurrentKeyEvent(QKeyEvent * keyboardEvent);
 void setCurrentMouseEvent(QMouseEvent * mouseEvent);
 void setTimeStep(int time);
 int getTimeStep();
+
+AGE_Widget * getCurrentWidget();
+void setCurrentWidget(AGE_Widget *);
 #endif // AVIEWPORTMATRIX_H

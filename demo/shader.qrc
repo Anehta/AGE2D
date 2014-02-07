@@ -10,5 +10,6 @@
         <file>background.png</file>
         <file>hero.png</file>
         <file>bullet.png</file>
+        <file>diamond.png</file>
     </qresource>
 </RCC>

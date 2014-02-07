@@ -53,7 +53,9 @@ SOURCES += \
     ../src/framework/age_widget.cpp \
     ../src/framework/age_widgetevent.cpp \
     ../src/framework/amainattribute.cpp \
-    ../src/framework/age_system.cpp
+    ../src/framework/age_system.cpp \
+    diamond.cpp \
+    gamescene.cpp
 
 HEADERS  += \
     ../include/age_accumulator.h \
@@ -102,7 +104,9 @@ HEADERS  += \
     bullet.h \
     game.h \
     hero.h \
-    ../include/AGE2D.h
+    ../include/AGE2D.h \
+    diamond.h \
+    gamescene.h
 
 CONFIG += mobility c++11
 MOBILITY =

@@ -8,6 +8,18 @@ QGLShaderProgram *program;
 AGE_Scene * scenePointer;
 QKeyEvent * keyBoardEvent = NULL;
 QMouseEvent * mouseEvent = NULL;    //注意这里NULL
+AGE_Widget * m_widget = NULL;
+
+AGE_Widget * getCurrentWidget()
+{
+    return m_widget;
+}
+
+void setCurrentWidget(AGE_Widget * widget)
+{
+    m_widget = widget;
+}
+
 double time_temp;
 AGE_Matrix4x4 getViewPortMatrix()
 {

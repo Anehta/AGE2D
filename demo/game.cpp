@@ -18,7 +18,9 @@ Game::Game()
     testShaderProgram();
     back_ground_texture =new AGE_Texture(":/background.png");
     bullet_texture=new AGE_Texture (":/bullet.png");
-	game_scene=new AGE_Scene();
+    game_scene=new Gamescene();
+    diamod_texture = new AGE_Texture(":/diamond.png");
+
 	game_scene->setListenerManager (new AGE_EventMgr());
 	hero=new Hero();
 	game_scene->eventMgr ()->addKeyListener (hero);
@@ -43,7 +45,7 @@ AGE_Scene *Game::getGameScene() const
 
 void Game::setGameScene(AGE_Scene *value)
 {
-	game_scene = value;
+    //game_scene = value;
 }
 
 AGE_Texture *Game::getBullet_texture() const
@@ -54,6 +56,21 @@ AGE_Texture *Game::getBullet_texture() const
 void Game::setBullet_texture(AGE_Texture *value)
 {
 	bullet_texture = value;
+}
+
+AGE_Texture *Game::getDiamond_texture() const
+{
+    return diamod_texture;
+}
+
+void Game::setDiamond_texture(AGE_Texture *value)
+{
+    diamod_texture = value;
+}
+
+Hero* Game::getHero() const
+{
+    return hero;
 }
 
 void Game::testShaderProgram()

@@ -7,6 +7,8 @@
 #include "hero.h"
 #include "background.h"
 #include <QGLShaderProgram>
+#include <gamescene.h>
+
 //管理整个游戏的资源
 class Game : public QGLFunctions
 {
@@ -16,8 +18,13 @@ public:
 	AGE_Texture *getBullet_texture() const;
 	void setBullet_texture(AGE_Texture *value);
 
+    AGE_Texture *getDiamond_texture() const;
+    void setDiamond_texture(AGE_Texture *value);
+
 	AGE_Scene *getGameScene() const;
 	void setGameScene(AGE_Scene *value);
+
+    Hero * getHero() const;
 
 private:
 	Game();
@@ -27,8 +34,9 @@ private:
 	//AGE_Texture * hero_texture;
 	AGE_Texture * back_ground_texture;
 	AGE_Texture * bullet_texture;
+    AGE_Texture * diamod_texture;
 
-	AGE_Scene * game_scene;
+    Gamescene * game_scene;
 
     BackGround * back_ground_actor;
 	Hero * hero;

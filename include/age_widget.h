@@ -37,6 +37,7 @@ private:
     QMatrix4x4 projection;
     AGE_KeyBoardEvent m_keyBoardEvent;
     AGE_MouseInfo m_mouseEvent;
+
     void initializeGL();
     void resizeGL(int w, int h);
     void paintGL();

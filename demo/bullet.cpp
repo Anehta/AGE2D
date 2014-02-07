@@ -15,9 +15,10 @@ Bullet::Bullet(AGE_Vector2D pos,double slope,double speed,bool is_turn_right)
 
 bool Bullet::out_of_the_boundary(double x,double y)
 {
-	if(x +this->width ()<0 &&
-	   y+this->height ()<=0 &&
-	   x>AGE_System::GetWidth () &&
+
+    if(x + this->width ()<0 ||
+       y + this->height ()<=0 ||
+       x>AGE_System::GetWidth () ||
 	  y>AGE_System::GetHeight ()
 	   )
 	{
