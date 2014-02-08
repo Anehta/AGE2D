@@ -120,3 +120,16 @@ OTHER_FILES += \
 
 RESOURCES += \
 shader.qrc
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../src/freetype/ -lfreetype
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../src/freetype/ -lfreetyped
+else:unix: LIBS += -L$$PWD/../src/freetype/ -lfreetype
+
+INCLUDEPATH += $$PWD/../src/freetype
+DEPENDPATH += $$PWD/../src/freetype
+
+win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$PWD/../src/freetype/libfreetype.a
+else:win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/../src/freetype/libfreetyped.a
+else:win32:!win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$PWD/../src/freetype/freetype.lib
+else:win32:!win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/../src/freetype/freetyped.lib
+else:unix: PRE_TARGETDEPS += $$PWD/../src/freetype/libfreetype.a

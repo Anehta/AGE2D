@@ -1,11 +1,12 @@
 /***************************************************************************/
 /*                                                                         */
-/*  ftpic.h                                                                */
+/*  ft2build.h                                                             */
 /*                                                                         */
-/*    The FreeType position independent code services (declaration).       */
+/*    FreeType 2 build and setup macros.                                   */
+/*    (Generic version)                                                    */
 /*                                                                         */
-/*  Copyright 2009 by                                                      */
-/*  Oran Agra and Mickey Gabel.                                            */
+/*  Copyright 1996-2001, 2006 by                                           */
+/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
 /*                                                                         */
 /*  This file is part of the FreeType project, and may only be used,       */
 /*  modified, and distributed under the terms of the FreeType project      */
@@ -15,53 +16,24 @@
 /*                                                                         */
 /***************************************************************************/
 
+
   /*************************************************************************/
   /*                                                                       */
-  /*  Modules that ordinarily have const global data that need address     */
-  /*  can instead define pointers here.                                    */
+  /* This file corresponds to the default `ft2build.h' file for            */
+  /* FreeType 2.  It uses the `freetype' include root.                     */
+  /*                                                                       */
+  /* Note that specific platforms might use a different configuration.     */
+  /* See builds/unix/ft2unix.h for an example.                             */
   /*                                                                       */
   /*************************************************************************/
 
 
-#ifndef __FTPIC_H__
-#define __FTPIC_H__
+#ifndef __FT2_BUILD_GENERIC_H__
+#define __FT2_BUILD_GENERIC_H__
 
+#include "./freetype/config/ftheader.h"
 
-FT_BEGIN_HEADER
-
-#ifdef FT_CONFIG_OPTION_PIC
-
-  typedef struct FT_PIC_Container_
-  {
-    /* pic containers for base */
-    void* base;
-    /* pic containers for modules */
-    void* autofit;
-    void* cff;
-    void* pshinter;
-    void* psnames;
-    void* raster;
-    void* sfnt;
-    void* smooth;
-    void* truetype;
-  } FT_PIC_Container;
-
-  /* Initialize the various function tables, structs, etc. stored in the container. */
-  FT_BASE( FT_Error )
-  ft_pic_container_init( FT_Library library );
-
-
-  /* Destroy the contents of the container. */
-  FT_BASE( void )
-  ft_pic_container_destroy( FT_Library library );
-
-#endif /* FT_CONFIG_OPTION_PIC */
-
- /* */
-
-FT_END_HEADER
-
-#endif /* __FTPIC_H__ */
+#endif /* __FT2_BUILD_GENERIC_H__ */
 
 
 /* END */

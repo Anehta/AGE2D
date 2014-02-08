@@ -2,6 +2,13 @@
 #include "../include/age_layer.h"
 #include <QGLFunctions>
 
+#include <ft2build.h>
+#include FT_FREETYPE_H
+#include <freetype/freetype.h>
+#include <freetype/ftglyph.h>
+#include <freetype/ftoutln.h>
+#include <freetype/fttrigon.h>
+
 Game * Game::game;
 Game *Game::single()
 {
