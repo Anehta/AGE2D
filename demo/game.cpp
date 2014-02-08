@@ -16,6 +16,11 @@ void Game::Init()
 Game::Game()
 {
     testShaderProgram();
+    background_music = new AGE_Audio(":/123.mp3",0);
+    background_music->setVolume(100);
+    background_music->audio();
+    background_music->play();
+
     back_ground_texture =new AGE_Texture(":/background.png");
     bullet_texture=new AGE_Texture (":/bullet.png");
     game_scene=new Gamescene();
@@ -38,6 +43,7 @@ Game::Game()
 	game_scene->layer (2)->addChild (hero);
 	game_scene->activate ();
 }
+
 AGE_Scene *Game::getGameScene() const
 {
 	return game_scene;

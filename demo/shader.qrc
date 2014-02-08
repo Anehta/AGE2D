@@ -11,5 +11,6 @@
         <file>hero.png</file>
         <file>bullet.png</file>
         <file>diamond.png</file>
+        <file>123.mp3</file>
     </qresource>
 </RCC>

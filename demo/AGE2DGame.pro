@@ -7,7 +7,7 @@
 QT       += core gui opengl
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-QT += xml
+QT += xml multimedia
 
 TARGET = AGE2DGame
 TEMPLATE = app
@@ -55,7 +55,8 @@ SOURCES += \
     ../src/framework/amainattribute.cpp \
     ../src/framework/age_system.cpp \
     diamond.cpp \
-    gamescene.cpp
+    gamescene.cpp \
+    ../src/audio/age_audio.cpp
 
 HEADERS  += \
     ../include/age_accumulator.h \
@@ -106,7 +107,8 @@ HEADERS  += \
     hero.h \
     ../include/AGE2D.h \
     diamond.h \
-    gamescene.h
+    gamescene.h \
+    ../include/age_audio.h
 
 CONFIG += mobility c++11
 MOBILITY =

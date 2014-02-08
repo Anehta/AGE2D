@@ -40,7 +40,6 @@ void AGE_Application::Init(int argc, char *argv[])
 {
     m_application=new QApplication(argc,argv);
     m_widiget=new AGE_Widget();
-    m_widiget->setFixedSize(640,480);
     m_widiget->show();
     is_init=true;
 }

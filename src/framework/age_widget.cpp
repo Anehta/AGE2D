@@ -13,7 +13,8 @@ using namespace std;
 AGE_Widget::AGE_Widget(QWidget *parent)
     : QGLWidget(QGLFormat(QGL::DoubleBuffer))
 {
-
+    setWindowTitle("fucker");
+    setFixedSize(640,480);
 }
 
 AGE_Widget::~AGE_Widget()
@@ -42,10 +43,10 @@ void AGE_Widget::initializeGL()
 
 void AGE_Widget::resizeGL(int w, int h)
 {
-    glViewport(0, 0,w,h);
+    glViewport(0,0,w,h);
 
     projection.setToIdentity();
-
+    qDebug()<<"widget:"<<w<<"height:"<<h;
     static int wi = w, he = h;
 
     projection.ortho(0,wi,0,he,-1,1);

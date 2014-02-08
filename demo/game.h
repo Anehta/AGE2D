@@ -4,11 +4,12 @@
 #include "../include/age_scene.h"
 #include "../include/age_spriteactor.h"
 #include "../include/age_eventmgr.h"
+#include "../include/age_audio.h"
+
 #include "hero.h"
 #include "background.h"
 #include <QGLShaderProgram>
 #include <gamescene.h>
-
 //管理整个游戏的资源
 class Game : public QGLFunctions
 {
@@ -35,7 +36,7 @@ private:
 	AGE_Texture * back_ground_texture;
 	AGE_Texture * bullet_texture;
     AGE_Texture * diamod_texture;
-
+    AGE_Audio *background_music;
     Gamescene * game_scene;
 
     BackGround * back_ground_actor;

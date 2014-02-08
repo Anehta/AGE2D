@@ -2,7 +2,6 @@
 #include "game.h"
 #include "../include/age_application.h"
 #include <stdio.h>
-#include <conio.h>
 
 int p2ps(int x1,int y1,int x2,int y2);
 
@@ -29,7 +28,6 @@ void Diamond::action()
         a++;
         qDebug()<<"你撞到了"<<a<<"次";
         this->destroy();
-        exit(1);
     }
     if(out_of_the_boundary(this->getX(),this->getY()))
     {
