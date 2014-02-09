@@ -15,7 +15,7 @@ public:
 	static int GetHeight();   
     static int GetWidthOffset();
     static int GetHeightOffset();
-
+    static AWidget * GetWidget();
 	static int IsEngineInitialized();
     static int timeStep();
     static double frameRate();

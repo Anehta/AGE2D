@@ -83,6 +83,12 @@ double ASystem::frameRate()
 {
 	return 1000.0/getTimeStep ();
 }
+
+AWidget * ASystem::GetWidget()
+{
+    return m_widget;
 }
+}
+
 
 

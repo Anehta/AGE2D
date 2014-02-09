@@ -17,9 +17,9 @@ Game::Game()
 {
     testShaderProgram();
     background_music = new AAudio(":/123.mp3",0);
-    background_music->setVolume(100);
-    background_music->audio();
+    background_music->setVolume(30);
     background_music->play();
+
 
     back_ground_texture =new ATexture(":/background.png");
     bullet_texture=new ATexture (":/bullet.png");
@@ -39,9 +39,11 @@ Game::Game()
     game_scene->eventMgr()->addKeyListener(back_ground_actor);
 
     game_scene->addLayer (new ALayer());
-	game_scene->layer (1)->addChild (back_ground_actor);
+    game_scene->layer (1)->addChild (back_ground_actor);
 	game_scene->layer (2)->addChild (hero);
 	game_scene->activate ();
+
+    ASystem::GetWidget()->setWindowTitle("AGE");
 }
 
 AScene *Game::getGameScene() const

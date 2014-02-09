@@ -18,6 +18,9 @@ Hero::Hero()
 	 sneak=false;
 	 is_firing=false;
 	 fire_cd=new AAccumulator(0,3,0.01,false);
+
+     bullet_music = new AAudio(":/bullet.wav");
+     bullet_music->setVolume(100);
 }
 
 void Hero::onKeyRelease(QKeyEvent *event)
@@ -64,6 +67,7 @@ void Hero::onKeyPress(QKeyEvent *event)
 		break;
 	case Qt::Key_Z:
 		is_firing=true;
+        break;
 	}
 	if(event->modifiers ()==Qt::ShiftModifier)
 	{
@@ -118,7 +122,10 @@ void Hero::action()
             //game_scene->layer (2)->addChild (new Bullet(AVector2D(this->middleX()-15,this->middleY()-15),0.3,0.1,true));
            // game_scene->layer (2)->addChild (new Bullet(AVector2D(this->middleX()-15,this->middleY()-15),0.5,0.1,false));
             //game_scene->layer (2)->addChild (new Bullet(AVector2D(this->middleX()-15,this->middleY()-15),0.3,0.1,false));
+            bullet_music->play();
+
         }
+
      }
 
 }

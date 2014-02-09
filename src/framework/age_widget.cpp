@@ -15,8 +15,8 @@ namespace AGE2D
 AWidget::AWidget(QWidget *)
     : QGLWidget(QGLFormat(QGL::DoubleBuffer))
 {
-    setWindowTitle("fucker");
     setFixedSize(640,480);
+    setWindowOpacity(0.005);
 }
 
 AWidget::~AWidget()
@@ -66,6 +66,7 @@ void AWidget::paintGL()
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     //setViewPortMatrix(projection);
     display();
+
 }
 
 void AWidget::timerEvent(QTimerEvent *)

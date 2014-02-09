@@ -39,6 +39,7 @@ private:
     ATexture * bullet_texture;
     ATexture * diamod_texture;
     AAudio *background_music;
+
     Gamescene * game_scene;
 
     BackGround * back_ground_actor;
