@@ -8,25 +8,25 @@
 #include <../include/age_matrix4x4.h>
 namespace AGE2D
 {
-class AGE_Scene;
-class AGE_KeyBoardEvent;
-class AGE_MouseInfo;
-class AGE_Vector2D;
-class AGE_Vector3D;
+class AScene;
+class AKeyBoardEvent;
+class AMouseInfo;
+class AVector2D;
+class AVector3D;
 struct VertexData
 {
-    AGE_Vector3D postion;
-    AGE_Vector2D texture;
+    AVector3D postion;
+    AVector2D texture;
 };
 
-AGE_Matrix4x4 getViewPortMatrix();
-void setViewPortMatrix(AGE_Matrix4x4);
+AMatrix4x4 getViewPortMatrix();
+void setViewPortMatrix(AMatrix4x4);
 
 QGLShaderProgram * getDefalutShaderProgram();
 void initDefalutShaderProgram();
 
-AGE_Scene * getCurrentScene();
-void setCurrentScene(AGE_Scene * fuckyourasshole);
+AScene * getCurrentScene();
+void setCurrentScene(AScene * fuckyourasshole);
 
 QKeyEvent * getCurrentKeyEvent();
 QMouseEvent* getCurrentMouseEvent();
@@ -35,8 +35,8 @@ void setCurrentMouseEvent(QMouseEvent * mouseEvent);
 void setTimeStep(int time);
 int getTimeStep();
 
-AGE_Widget * getCurrentWidget();
-void setCurrentWidget(AGE_Widget *);
+AWidget * getCurrentWidget();
+void setCurrentWidget(AWidget *);
 }
 
 #endif // AVIEWPORTMATRIX_H

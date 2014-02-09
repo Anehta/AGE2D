@@ -2,13 +2,13 @@
 
 namespace AGE2D
 {
-AGE_Matrix4x4::AGE_Matrix4x4()
+AMatrix4x4::AMatrix4x4()
 {
 }
 
-AGE_Matrix4x4::AGE_Matrix4x4(QMatrix4x4 matrix)
+AMatrix4x4::AMatrix4x4(QMatrix4x4 matrix)
 {
-    AGE_Vector4D first(matrix.column(0)),
+    AVector4D first(matrix.column(0)),
 		second(matrix.column(1)),
 		third(matrix.column(2)),
 		forth(matrix.column(3));
@@ -19,12 +19,12 @@ AGE_Matrix4x4::AGE_Matrix4x4(QMatrix4x4 matrix)
     setColumn(3,forth);
 }
 
-AGE_Matrix4x4::AGE_Matrix4x4(float m11,float m12,float m13,float m14,
+AMatrix4x4::AMatrix4x4(float m11,float m12,float m13,float m14,
 			       float m21,float m22,float m23,float m24,
 			       float m31,float m32,float m33,float m34,
 			       float m41,float m42,float m43,float m44)
 {
-    AGE_Vector4D first(m11,m12,m13,m14),
+    AVector4D first(m11,m12,m13,m14),
 		second(m21,m22,m23,m24),
 		thrid(m31,m32,m33,m34),
 		forth(m41,m42,m43,m44);

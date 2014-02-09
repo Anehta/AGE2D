@@ -6,11 +6,11 @@
 
 namespace AGE2D
 {
-class AGE_Texture : public QGLFunctions,public QImage
+class AATexture : public QGLFunctions,public QImage
 {
 public:
-    AGE_Texture();
-    AGE_Texture(QString filename);
+    AATexture();
+    AATexture(QString filename);
     void loadFile(QString filename);
     int width();
     int height();

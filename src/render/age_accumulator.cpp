@@ -1,6 +1,6 @@
 #include <../include/age_accumulator.h>
 namespace AGE2D {
-AGE_Accumulator::AGE_Accumulator(double init_value, double end_value, double speed, bool is_cycled)
+AAccumulator::AAccumulator(double init_value, double end_value, double speed, bool is_cycled)
 {
 	this->init_value=init_value;
 	this->end_value=end_value;
@@ -10,7 +10,7 @@ AGE_Accumulator::AGE_Accumulator(double init_value, double end_value, double spe
 	is_touched=false;
 }
 
-void AGE_Accumulator::step(double factor)
+void AAccumulator::step(double factor)
 {
 
 	value+=factor*speed;
@@ -28,57 +28,57 @@ void AGE_Accumulator::step(double factor)
 	}
 }
 
-double AGE_Accumulator::currentValue()
+double AAccumulator::currentValue()
 {
 	return value;
 }
 
-void AGE_Accumulator::setInitValue(double init_value)
+void AAccumulator::setInitValue(double init_value)
 {
 	this->init_value=init_value;
 }
 
-void AGE_Accumulator::setEndValue(double end_value)
+void AAccumulator::setEndValue(double end_value)
 {
 	this->end_value=end_value;
 }
 
-void AGE_Accumulator::setSpeed(double speed)
+void AAccumulator::setSpeed(double speed)
 {
 	this->speed=speed;
 }
 
-void AGE_Accumulator::setIsCycled(bool new_bool)
+void AAccumulator::setIsCycled(bool new_bool)
 {
 	this->is_cycled=new_bool;
 }
 
-double AGE_Accumulator::getInitValue()
+double AAccumulator::getInitValue()
 {
 	return this->init_value;
 }
 
-double AGE_Accumulator::getEndValue()
+double AAccumulator::getEndValue()
 {
 	return this->end_value;
 }
 
-double AGE_Accumulator::getSpeed()
+double AAccumulator::getSpeed()
 {
 	return this->speed;
 }
 
-bool AGE_Accumulator::isCycled()
+bool AAccumulator::isCycled()
 {
 	return this->is_cycled;
 }
 
-bool AGE_Accumulator::isTouched()
+bool AAccumulator::isTouched()
 {
 	return is_touched;
 }
 
-void AGE_Accumulator::rewind()
+void AAccumulator::rewind()
 {
 	is_touched=false;
 	value=init_value;

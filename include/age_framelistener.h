@@ -1,16 +1,16 @@
-#ifndef AGE_FRAMELISTENER_H
-#define AGE_FRAMELISTENER_H
+#ifndef AFRAMELISTENER_H
+#define AFRAMELISTENER_H
 
 
 namespace AGE2D {
-class AGE_FrameListener
+class AFrameListener
 {
 public:
-	 AGE_FrameListener();
+	 AFrameListener();
 	virtual void beforeFrameRender();
 	virtual void afterFrameRender();
 };
 
 }
 
-#endif // AGE_FRAMELISTENER_H
+#endif // AFRAMELISTENER_H

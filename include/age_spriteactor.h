@@ -10,21 +10,21 @@
 using namespace std;
 namespace AGE2D
 {
-class AGE_SpriteActor : public AGE_Sprite
+class ASpriteActor : public ASprite
 {
 public:
-    AGE_SpriteActor();
-    AGE_SpriteActor(AGE_Texture *);
-    ~AGE_SpriteActor();
+    ASpriteActor();
+    ASpriteActor(AATexture *);
+    ~ASpriteActor();
     void animate(QString actionName,int frames,bool isCycle); //执行动作
-    void addAnimation(AGE_Animation);
+    void addAnimation(AAnimation);
     void loadAnimationsFromFile(QString fileName);
-    void bindAnimationSet(AGE_AnimationSet * animation_set);
+    void bindAnimationSet(AAnimationSet * animation_set);
 protected:
-    void addAnimationFromFile(AGE_Animation * animation,QDomElement node);
+    void addAnimationFromFile(AAnimation * animation,QDomElement node);
     void action();
-     AGE_AnimationSet * m_animation_set;
-    list <AGE_Animation> m_animationlist;
+     AAnimationSet * m_animation_set;
+    list <AAnimation> m_animationlist;
 };
 }
 

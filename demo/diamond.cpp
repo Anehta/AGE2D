@@ -9,7 +9,7 @@ Diamond::Diamond()
 {
 }
 
-Diamond::Diamond(AGE_Texture *tex)
+Diamond::Diamond(AATexture *tex)
 {
     bindTexture(tex);
 }
@@ -40,7 +40,7 @@ bool Diamond::out_of_the_boundary(double x,double y)
 
     if(x + this->width ()<0 ||
        y + this->height ()<=0 ||
-       x>AGE_System::GetWidth ()
+       x>ASystem::GetWidth ()
        )
     {
         return true;

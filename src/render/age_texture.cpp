@@ -4,28 +4,28 @@
 #include <QDebug>
 namespace AGE2D
 {
-AGE_Texture::AGE_Texture()
+AATexture::AATexture()
 {
 }
 
-AGE_Texture::AGE_Texture(QString filename)
+AATexture::AATexture(QString filename)
 {
     loadFile(filename);
 }
 
-void AGE_Texture::loadFile(QString filename)
+void AATexture::loadFile(QString filename)
 {
     initializeGLFunctions();
     m_fileName = filename;
     bindTexture();
 }
 
-GLuint AGE_Texture::getTextureId()
+GLuint AATexture::getTextureId()
 {
     return m_texID;
 }
 
-void AGE_Texture::bindTexture()
+void AATexture::bindTexture()
 {
     QImage buf;
     if(!buf.load(m_fileName))
@@ -71,12 +71,12 @@ void AGE_Texture::bindTexture()
     //delete(&buf);
 }
 
-int AGE_Texture::width()
+int AATexture::width()
 {
     return m_width;
 }
 
-int AGE_Texture::height()
+int AATexture::height()
 {
     return m_height;
 }

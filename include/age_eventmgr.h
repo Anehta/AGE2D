@@ -10,16 +10,16 @@
 #include <QMouseEvent>
 namespace AGE2D{
 
-class AGE_EventMgr
+class AEventMgr
 {
 public:
-    AGE_EventMgr();
-    void addListener(AGE_BaseListener *);
-    void addFrameListener(AGE_FrameListener * a);
-    void addMouseListener(AGE_MouseListener * a);
-    void addKeyListener(AGE_KeyListener *a);
-    friend class AGE_Widget;
-    std::list<AGE_BaseListener *> * getList();
+    AEventMgr();
+    void addListener(ABaseListener *);
+    void addFrameListener(AFrameListener * a);
+    void addMouseListener(AMouseListener * a);
+    void addKeyListener(AKeyListener *a);
+    friend class AWidget;
+    std::list<ABaseListener *> * getList();
 protected:
     virtual void run();
     virtual void mouseMoveEvent(QMouseEvent *);
@@ -28,10 +28,10 @@ protected:
     virtual void keyReleaseEvent (QKeyEvent *a);
     virtual void keyPressEvent(QKeyEvent *);
 private:
-    std::list<AGE_BaseListener *> listenerList;
-    std::list<AGE_MouseListener *> m_mouse_listener_list;
-    std::list<AGE_FrameListener *> m_frame_listener_list;
-    std::list<AGE_KeyListener*> m_key_listener_list;
+    std::list<ABaseListener *> listenerList;
+    std::list<AMouseListener *> m_mouse_listener_list;
+    std::list<AFrameListener *> m_frame_listener_list;
+    std::list<AKeyListener*> m_key_listener_list;
 };
 }
 

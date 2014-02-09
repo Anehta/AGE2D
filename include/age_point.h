@@ -1,16 +1,16 @@
-#ifndef AGE_POINT_H
-#define AGE_POINT_H
+#ifndef APOINT_H
+#define APOINT_H
 
 #include <QPoint>
 
 namespace AGE2D{
-class AGE_Point : public QPoint
+class APoint : public QPoint
 {
 public:
-    AGE_Point();
-    AGE_Point(int x,int y);
+    APoint();
+    APoint(int x,int y);
 };
 }
 
 
-#endif // AGE_POINT_H
+#endif // APOINT_H

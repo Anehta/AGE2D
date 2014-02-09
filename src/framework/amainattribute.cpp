@@ -4,30 +4,30 @@
 
 namespace AGE2D
 {
-AGE_Matrix4x4 viewPortMatrix;
+AMatrix4x4 viewPortMatrix;
 QGLShaderProgram *program;
-AGE_Scene * scenePointer;
+AScene * scenePointer;
 QKeyEvent * keyBoardEvent = NULL;
 QMouseEvent * mouseEvent = NULL;    //注意这里NULL
-AGE_Widget * m_widget = NULL;
+AWidget * m_widget = NULL;
 
-AGE_Widget * getCurrentWidget()
+AWidget * getCurrentWidget()
 {
     return m_widget;
 }
 
-void setCurrentWidget(AGE_Widget * widget)
+void setCurrentWidget(AWidget * widget)
 {
     m_widget = widget;
 }
 
 double time_temp;
-AGE_Matrix4x4 getViewPortMatrix()
+AMatrix4x4 getViewPortMatrix()
 {
     return viewPortMatrix;
 }
 
-void setViewPortMatrix(AGE_Matrix4x4 matrix)
+void setViewPortMatrix(AMatrix4x4 matrix)
 {
     viewPortMatrix = matrix;
 }
@@ -101,12 +101,12 @@ void initDefalutShaderProgram()
     setlocale(LC_ALL, "");
 }
 
-AGE_Scene * getCurrentScene()
+AScene * getCurrentScene()
 {
     return scenePointer;
 }
 
-void setCurrentScene(AGE_Scene * fuckyourasshole)
+void setCurrentScene(AScene * fuckyourasshole)
 {
     scenePointer = fuckyourasshole;
 }

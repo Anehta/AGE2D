@@ -3,47 +3,47 @@
 using namespace std;
 
 namespace AGE2D{
-AGE_Scene::AGE_Scene()
+AScene::AScene()
 {
     m_listenerManager = NULL;
-    addLayer(new AGE_Layer()); //default layer,the id is 1
+    addLayer(new ALayer()); //default layer,the id is 1
 }
 
-void AGE_Scene::activate()
+void AScene::activate()
 {
     setCurrentScene(this);
 }
 
 //add a default layer & return the handle ID
-int AGE_Scene::addLayer()
+int AScene::addLayer()
 {
-	AGE_Layer *layerPointer =new AGE_Layer();
+	ALayer *layerPointer =new ALayer();
     m_layerList.push_back(layerPointer);
     return m_layerList.size ();
 }
 
 
-int AGE_Scene::addLayer (AGE_Layer * pointer)
+int AScene::addLayer (ALayer * pointer)
 {
 	m_layerList.push_back(pointer);
 	return m_layerList.size ();
 }
 
-AGE_Layer *AGE_Scene::layer(int handle)
+ALayer *AScene::layer(int handle)
 {
-	list<AGE_Layer *> :: iterator i=m_layerList.begin ();
+	list<ALayer *> :: iterator i=m_layerList.begin ();
     int count=1;
 	for(;count!=handle;++i,++count);
 	return (*i);
 }
 
-void AGE_Scene::renderScene()
+void AScene::renderScene()
 {
-    for(list<AGE_Layer *>::iterator alpha_it = m_layerList.begin();
+    for(list<ALayer *>::iterator alpha_it = m_layerList.begin();
 	alpha_it != m_layerList.end();
 	++alpha_it)
     {
-	AGE_Layer * temp = *alpha_it;
+	ALayer * temp = *alpha_it;
 	temp->renderLayer();
 	temp->action();
     }
@@ -51,17 +51,17 @@ void AGE_Scene::renderScene()
     action();
 }
 
-void AGE_Scene::action()
+void AScene::action()
 {
 
 }
 
-void AGE_Scene::setListenerManager(AGE_EventMgr * listenerManager)
+void AScene::setListenerManager(AEventMgr * listenerManager)
 {
 	m_listenerManager = listenerManager;
 }
 
-AGE_EventMgr *AGE_Scene::eventMgr()
+AEventMgr *AScene::eventMgr()
 {
 	return m_listenerManager;
 }

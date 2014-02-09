@@ -6,46 +6,46 @@ using namespace std;
 
 namespace AGE2D
 {
-AGE_Sprite::~AGE_Sprite()
+ASprite::~ASprite()
 {
     glDeleteBuffers(2,m_geometric.getVboId()); //1
     delete m_geometric.getVboId(); //2
     //delete &m_geometric; //3
 }
 
-AGE_Sprite::AGE_Sprite()
+ASprite::ASprite()
 {
     initializeAll();
 }
 
-AGE_Sprite::AGE_Sprite(AGE_Texture * bigDick)
+ASprite::ASprite(AATexture * bigDick)
 {
     bindTexture(bigDick);
     initializeAll();
 }
 
-void AGE_Sprite::action()
+void ASprite::action()
 {
 
 }
 
-void AGE_Sprite::setShowRect(float lx, float ly, float rx, float ry)
+void ASprite::setShowRect(float lx, float ly, float rx, float ry)
 {
     m_geometric.setShowRect(lx,ly,rx,ry);
 }
 
-void AGE_Sprite::setShowDet(int col, int row, int gridWidth, int gridHeigth)
+void ASprite::setShowDet(int col, int row, int gridWidth, int gridHeigth)
 {
     m_geometric.setShowRect(gridWidth*row,gridHeigth*col,
 			    gridWidth*row+gridWidth,gridHeigth*col+gridHeigth);
 }
 
-void AGE_Sprite::deleteThis()
+void ASprite::deleteThis()
 {
 
 }
 
-void AGE_Sprite::render()
+void ASprite::render()
 {
     m_program->bind();
     shaderAction();
@@ -66,7 +66,7 @@ void AGE_Sprite::render()
     m_program->enableAttributeArray(vertexLocation);
     glVertexAttribPointer(vertexLocation,3, GL_FLOAT, GL_FALSE, sizeof(VertexData), (const void *)offset);
 
-    offset += sizeof(AGE_Vector3D);
+    offset += sizeof(AVector3D);
 
     // Tell OpenGL programmable pipeline how to locate vertex texture coordinate data
     int texcoordLocation = m_program->attributeLocation("a_texcoord");
@@ -84,12 +84,12 @@ void AGE_Sprite::render()
 
 }
 
-void AGE_Sprite::computeMatrix()
+void ASprite::computeMatrix()
 {
     //m_program->bind();
-    AGE_Matrix4x4 viewMatrix = getViewPortMatrix() * getMatrix();
+    AMatrix4x4 viewMatrix = getViewPortMatrix() * getMatrix();
 
-    AGE_Matrix4x4 lbmatrix = viewMatrix;
+    AMatrix4x4 lbmatrix = viewMatrix;
 
     lbmatrix.translate(mx_offset,my_offset,0);
     lbmatrix.rotate(m_angle,0,0,1);
@@ -98,9 +98,9 @@ void AGE_Sprite::computeMatrix()
 
     if(isNeedRealTime)
     {
-	AGE_Matrix4x4 ltmatrix = viewMatrix;
-	AGE_Matrix4x4 rbmatrix = viewMatrix;
-	AGE_Matrix4x4 rtmatrix = viewMatrix;
+	AMatrix4x4 ltmatrix = viewMatrix;
+	AMatrix4x4 rbmatrix = viewMatrix;
+	AMatrix4x4 rtmatrix = viewMatrix;
 
 	//ltmatrix.translate(0,m_geometric.height(),0);
 	//rbmatrix.translate(m_geometric.width(),0,0);
@@ -122,11 +122,11 @@ void AGE_Sprite::computeMatrix()
 	rtmatrix.translate(-mx_offset,-my_offset,0);
 	rtmatrix.translate(m_geometric.width(),m_geometric.height(),0);
 
-	AGE_Matrix4x4 currentMatrix = getViewPortMatrix().inverted();
-	AGE_Matrix4x4 leftBottonMatrix =  currentMatrix * lbmatrix;
-	AGE_Matrix4x4 leftTopMatrix = currentMatrix * ltmatrix;
-	AGE_Matrix4x4 rightBottonMatrix = currentMatrix * rbmatrix;
-	AGE_Matrix4x4 rightTopMatrix = currentMatrix * rtmatrix;
+	AMatrix4x4 currentMatrix = getViewPortMatrix().inverted();
+	AMatrix4x4 leftBottonMatrix =  currentMatrix * lbmatrix;
+	AMatrix4x4 leftTopMatrix = currentMatrix * ltmatrix;
+	AMatrix4x4 rightBottonMatrix = currentMatrix * rbmatrix;
+	AMatrix4x4 rightTopMatrix = currentMatrix * rtmatrix;
 
 	float lbx = leftBottonMatrix.row(0).w();
 	float lby = leftBottonMatrix.row(1).w();
@@ -155,12 +155,12 @@ void AGE_Sprite::computeMatrix()
 
 }
 
-void AGE_Sprite::bindDefalutProgram()
+void ASprite::bindDefalutProgram()
 {
     m_program = getDefalutShaderProgram();
 }
 
-void AGE_Sprite::bindTexture(AGE_Texture *fuckyou)
+void ASprite::bindTexture(AATexture *fuckyou)
 {
     initializeGLFunctions();
     m_texId = fuckyou->getTextureId();
@@ -172,49 +172,49 @@ void AGE_Sprite::bindTexture(AGE_Texture *fuckyou)
     initializeAll();
 }
 
-void AGE_Sprite::bindTexture(int textureId)
+void ASprite::bindTexture(int textureId)
 {
     m_texId = textureId;
 
 }
 
-int AGE_Sprite::getTextureId()
+int ASprite::getTextureId()
 {
     return m_texId;
 }
 
-float AGE_Sprite::width()
+float ASprite::width()
 {
     return m_geometric.width();
 }
 
-float AGE_Sprite::height()
+float ASprite::height()
 {
     return m_geometric.height();
 }
 
-void AGE_Sprite::setWidth(float width)
+void ASprite::setWidth(float width)
 {
     m_geometric.setWidth(width);
 }
 
-void AGE_Sprite::setHeight(float height)
+void ASprite::setHeight(float height)
 {
     m_geometric.setHeight(height);
 }
 
-void AGE_Sprite::setPivotOffset(float x_offset, float y_offset)
+void ASprite::setPivotOffset(float x_offset, float y_offset)
 {
     mx_offset = x_offset;
     my_offset = y_offset;
 }
 
-void AGE_Sprite::rotate(float angle)
+void ASprite::rotate(float angle)
 {
     m_angle = angle;
 }
 
-void AGE_Sprite::initializeAll()
+void ASprite::initializeAll()
 {
     setPivotOffset(0,0);
     rotate(0);
@@ -224,80 +224,80 @@ void AGE_Sprite::initializeAll()
 }
 
 
-float AGE_Sprite::leftTopX()
+float ASprite::leftTopX()
 {
     isNeedRealTime = true;
     return m_leftTopX;
 }
 
-float AGE_Sprite::rightTopX()
+float ASprite::rightTopX()
 {
     isNeedRealTime = true;
     return m_rightTopX;
 }
 
-float AGE_Sprite::leftBottonX()
+float ASprite::leftBottonX()
 {
     isNeedRealTime = true;
     return m_leftBottonX;
 }
 
-float AGE_Sprite::rightBottonX()
+float ASprite::rightBottonX()
 {
     isNeedRealTime = true;
     return m_rightBottonX;
 }
 
-float AGE_Sprite::leftTopY()
+float ASprite::leftTopY()
 {
     isNeedRealTime = true;
     return m_leftTopY;
 }
 
-float AGE_Sprite::rightTopY()
+float ASprite::rightTopY()
 {
     isNeedRealTime = true;
     return m_rightTopY;
 }
 
-float AGE_Sprite::leftBottonY()
+float ASprite::leftBottonY()
 {
     isNeedRealTime = true;
     return m_leftBottonY;
 }
 
-float AGE_Sprite::rightBottonY()
+float ASprite::rightBottonY()
 {
     isNeedRealTime = true;
     return m_rightBottonY;
 }
 
-void AGE_Sprite::destroy()
+void ASprite::destroy()
 {
     isDeath = true;
 }
 
-float AGE_Sprite::middleX()
+float ASprite::middleX()
 {
     return getX()+width()/2;
 }
 
-float AGE_Sprite::middleY()
+float ASprite::middleY()
 {
     return getY()+height()/2;
 }
 
-void AGE_Sprite::loadShaderProgram(QGLShaderProgram * program)
+void ASprite::loadShaderProgram(QGLShaderProgram * program)
 {
     m_program = program;
 }
 
-QGLShaderProgram * AGE_Sprite::getShaderProgram()
+QGLShaderProgram * ASprite::getShaderProgram()
 {
     return m_program;
 }
 
-void AGE_Sprite::shaderAction()
+void ASprite::shaderAction()
 {
 
 }

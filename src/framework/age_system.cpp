@@ -4,19 +4,19 @@
 
 using namespace std;
 namespace AGE2D{
-QApplication * AGE_System::m_application;
-AGE_Widget * AGE_System::m_widget;
-int AGE_System::m_width;
-int AGE_System::m_height;
-int AGE_System::m_widthOffset;
-int AGE_System::m_heightOffset;
-bool AGE_System::is_init=false;
+QApplication * ASystem::m_application;
+AWidget * ASystem::m_widget;
+int ASystem::m_width;
+int ASystem::m_height;
+int ASystem::m_widthOffset;
+int ASystem::m_heightOffset;
+bool ASystem::is_init=false;
 
-AGE_System::AGE_System()
+ASystem::ASystem()
 {
 }
 
-int AGE_System::Go()
+int ASystem::Go()
 {
 	if(!is_init)
 	{
@@ -25,7 +25,7 @@ int AGE_System::Go()
 	return m_application->exec ();
 }
 
-void AGE_System::SetSize(int width, int height )
+void ASystem::SetSize(int width, int height )
 {
 
 	m_width=width;
@@ -40,46 +40,46 @@ void AGE_System::SetSize(int width, int height )
     m_widget->resize(width,height);
 }
 
-int AGE_System::GetWidth()
+int ASystem::GetWidth()
 {
 	return m_width;
 }
 
-int AGE_System::GetHeight()
+int ASystem::GetHeight()
 {
 	return m_height;
 }
 
-int AGE_System::GetWidthOffset()
+int ASystem::GetWidthOffset()
 {
     return m_widthOffset;
 }
 
-int AGE_System::GetHeightOffset()
+int ASystem::GetHeightOffset()
 {
     return m_heightOffset;
 }
 
-int AGE_System::IsEngineInitialized()
+int ASystem::IsEngineInitialized()
 {
 	return is_init;
 }
 
-void AGE_System::Init(int argc, char *argv[])
+void ASystem::Init(int argc, char *argv[])
 {
 	m_application=new QApplication(argc,argv);
-	m_widget=new AGE_Widget();
+	m_widget=new AWidget();
 	SetSize(640,480);
 	m_widget->show();
 	is_init=true;
 }
 
-int AGE_System::timeStep()
+int ASystem::timeStep()
 {
 	return getTimeStep();
 }
 
-double AGE_System::frameRate()
+double ASystem::frameRate()
 {
 	return 1000.0/getTimeStep ();
 }

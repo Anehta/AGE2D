@@ -1,13 +1,13 @@
-#ifndef AGE_ACCUMULATOR_H
-#define AGE_ACCUMULATOR_H
+#ifndef AACCUMULATOR_H
+#define AACCUMULATOR_H
 
 namespace AGE2D
 {
 //累加器
-class AGE_Accumulator
+class AAccumulator
 {
 public:
-	AGE_Accumulator(double init_value=0,double end_value=100,double speed=0.01,bool is_cycled=true);
+	AAccumulator(double init_value=0,double end_value=100,double speed=0.01,bool is_cycled=true);
 	void step(double factor=1);
 	double currentValue();
 	void setInitValue(double init_value);
@@ -32,4 +32,4 @@ protected:
 }
 
 
-#endif // AGE_ACCUMULATOR_H
+#endif // AACCUMULATOR_H

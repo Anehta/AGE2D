@@ -3,7 +3,7 @@
 
 #include "../include/AGE2D.h"
 using namespace AGE2D;
-class Gamescene : public AGE_Scene
+class Gamescene : public AScene
 {
 public:
     Gamescene();

@@ -5,11 +5,11 @@
 #include <QMouseEvent>
 namespace AGE2D {
 
-class AGE_EventListener : public AGE_BaseListener
+class AEventListener : public ABaseListener
 {
 public:
-    AGE_EventListener();
-    friend class AGE_EventMgr;
+    AEventListener();
+    friend class AEventMgr;
 protected:
     virtual void onMouseMove(QMouseEvent *);
     virtual void onMousePress(QMouseEvent *);

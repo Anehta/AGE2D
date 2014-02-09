@@ -2,12 +2,12 @@
 
 namespace AGE2D
 {
-AGE_Vector4D::AGE_Vector4D()
+AVector4D::AVector4D()
 {
 
 }
 
-AGE_Vector4D::AGE_Vector4D(const QVector4D &vector)
+AVector4D::AVector4D(const QVector4D &vector)
 {
     setX(vector.x());
     setY(vector.y());
@@ -15,7 +15,7 @@ AGE_Vector4D::AGE_Vector4D(const QVector4D &vector)
     setW(vector.w());
 }
 
-AGE_Vector4D::AGE_Vector4D(float xpos, float ypos, float zpos, float wpos)
+AVector4D::AVector4D(float xpos, float ypos, float zpos, float wpos)
 {
     setX(xpos);
     setY(ypos);
@@ -23,7 +23,7 @@ AGE_Vector4D::AGE_Vector4D(float xpos, float ypos, float zpos, float wpos)
     setW(wpos);
 }
 
-AGE_Vector4D::AGE_Vector4D(const AGE_Point &point)
+AVector4D::AVector4D(const APoint &point)
 {
     setX(point.x());
     setY(point.y());
@@ -31,7 +31,7 @@ AGE_Vector4D::AGE_Vector4D(const AGE_Point &point)
     setW(0);
 }
 
-AGE_Vector4D::AGE_Vector4D(const AGE_PointF &point)
+AVector4D::AVector4D(const APointF &point)
 {
     setX(point.x());
     setY(point.y());
@@ -39,7 +39,7 @@ AGE_Vector4D::AGE_Vector4D(const AGE_PointF &point)
     setW(0);
 }
 
-AGE_Vector4D::AGE_Vector4D(const AGE_Vector2D &vector)
+AVector4D::AVector4D(const AVector2D &vector)
 {
     setX(vector.x());
     setY(vector.y());
@@ -47,7 +47,7 @@ AGE_Vector4D::AGE_Vector4D(const AGE_Vector2D &vector)
     setW(0);
 }
 
-AGE_Vector4D::AGE_Vector4D(const AGE_Vector2D &vector,float zpos,float wpos)
+AVector4D::AVector4D(const AVector2D &vector,float zpos,float wpos)
 {
     setX(vector.x());
     setY(vector.y());
@@ -55,7 +55,7 @@ AGE_Vector4D::AGE_Vector4D(const AGE_Vector2D &vector,float zpos,float wpos)
     setW(wpos);
 }
 
-AGE_Vector4D::AGE_Vector4D(const AGE_Vector3D &vector)
+AVector4D::AVector4D(const AVector3D &vector)
 {
     setX(vector.x());
     setY(vector.y());
@@ -63,7 +63,7 @@ AGE_Vector4D::AGE_Vector4D(const AGE_Vector3D &vector)
     setW(0);
 }
 
-AGE_Vector4D::AGE_Vector4D(const AGE_Vector3D &vector,float wpos)
+AVector4D::AVector4D(const AVector3D &vector,float wpos)
 {
     setX(vector.x());
     setY(vector.y());

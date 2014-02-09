@@ -3,11 +3,11 @@
 #include <QMatrix4x4>
 
 namespace AGE2D {
-class AGE_Node
+class ANode
 {
 public:
-    AGE_Node();
-    ~AGE_Node();
+    ANode();
+    ~ANode();
     virtual QMatrix4x4 getMatrix();
     virtual void setX(float x);
     virtual void setY(float y);

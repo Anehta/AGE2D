@@ -17,12 +17,12 @@
 namespace AGE2D
 {
 
-class AGE_Widget : public QGLWidget ,QGLFunctions
+class AWidget : public QGLWidget ,QGLFunctions
 {
     Q_OBJECT
 public:
-    AGE_Widget(QWidget *parent = 0);
-    ~AGE_Widget();
+    AWidget(QWidget *parent = 0);
+    ~AWidget();
 
 protected:
     virtual void display();
@@ -36,8 +36,8 @@ protected:
 private:
     QBasicTimer m_timer;
     QMatrix4x4 projection;
-    AGE_KeyBoardEvent m_keyBoardEvent;
-    AGE_MouseInfo m_mouseEvent;
+    AKeyBoardEvent m_keyBoardEvent;
+    AMouseInfo m_mouseEvent;
 
     void initializeGL();
     void resizeGL(int w, int h);

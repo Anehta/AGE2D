@@ -8,16 +8,16 @@ namespace AGE2D
 {
 #define EPSILON 0.00001
 
-AGE_Polygon::AGE_Polygon()
+APolygon::APolygon()
 {
 }
 
-void AGE_Polygon::addPoint(double x, double y)
+void APolygon::addPoint(double x, double y)
 {
-    m_pointList.push_back(AGE_Vector2D(x,y));
+    m_pointList.push_back(AVector2D(x,y));
 }
 
-int AGE_Polygon::pointInPolygon(AGE_Vector2D poPoint)
+int APolygon::pointInPolygon(AVector2D poPoint)
 {
 	//计算该点向左方向的射线与各个边的交点个数
 	int nCount = 0;
@@ -25,7 +25,7 @@ int AGE_Polygon::pointInPolygon(AGE_Vector2D poPoint)
 	double Y = poPoint.y();
     qDebug()<<"x is :"<<X<<" y is :"<<Y;
     qDebug()<<"the polygon is";
-    for(std::vector<AGE_Vector2D>::iterator it = m_pointList.begin();
+    for(std::vector<AVector2D>::iterator it = m_pointList.begin();
 	it!= m_pointList.end();
 	++it)
     {
@@ -33,7 +33,7 @@ int AGE_Polygon::pointInPolygon(AGE_Vector2D poPoint)
     }
 	int nFlag = 0;
 
-	for(std::vector<AGE_Vector2D>::iterator it = m_pointList.begin();
+	for(std::vector<AVector2D>::iterator it = m_pointList.begin();
 	it!= m_pointList.end();
 	    ++it)
 	{
@@ -64,13 +64,13 @@ int AGE_Polygon::pointInPolygon(AGE_Vector2D poPoint)
 	    return 0;
 }
 
-int AGE_Polygon::IsIntersectAnt(double x, double y, double X1, double Y1, double X2, double Y2)
+int APolygon::IsIntersectAnt(double x, double y, double X1, double Y1, double X2, double Y2)
 {
 
-    AGE_Vector2D  far_point(1000,1000);
-    AGE_Vector2D touch_point(x,y);
-    AGE_Vector2D line_point1(X1,Y1);
-    AGE_Vector2D line_point2(X2,Y2);
+    AVector2D  far_point(1000,1000);
+    AVector2D touch_point(x,y);
+    AVector2D line_point1(X1,Y1);
+    AVector2D line_point2(X2,Y2);
     QVector3D line_1=line_point2 -line_point1;
     QVector3D line_2=far_point -line_point1;
     QVector3D line_3=touch_point - line_point1;
@@ -102,10 +102,10 @@ int AGE_Polygon::IsIntersectAnt(double x, double y, double X1, double Y1, double
 
 }
 
-int AGE_Polygon::pointInPolygon2(AGE_Vector2D poPoint)
+int APolygon::pointInPolygon2(AVector2D poPoint)
 {
     QVector3D p(poPoint.x(),poPoint.y(),0);
-    for(std::vector<AGE_Vector2D>::iterator it = m_pointList.begin();
+    for(std::vector<AVector2D>::iterator it = m_pointList.begin();
 	it!= m_pointList.end()-1;
 	++it);
 }

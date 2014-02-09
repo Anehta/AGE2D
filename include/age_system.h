@@ -1,10 +1,10 @@
-#ifndef AGE_APPLICATION_H
-#define AGE_APPLICATION_H
+#ifndef AAPPLICATION_H
+#define AAPPLICATION_H
 #include <QApplication>
 #include <../include/age_widget.h>
 namespace AGE2D
 {
-class AGE_System
+class ASystem
 {
 public:
 	static void Init(int argc, char *argv[]);
@@ -19,21 +19,21 @@ public:
 	static int IsEngineInitialized();
     static int timeStep();
     static double frameRate();
-    friend class AGE_Widget;
+    friend class AWidget;
 
 private:
-	AGE_System();
+	ASystem();
 	static int m_width;
 	static int m_height;
     static int m_widthOffset;
     static int m_heightOffset;
 	static bool is_init;
 	static QApplication * m_application;
-	static AGE_Widget * m_widget;
+	static AWidget * m_widget;
 
 };
 }
-#endif // AGE_APPLICATION_H
+#endif // AAPPLICATION_H
 
 
 

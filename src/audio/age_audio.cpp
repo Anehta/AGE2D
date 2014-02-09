@@ -1,14 +1,14 @@
 #include "../include/age_audio.h"
 namespace AGE2D
 {
-AGE_Audio::AGE_Audio(QString audName)
+AAudio::AAudio(QString audName)
 {
     Init();
     this->audName = audName;
     audio();
 }
 
-AGE_Audio::AGE_Audio(QString audName,int mods)
+AAudio::AAudio(QString audName,int mods)
 {
     Init();
     this->mods = mods;
@@ -16,7 +16,7 @@ AGE_Audio::AGE_Audio(QString audName,int mods)
     audio();
 }
 
-void AGE_Audio::audio()
+void AAudio::audio()
 {
     if(mods == 0)
     {
@@ -33,22 +33,22 @@ void AGE_Audio::audio()
     this->music->setPlaylist(medialist);
 }
 
-void AGE_Audio::play()
+void AAudio::play()
 {
     music->play();
 }
 
-void AGE_Audio::stop()
+void AAudio::stop()
 {
     music->stop();
 }
 
-void AGE_Audio::pause()
+void AAudio::pause()
 {
     music->pause();
 }
 
-void AGE_Audio::setLoopORnot(bool loopORnot)
+void AAudio::setLoopORnot(bool loopORnot)
 {
     this->loopORnot=loopORnot;
     if(this->loopORnot == true)
@@ -56,39 +56,39 @@ void AGE_Audio::setLoopORnot(bool loopORnot)
     else this->medialist->setPlaybackMode(QMediaPlaylist::CurrentItemOnce);
 }
 
-void AGE_Audio::setObjectName(QString objName)
+void AAudio::setObjectName(QString objName)
 {
     this->objName=objName;
     this->music->setObjectName(this->objName);
 }
 
-void AGE_Audio::setVolume(int Volume)
+void AAudio::setVolume(int Volume)
 {
     this->Volume = Volume;
     this->music->setVolume(this->Volume);
 }
 
-QString AGE_Audio::getObjectName()
+QString AAudio::getObjectName()
 {
     return this->objName;
 }
 
-QString AGE_Audio::getAudioName()
+QString AAudio::getAudioName()
 {
     return this->audName;
 }
 
-int AGE_Audio::getVolume()
+int AAudio::getVolume()
 {
     return this->Volume;
 }
 
-bool AGE_Audio::getLoopORnot()
+bool AAudio::getLoopORnot()
 {
     return this->loopORnot;
 }
 
-AGE_Audio::~AGE_Audio()
+AAudio::~AAudio()
 {
     delete this->music;
     delete this->medialist;

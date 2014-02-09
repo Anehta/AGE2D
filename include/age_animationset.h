@@ -1,22 +1,22 @@
-#ifndef AGE_ANIMATIONSET_H
-#define AGE_ANIMATIONSET_H
+#ifndef AANIMATIONSET_H
+#define AANIMATIONSET_H
 #include <list>
 #include <../include/age_animation.h>
 #include <QDomDocument>
 #include <qstring.h>
 using namespace std;
 namespace AGE2D {
-class AGE_Animation;
-class AGE_AnimationSet
+class AAnimation;
+class AAnimationSet
 {
 public:
-	AGE_AnimationSet(QString fileName);
-	AGE_Animation * findAnimation(QString animationName);
+	AAnimationSet(QString fileName);
+	AAnimation * findAnimation(QString animationName);
 protected:
-void addAnimationFromFile(AGE_Animation * animation,QDomElement node);
-    list <AGE_Animation> m_animationlist;
+void addAnimationFromFile(AAnimation * animation,QDomElement node);
+    list <AAnimation> m_animationlist;
 };
 }
 
 
-#endif // AGE_ANIMATIONSET_H
+#endif // AANIMATIONSET_H

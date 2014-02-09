@@ -3,7 +3,7 @@
 #include "../include/age_vector2d.h"
 #include "../include/age_system.h"
 #include "qdebug.h"
-Bullet::Bullet(AGE_Vector2D pos,double slope,double speed,bool is_turn_right)
+Bullet::Bullet(AVector2D pos,double slope,double speed,bool is_turn_right)
 {
 	this->bindTexture (Game::single ()->getBullet_texture ());
 	this->slope=slope;
@@ -18,8 +18,8 @@ bool Bullet::out_of_the_boundary(double x,double y)
 
     if(x + this->width ()<0 ||
        y + this->height ()<=0 ||
-       x>AGE_System::GetWidth () ||
-	  y>AGE_System::GetHeight ()
+       x>ASystem::GetWidth () ||
+	  y>ASystem::GetHeight ()
 	   )
 	{
 		return true;
@@ -33,7 +33,7 @@ bool Bullet::out_of_the_boundary(double x,double y)
 void Bullet::action()
 {
 
-    AGE_Vector2D vec(speed*AGE_System::timeStep (),speed*AGE_System::timeStep ());
+    AVector2D vec(speed*ASystem::timeStep (),speed*ASystem::timeStep ());
 
 	if(!is_turn_right)
 	{

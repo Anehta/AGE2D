@@ -9,7 +9,7 @@
 const double speed=0.3;
 Hero::Hero()
 {
-    m_texture=new AGE_Texture(":/hero.png");
+    m_texture=new AATexture(":/hero.png");
 	this->bindTexture (m_texture);
 	 turn_left=false;
 	 turn_right=false;
@@ -17,7 +17,7 @@ Hero::Hero()
 	 back_ward=false;
 	 sneak=false;
 	 is_firing=false;
-	 fire_cd=new AGE_Accumulator(0,3,0.01,false);
+	 fire_cd=new AAccumulator(0,3,0.01,false);
 }
 
 void Hero::onKeyRelease(QKeyEvent *event)
@@ -73,22 +73,22 @@ void Hero::onKeyPress(QKeyEvent *event)
 
 void Hero::action()
 {   
-	AGE_Vector2D velocity(0,0);
+	AVector2D velocity(0,0);
 	if(turn_left==true)
 	{
-        velocity.setX (velocity.x ()-speed*AGE_System::timeStep ());
+        velocity.setX (velocity.x ()-speed*ASystem::timeStep ());
 	}
 	if(turn_right==true)
 	{
-        velocity.setX (velocity.x ()+speed*AGE_System::timeStep ());
+        velocity.setX (velocity.x ()+speed*ASystem::timeStep ());
 	}
 	if(fore_ward==true)
 	{
-        velocity.setY (velocity.y ()+speed*AGE_System::timeStep ());
+        velocity.setY (velocity.y ()+speed*ASystem::timeStep ());
 	}
 	if(back_ward==true)
 	{
-        velocity.setY (velocity.y ()-speed*AGE_System::timeStep ());
+        velocity.setY (velocity.y ()-speed*ASystem::timeStep ());
 	}
 	if(sneak)
 	{
@@ -101,23 +101,23 @@ void Hero::action()
 	}
 
 
-    fire_cd->step (AGE_System::timeStep ());
+    fire_cd->step (ASystem::timeStep ());
 
     if(fire_cd->isTouched ())
     {
         fire_cd->rewind ();
         if(is_firing)
         {
-            AGE_Scene * game_scene=Game::single ()->getGameScene ();
-            game_scene->layer (2)->addChild (new Bullet(AGE_Vector2D(this->middleX()-15,this->middleY()-15),1,0.1,true));
-            game_scene->layer (2)->addChild (new Bullet(AGE_Vector2D(this->middleX()-15-50,this->middleY()-15-50),1,0.1,true));
-            game_scene->layer (2)->addChild (new Bullet(AGE_Vector2D(this->middleX()-15+50,this->middleY()-15-50),1,0.1,true));
-            game_scene->layer (2)->addChild (new Bullet(AGE_Vector2D(this->middleX()-15-25,this->middleY()-15-75),1,0.1,true));
-            game_scene->layer (2)->addChild (new Bullet(AGE_Vector2D(this->middleX()-15+25,this->middleY()-15-75),1,0.1,true));
-            //game_scene->layer (2)->addChild (new Bullet(AGE_Vector2D(this->middleX()-15,this->middleY()-15),0.5,0.1,true));
-            //game_scene->layer (2)->addChild (new Bullet(AGE_Vector2D(this->middleX()-15,this->middleY()-15),0.3,0.1,true));
-           // game_scene->layer (2)->addChild (new Bullet(AGE_Vector2D(this->middleX()-15,this->middleY()-15),0.5,0.1,false));
-            //game_scene->layer (2)->addChild (new Bullet(AGE_Vector2D(this->middleX()-15,this->middleY()-15),0.3,0.1,false));
+            AScene * game_scene=Game::single ()->getGameScene ();
+            game_scene->layer (2)->addChild (new Bullet(AVector2D(this->middleX()-15,this->middleY()-15),1,0.1,true));
+            game_scene->layer (2)->addChild (new Bullet(AVector2D(this->middleX()-15-50,this->middleY()-15-50),1,0.1,true));
+            game_scene->layer (2)->addChild (new Bullet(AVector2D(this->middleX()-15+50,this->middleY()-15-50),1,0.1,true));
+            game_scene->layer (2)->addChild (new Bullet(AVector2D(this->middleX()-15-25,this->middleY()-15-75),1,0.1,true));
+            game_scene->layer (2)->addChild (new Bullet(AVector2D(this->middleX()-15+25,this->middleY()-15-75),1,0.1,true));
+            //game_scene->layer (2)->addChild (new Bullet(AVector2D(this->middleX()-15,this->middleY()-15),0.5,0.1,true));
+            //game_scene->layer (2)->addChild (new Bullet(AVector2D(this->middleX()-15,this->middleY()-15),0.3,0.1,true));
+           // game_scene->layer (2)->addChild (new Bullet(AVector2D(this->middleX()-15,this->middleY()-15),0.5,0.1,false));
+            //game_scene->layer (2)->addChild (new Bullet(AVector2D(this->middleX()-15,this->middleY()-15),0.3,0.1,false));
         }
      }
 
@@ -127,8 +127,8 @@ bool Hero::is_in_the_boundary(double x,double y)
 {
 	if(x >=0 &&
 	   y>=0 &&
-	   x<=AGE_System::GetWidth ()-this->width () &&
-	  y<=AGE_System::GetHeight ()-this->height ()
+	   x<=ASystem::GetWidth ()-this->width () &&
+	  y<=ASystem::GetHeight ()-this->height ()
 	   )
 	{
 		return true;

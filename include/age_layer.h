@@ -5,18 +5,18 @@
 #include "age_sprite.h"
 namespace AGE2D {
 
-class AGE_Sprite;
-class AGE_Layer
+class ASprite;
+class ALayer
 {
 public:
-    AGE_Layer();
-    AGE_Layer(AGE_Sprite * spritePointer);
-    void addChild(AGE_Sprite * spritePointer);
-    friend class AGE_Scene;
+    ALayer();
+    ALayer(ASprite * spritePointer);
+    void addChild(ASprite * spritePointer);
+    friend class AScene;
 protected:
     virtual void action();
 private:
-    std::list<AGE_Sprite *> m_spriteList;
+    std::list<ASprite *> m_spriteList;
     void renderLayer();
 };
 }

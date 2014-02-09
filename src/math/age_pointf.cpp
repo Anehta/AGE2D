@@ -2,17 +2,17 @@
 
 namespace AGE2D
 {
-AGE_PointF::AGE_PointF()
+APointF::APointF()
 {
 }
 
-AGE_PointF::AGE_PointF(float x,float y)
+APointF::APointF(float x,float y)
 {
     setX(x);
     setY(y);
 }
 
-AGE_PointF::AGE_PointF(const AGE_Point point)
+APointF::APointF(const APoint point)
 {
     setX(point.x());
     setY(point.y());

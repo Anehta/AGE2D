@@ -1,17 +1,17 @@
 #include <../include/AGE2D.h>
 
 namespace AGE2D{
-AGE_KeyBoardEvent::AGE_KeyBoardEvent()
+AKeyBoardEvent::AKeyBoardEvent()
 {
     m_KeyBoardEvent = 0;
 }
 
-void AGE_KeyBoardEvent::setKeyBoardType(int valueType)
+void AKeyBoardEvent::setKeyBoardType(int valueType)
 {
     m_KeyBoardEvent = valueType;
 }
 
-int AGE_KeyBoardEvent::getKeyBoardEvent()
+int AKeyBoardEvent::getKeyBoardEvent()
 {
     return m_KeyBoardEvent;
 }

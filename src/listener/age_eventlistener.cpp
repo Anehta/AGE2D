@@ -3,31 +3,31 @@
 
 namespace AGE2D
 {
-AGE_EventListener::AGE_EventListener()
+AEventListener::AEventListener()
 {
 }
 
-void AGE_EventListener::handleListener()
-{
-
-}
-
-void AGE_EventListener::onMouseMove(QMouseEvent * )
+void AEventListener::handleListener()
 {
 
 }
 
-void AGE_EventListener::onMousePress(QMouseEvent *)
+void AEventListener::onMouseMove(QMouseEvent * )
 {
 
 }
 
-void AGE_EventListener::onMouseRelease(QMouseEvent *)
+void AEventListener::onMousePress(QMouseEvent *)
 {
 
 }
 
-void AGE_EventListener::onKeyPress()
+void AEventListener::onMouseRelease(QMouseEvent *)
+{
+
+}
+
+void AEventListener::onKeyPress()
 {
 
 }

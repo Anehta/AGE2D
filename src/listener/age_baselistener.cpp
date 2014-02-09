@@ -4,33 +4,33 @@
 
 namespace AGE2D
 {
-AGE_BaseListener::AGE_BaseListener()
+ABaseListener::ABaseListener()
 {
 }
 
-void AGE_BaseListener::handleListener()
-{
-
-}
-
-void AGE_BaseListener::onMouseMove(QMouseEvent *)
+void ABaseListener::handleListener()
 {
 
 }
 
-void AGE_BaseListener::onMousePress(QMouseEvent *)
+void ABaseListener::onMouseMove(QMouseEvent *)
 {
 
 }
 
-void AGE_BaseListener::onMouseRelease(QMouseEvent *)
+void ABaseListener::onMousePress(QMouseEvent *)
+{
+
+}
+
+void ABaseListener::onMouseRelease(QMouseEvent *)
 {
 
 }
 
 
 
-void AGE_BaseListener::onKeyPress()
+void ABaseListener::onKeyPress()
 {
 
 }

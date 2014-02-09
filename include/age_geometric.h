@@ -5,11 +5,11 @@
 
 namespace AGE2D
 {
-class AGE_Geometric : public QGLFunctions
+class AGeometric : public QGLFunctions
 {
 public:
-    AGE_Geometric();
-    ~AGE_Geometric();
+    AGeometric();
+    ~AGeometric();
     void initRectGeometric();
     GLuint * getVboId();
     int width();

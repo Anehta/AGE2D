@@ -2,12 +2,12 @@
 #define ABASELISTENER_H
 #include <QMouseEvent>
 namespace AGE2D {
-class AGE_BaseListener
+class ABaseListener
 {
 public:
-    AGE_BaseListener();
-    friend class AGE_EventMgr;
-    friend class AGE_Widget;
+    ABaseListener();
+    friend class AEventMgr;
+    friend class AWidget;
 protected:
     void handleListener();
     virtual void onMouseMove(QMouseEvent *);

@@ -12,19 +12,19 @@ using namespace std;
 
 namespace AGE2D
 {
-AGE_Widget::AGE_Widget(QWidget *parent)
+AWidget::AWidget(QWidget *parent)
     : QGLWidget(QGLFormat(QGL::DoubleBuffer))
 {
     setWindowTitle("fucker");
     setFixedSize(640,480);
 }
 
-AGE_Widget::~AGE_Widget()
+AWidget::~AWidget()
 {
 
 }
 
-void AGE_Widget::initializeGL()
+void AWidget::initializeGL()
 {
     setCurrentScene(NULL);
     initializeGLFunctions();
@@ -43,7 +43,7 @@ void AGE_Widget::initializeGL()
     m_timer.start(15, this);
 }
 
-void AGE_Widget::resizeGL(int w, int h)
+void AWidget::resizeGL(int w, int h)
 {
     glViewport(0,0,w,h);
 
@@ -53,31 +53,31 @@ void AGE_Widget::resizeGL(int w, int h)
 
     projection.ortho(0,wi,0,he,-1,1);
 
-    AGE_System::m_widthOffset = w-wi;
-    AGE_System::m_heightOffset = h-he;
+    ASystem::m_widthOffset = w-wi;
+    ASystem::m_heightOffset = h-he;
 
-    qDebug()<<AGE_System::GetWidthOffset();
-    qDebug()<<AGE_System::GetHeightOffset();
+    qDebug()<<ASystem::GetWidthOffset();
+    qDebug()<<ASystem::GetHeightOffset();
     setViewPortMatrix(projection);
 }
 
-void AGE_Widget::paintGL()
+void AWidget::paintGL()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     //setViewPortMatrix(projection);
     display();
 }
 
-void AGE_Widget::timerEvent(QTimerEvent *)
+void AWidget::timerEvent(QTimerEvent *)
 {
 	clock_t time_temp = clock();
     updateGL();
     setTimeStep(clock()-time_temp+15);
 }
 
-void AGE_Widget::display()
+void AWidget::display()
 {
-    AGE_Scene * temp = getCurrentScene();
+    AScene * temp = getCurrentScene();
 
     if(temp != NULL)
     {
@@ -90,15 +90,15 @@ void AGE_Widget::display()
 
 }
 
-void AGE_Widget::initResources()
+void AWidget::initResources()
 {
 
 }
 
-void AGE_Widget::mouseMoveEvent(QMouseEvent * mouse)
+void AWidget::mouseMoveEvent(QMouseEvent * mouse)
 {
     this->setMouseTracking(true);
-    AGE_Scene * temp = getCurrentScene();
+    AScene * temp = getCurrentScene();
     if(temp != NULL)
     {
 	if(temp->m_listenerManager != NULL)
@@ -108,9 +108,9 @@ void AGE_Widget::mouseMoveEvent(QMouseEvent * mouse)
     }
 }
 
-void AGE_Widget::mousePressEvent(QMouseEvent *mouse)
+void AWidget::mousePressEvent(QMouseEvent *mouse)
 {
-    AGE_Scene * temp = getCurrentScene();
+    AScene * temp = getCurrentScene();
     if(temp != NULL)
     {
 	if(temp->m_listenerManager != NULL)
@@ -121,9 +121,9 @@ void AGE_Widget::mousePressEvent(QMouseEvent *mouse)
     }
 }
 
-void AGE_Widget::mouseReleaseEvent(QMouseEvent *mouse)
+void AWidget::mouseReleaseEvent(QMouseEvent *mouse)
 {
-    AGE_Scene * temp = getCurrentScene();
+    AScene * temp = getCurrentScene();
     if(temp != NULL)
     {
 	if(temp->m_listenerManager != NULL)
@@ -134,15 +134,15 @@ void AGE_Widget::mouseReleaseEvent(QMouseEvent *mouse)
     }
 }
 
-void AGE_Widget::mouseDoubleClickEvent(QMouseEvent *mouse)
+void AWidget::mouseDoubleClickEvent(QMouseEvent *mouse)
 {
     setCurrentMouseEvent(mouse);
 
 }
 
-void AGE_Widget::keyReleaseEvent(QKeyEvent *event)
+void AWidget::keyReleaseEvent(QKeyEvent *event)
 {
-	AGE_Scene * temp = getCurrentScene();
+	AScene * temp = getCurrentScene();
 	if(temp != NULL)
 	{
 	    if(temp->m_listenerManager != NULL)
@@ -153,9 +153,9 @@ void AGE_Widget::keyReleaseEvent(QKeyEvent *event)
 	}
 }
 
-void AGE_Widget::keyPressEvent(QKeyEvent *event)
+void AWidget::keyPressEvent(QKeyEvent *event)
 {
-	AGE_Scene * temp = getCurrentScene();
+	AScene * temp = getCurrentScene();
 	if(temp != NULL)
 	{
 	    if(temp->m_listenerManager != NULL)

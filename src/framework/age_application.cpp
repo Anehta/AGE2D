@@ -4,16 +4,16 @@
 #include <QApplication>
 namespace AGE2D
 {
-QApplication * AGE_Application::m_application;
-AGE_Widget * AGE_Application::m_widiget;
-int AGE_Application::m_width;
-int AGE_Application::m_height;
-bool AGE_Application::is_init=false;
-AGE_Application::AGE_Application()
+QApplication * AApplication::m_application;
+AWidget * AApplication::m_widiget;
+int AApplication::m_width;
+int AApplication::m_height;
+bool AApplication::is_init=false;
+AApplication::AApplication()
 {
 }
 
-int AGE_Application::Go()
+int AApplication::Go()
 {
     if(!is_init)
     {
@@ -22,7 +22,7 @@ int AGE_Application::Go()
     return m_application->exec ();
 }
 
-void AGE_Application::SetSize(int width, int height )
+void AApplication::SetSize(int width, int height )
 {
     if(!is_init)
     {
@@ -33,15 +33,15 @@ void AGE_Application::SetSize(int width, int height )
     m_widiget->setFixedSize (width,height);
 }
 
-int AGE_Application::IsEngineInitialized()
+int AApplication::IsEngineInitialized()
 {
     return is_init;
 }
 
-void AGE_Application::Init(int argc, char *argv[])
+void AApplication::Init(int argc, char *argv[])
 {
     m_application=new QApplication(argc,argv);
-    m_widiget=new AGE_Widget();
+    m_widiget=new AWidget();
     m_widiget->show();
     is_init=true;
 }

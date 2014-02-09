@@ -2,10 +2,10 @@
 #define AMOUSEEVENT_H
 
 namespace AGE2D{
-class AGE_MouseInfo
+class AMouseInfo
 {
 public:
-    AGE_MouseInfo();
+    AMouseInfo();
     void setMouseX(int mouseX);
     void setMouseY(int mouseY);
     int getMouseX();

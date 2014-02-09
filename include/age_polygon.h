@@ -7,16 +7,16 @@
 
 namespace AGE2D
 {
-class AGE_Vector2D;
-class AGE_Polygon
+class AVector2D;
+class APolygon
 {
 public:
-    AGE_Polygon();
-    int pointInPolygon(AGE_Vector2D);
-    int pointInPolygon2(AGE_Vector2D);
+    APolygon();
+    int pointInPolygon(AVector2D);
+    int pointInPolygon2(AVector2D);
     void addPoint(double x,double y);
 private:
-    std::vector<AGE_Vector2D> m_pointList;
+    std::vector<AVector2D> m_pointList;
     int IsIntersectAnt(double x,double y,double X1,double Y1,double X2,double Y2);
 };
 

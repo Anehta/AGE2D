@@ -1,5 +1,5 @@
-#ifndef AGE_AUDIO_H
-#define AGE_AUDIO_H
+#ifndef AAUDIO_H
+#define AAUDIO_H
 #include <QString>
 #include <QtMultimedia/qmediaplayer.h>
 #include <QtMultimedia/QMediaResource>
@@ -13,7 +13,7 @@
 #include <QDir>
 #include <QObjectUserData>
 namespace AGE2D{
-class AGE_Audio
+class AAudio
 {
 protected:
     QFile f;
@@ -26,8 +26,8 @@ protected:
     int mods;
 
 public:
-    AGE_Audio(QString audName);
-    AGE_Audio(QString audName,int mods);
+    AAudio(QString audName);
+    AAudio(QString audName,int mods);
     void setObjectName(QString objName);
     QString getObjectName();
     QString getAudioName();
@@ -47,9 +47,9 @@ public:
 	music = new QMediaPlayer;
 	medialist=new QMediaPlaylist;
     }
-    ~AGE_Audio();
+    ~AAudio();
 };
 }
 
 
-#endif // AGE_AUDIO_H
+#endif // AAUDIO_H

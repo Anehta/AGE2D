@@ -9,26 +9,26 @@
 #include "age_eventmgr.h"
 namespace AGE2D
 {
-class AGE_Layer;
-class AGE_EventMgr;
-class AGE_Scene
+class ALayer;
+class AEventMgr;
+class AScene
 {
 public:
-    AGE_Scene();
+    AScene();
     void activate(); //set it to currentscene
-    int addLayer(AGE2D::AGE_Layer *pointer);
+    int addLayer(AGE2D::ALayer *pointer);
     int addLayer();
 
-    AGE_Layer * layer(int handle);
-    void setListenerManager(AGE_EventMgr * listenerManager);
-    AGE_EventMgr * eventMgr();
-    friend class AGE_Widget;
+    ALayer * layer(int handle);
+    void setListenerManager(AEventMgr * listenerManager);
+    AEventMgr * eventMgr();
+    friend class AWidget;
 
 protected:
     virtual void action();
 private:
-    std::list<AGE_Layer *>m_layerList;
-    AGE_EventMgr * m_listenerManager;
+    std::list<ALayer *>m_layerList;
+    AEventMgr * m_listenerManager;
     void renderScene();
 };
 }

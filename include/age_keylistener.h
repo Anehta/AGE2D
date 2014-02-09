@@ -1,16 +1,16 @@
-#ifndef AGE_KEYLISTENER_H
-#define AGE_KEYLISTENER_H
+#ifndef AKEYLISTENER_H
+#define AKEYLISTENER_H
 
 #include <QKeyEvent>
 namespace AGE2D{
-class AGE_KeyListener
+class AKeyListener
 {
 public:
-	AGE_KeyListener();
+	AKeyListener();
 	virtual void onKeyRelease(QKeyEvent * event);
 	virtual void onKeyPress (QKeyEvent *event);
 };
 }
 
 
-#endif // AGE_KEYLISTENER_H
+#endif // AKEYLISTENER_H

@@ -1,18 +1,18 @@
 #include <../include/age_frame.h>
 namespace AGE2D
 {
-AGE_Frame::AGE_Frame(AGE_Vector2D bl,AGE_Vector2D tr)
+AFrame::AFrame(AVector2D bl,AVector2D tr)
 {
 	this->bl=bl;
 	this->tr=tr;
 }
 
-AGE_Vector2D AGE_Frame::bottomLeft()
+AVector2D AFrame::bottomLeft()
 {
 	return bl;
 }
 
-AGE_Vector2D AGE_Frame::topRight()
+AVector2D AFrame::topRight()
 {
 	return tr;
 }

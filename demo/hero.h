@@ -5,7 +5,7 @@
 #include "../include/age_keylistener.h"
 #include "../include/age_accumulator.h"
 using namespace AGE2D;
-class Hero :public AGE_Sprite,public AGE_KeyListener
+class Hero :public ASprite,public AKeyListener
 {
 public:
 	Hero();
@@ -14,14 +14,14 @@ public:
 	virtual void action();
 protected:
 	bool is_in_the_boundary(double x, double y);
-	AGE_Texture* m_texture;
+	AATexture* m_texture;
 	bool turn_left;
 	bool turn_right;
 	bool fore_ward;
 	bool back_ward;
 	bool sneak;
 	bool is_firing;
-	AGE_Accumulator *fire_cd;
+	AAccumulator *fire_cd;
 };
 
 

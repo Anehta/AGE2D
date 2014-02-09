@@ -3,22 +3,22 @@
 
 namespace AGE2D
 {
-AGE_MouseListener::AGE_MouseListener()
+AMouseListener::AMouseListener()
 {
 
 }
 
-void AGE_MouseListener::onMouseRelease(AGE_MouseInfo info)
-{
-    info;
-}
-
-void AGE_MouseListener::onMousePress(AGE_MouseInfo info)
+void AMouseListener::onMouseRelease(AMouseInfo info)
 {
     info;
 }
 
-void AGE_MouseListener::onMouseMove(AGE_MouseInfo info)
+void AMouseListener::onMousePress(AMouseInfo info)
+{
+    info;
+}
+
+void AMouseListener::onMouseMove(AMouseInfo info)
 {
     info;
 }

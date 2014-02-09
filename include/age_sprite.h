@@ -12,18 +12,18 @@
 #include "age_node.h"
 
 namespace AGE2D {
-class AGE_Sprite : public AGE_Node,protected QGLFunctions
+class ASprite : public ANode,protected QGLFunctions
 {
 public:
-    ~AGE_Sprite();
-    friend class AGE_Layer;
-    AGE_Sprite();
-    AGE_Sprite(AGE_Texture *);
+    ~ASprite();
+    friend class ALayer;
+    ASprite();
+    ASprite(AATexture *);
     void setShowRect(float lx,float ly,float rx,float ry);
     void setShowDet(int row,int col,int gridWidth,int gridHeigth);
 
 
-    void bindTexture(AGE_Texture * fuckyou);
+    void bindTexture(AATexture * fuckyou);
     void bindTexture(int textureId);
     int getTextureId();
     void loadShaderProgram(QGLShaderProgram *);
@@ -55,7 +55,7 @@ public:
 protected:
     virtual void action();
     virtual void shaderAction();
-    AGE_Geometric m_geometric;
+    AGeometric m_geometric;
     void initializeAll();
 
 private:
@@ -64,7 +64,7 @@ private:
     QGLShaderProgram *m_program;
     GLuint m_texId = 0;
 
-    AGE_Texture m_texture;
+    AATexture m_texture;
     float mx_offset,my_offset;
     float m_angle;
 

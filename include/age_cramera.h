@@ -1,10 +1,10 @@
-#ifndef AGE_CRAMERA_H
-#define AGE_CRAMERA_H
+#ifndef ACRAMERA_H
+#define ACRAMERA_H
 namespace AGE2D {
-class AGE_Cramera
+class ACramera
 {
 public:
-    AGE_Cramera();
+    ACramera();
     void lookAt();
     void translate();
     void rotate();
@@ -13,4 +13,4 @@ public:
 }
 
 
-#endif // AGE_CRAMERA_H
+#endif // ACRAMERA_H

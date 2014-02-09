@@ -1,38 +1,38 @@
 #include <../include/AGE2D.h>
 namespace AGE2D
 {
-AGE_Vector3D::AGE_Vector3D()
+AVector3D::AVector3D()
 {
 }
 
-AGE_Vector3D::AGE_Vector3D(float x, float y, float z)
+AVector3D::AVector3D(float x, float y, float z)
 {
     setX(x);
     setY(y);
     setZ(z);
 }
 
-AGE_Vector3D::AGE_Vector3D(const AGE_Point &point)
+AVector3D::AVector3D(const APoint &point)
 {
     setX(point.x());
     setY(point.y());
 }
 
-AGE_Vector3D::AGE_Vector3D(const AGE_PointF &point)
+AVector3D::AVector3D(const APointF &point)
 {
     setX(point.x());
     setY(point.y());
     setZ(0);
 }
 
-AGE_Vector3D::AGE_Vector3D(const AGE_Vector2D &vector)
+AVector3D::AVector3D(const AVector2D &vector)
 {
     setX(vector.x());
     setY(vector.y());
     setZ(0);
 }
 
-AGE_Vector3D::AGE_Vector3D(const AGE_Vector2D &vector, float zpos)
+AVector3D::AVector3D(const AVector2D &vector, float zpos)
 {
     setX(vector.x());
     setY(vector.y());
@@ -40,7 +40,7 @@ AGE_Vector3D::AGE_Vector3D(const AGE_Vector2D &vector, float zpos)
 
 }
 
-AGE_Vector3D::AGE_Vector3D(const AGE_Vector4D &vector)
+AVector3D::AVector3D(const AVector4D &vector)
 {
     setX(vector.x());
     setY(vector.y());

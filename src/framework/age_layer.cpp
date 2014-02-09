@@ -1,24 +1,24 @@
 #include <../include/AGE2D.h>
 using namespace std;
 namespace AGE2D{
-AGE_Layer::AGE_Layer()
+ALayer::ALayer()
 {
 
 }
 
-AGE_Layer::AGE_Layer(AGE_Sprite *spritePointer)
+ALayer::ALayer(ASprite *spritePointer)
 {
     addChild(spritePointer);
 }
 
-void AGE_Layer::addChild(AGE_Sprite *spritePointer)
+void ALayer::addChild(ASprite *spritePointer)
 {
     m_spriteList.push_back(spritePointer);
 }
 
-void AGE_Layer::renderLayer()
+void ALayer::renderLayer()
 {
-    for(list<AGE_Sprite*>::iterator alpha_it = m_spriteList.begin();
+    for(list<ASprite*>::iterator alpha_it = m_spriteList.begin();
 	alpha_it != m_spriteList.end();)
     {
 	if((*alpha_it)->isDeath == true)
@@ -28,7 +28,7 @@ void AGE_Layer::renderLayer()
 	}
 	else
 	{
-	    AGE_Sprite * temp = *alpha_it;
+	    ASprite * temp = *alpha_it;
 	    temp->action();
 	    temp->render();
 	    alpha_it++;
@@ -37,7 +37,7 @@ void AGE_Layer::renderLayer()
    // qDebug()<<m_spriteList.size();
 }
 
-void AGE_Layer::action()
+void ALayer::action()
 {
 
 }

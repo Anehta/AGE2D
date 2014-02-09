@@ -2,34 +2,34 @@
 #include <../include/amainattribute.h>
 namespace AGE2D
 {
-AGE_Geometric::AGE_Geometric()
+AGeometric::AGeometric()
 {
 
 }
 
-AGE_Geometric::~AGE_Geometric()
+AGeometric::~AGeometric()
 {
     //delete m_vboId;
 }
 
-GLuint * AGE_Geometric::getVboId()
+GLuint * AGeometric::getVboId()
 {
     return m_vboId;
 }
 
-void AGE_Geometric::initializeAll()
+void AGeometric::initializeAll()
 {
     initializeGLFunctions();
     glGenBuffers(2,m_vboId);
 }
 
-void AGE_Geometric::initRectGeometric()
+void AGeometric::initRectGeometric()
 {
     VertexData vertices[] ={
-	{AGE_Vector3D(0,0,0),AGE_Vector2D((double)m_leftTopX/(double)m_imageWidth , (double)m_leftTopY/(double)m_imageHeight)},
-	{AGE_Vector3D(m_width,0,0),AGE_Vector2D((double)m_rightBottonX/(double)m_imageWidth , (double)m_leftTopY/(double)m_imageHeight)},
-	{AGE_Vector3D(m_width,m_height,0),AGE_Vector2D((double)m_rightBottonX/(double)m_imageWidth,(double)m_rightBottonY/(double)m_imageHeight)},
-	{AGE_Vector3D(0,m_height,0),AGE_Vector2D((double)m_leftTopX/m_imageWidth,(double)m_rightBottonY/m_imageHeight)}
+	{AVector3D(0,0,0),AVector2D((double)m_leftTopX/(double)m_imageWidth , (double)m_leftTopY/(double)m_imageHeight)},
+	{AVector3D(m_width,0,0),AVector2D((double)m_rightBottonX/(double)m_imageWidth , (double)m_leftTopY/(double)m_imageHeight)},
+	{AVector3D(m_width,m_height,0),AVector2D((double)m_rightBottonX/(double)m_imageWidth,(double)m_rightBottonY/(double)m_imageHeight)},
+	{AVector3D(0,m_height,0),AVector2D((double)m_leftTopX/m_imageWidth,(double)m_rightBottonY/m_imageHeight)}
     };
 
 
@@ -45,30 +45,30 @@ void AGE_Geometric::initRectGeometric()
 
 }
 
-void AGE_Geometric::setWidth(int w)
+void AGeometric::setWidth(int w)
 {
     m_width = w;
     initRectGeometric();
 }
 
-void AGE_Geometric::setHeight(int h)
+void AGeometric::setHeight(int h)
 {
     m_height = h;
     initRectGeometric();
 }
 
-int AGE_Geometric::width()
+int AGeometric::width()
 {
     return m_width;
 }
 
-int AGE_Geometric::height()
+int AGeometric::height()
 {
     return m_height;
 
 }
 
-void AGE_Geometric::setShowRect(int x1, int y1, int x2, int y2)
+void AGeometric::setShowRect(int x1, int y1, int x2, int y2)
 {
     m_leftTopX = x1;
     m_leftTopY = y1;
@@ -79,7 +79,7 @@ void AGE_Geometric::setShowRect(int x1, int y1, int x2, int y2)
     initRectGeometric();
 }
 
-void AGE_Geometric::initParameter(int width, int height, int imageWidth,int imageHeight, int x1, int y1, int x2, int y2)
+void AGeometric::initParameter(int width, int height, int imageWidth,int imageHeight, int x1, int y1, int x2, int y2)
 {
     m_width = width;
     m_height = height;

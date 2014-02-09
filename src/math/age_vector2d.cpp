@@ -2,29 +2,29 @@
 
 namespace AGE2D
 {
-AGE_Vector2D::AGE_Vector2D()
+AVector2D::AVector2D()
 {
 }
 
-AGE_Vector2D::AGE_Vector2D(const AGE_Point &point)
+AVector2D::AVector2D(const APoint &point)
 {
     setX(point.x());
     setY(point.y());
 }
 
-AGE_Vector2D::AGE_Vector2D(const AGE_Vector3D &vector)
+AVector2D::AVector2D(const AVector3D &vector)
 {
     setX(vector.x());
     setY(vector.y());
 }
 
-AGE_Vector2D::AGE_Vector2D(const AGE_Vector4D &vector)
+AVector2D::AVector2D(const AVector4D &vector)
 {
     setX(vector.x());
     setY(vector.y());
 }
 
-AGE_Vector2D::AGE_Vector2D(float xpos, float ypos)
+AVector2D::AVector2D(float xpos, float ypos)
 {
     setX(xpos);
     setY(ypos);

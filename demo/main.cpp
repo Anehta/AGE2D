@@ -7,7 +7,7 @@
 
 int main(int argc, char *argv[])
 {
-	AGE_System::Init (argc,argv);
+    ASystem::Init (argc,argv);
 	Game::Init ();
-    return AGE_System::Go();
+    return ASystem::Go();
 }

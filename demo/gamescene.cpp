@@ -18,8 +18,8 @@ void Gamescene::action()
     if(value%2 == 1)
     {
         Diamond * fucker = new Diamond(Game::single()->getDiamond_texture());
-        fucker->setX(rand()%AGE_System::GetWidth());
-        fucker->setY(AGE_System::GetHeight()+10);
+        fucker->setX(rand()%ASystem::GetWidth());
+        fucker->setY(ASystem::GetHeight()+10);
         Game::single()->getGameScene()->layer(1)->addChild(fucker);
     }
 }

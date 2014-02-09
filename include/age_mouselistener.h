@@ -1,21 +1,21 @@
-#ifndef AGE_MOUSELISTENER_H
-#define AGE_MOUSELISTENER_H
+#ifndef AMOUSELISTENER_H
+#define AMOUSELISTENER_H
 
 #include "age_mouseinfo.h"
 
 namespace AGE2D {
-class AGE_MouseListener
+class AMouseListener
 {
-	friend class AGE_EventMgr;
+	friend class AEventMgr;
 public:
-	AGE_MouseListener();
+	AMouseListener();
 protected:
 
-	virtual void onMouseRelease(AGE_MouseInfo info);
-	virtual void onMousePress(AGE_MouseInfo info);
-	virtual void onMouseMove(AGE_MouseInfo info);
+	virtual void onMouseRelease(AMouseInfo info);
+	virtual void onMousePress(AMouseInfo info);
+	virtual void onMouseMove(AMouseInfo info);
 };
 }
 
 
-#endif // AGE_MOUSELISTENER_H
+#endif // AMOUSELISTENER_H

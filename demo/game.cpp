@@ -23,17 +23,17 @@ void Game::Init()
 Game::Game()
 {
     testShaderProgram();
-    background_music = new AGE_Audio(":/123.mp3",0);
+    background_music = new AAudio(":/123.mp3",0);
     background_music->setVolume(100);
     background_music->audio();
     background_music->play();
 
-    back_ground_texture =new AGE_Texture(":/background.png");
-    bullet_texture=new AGE_Texture (":/bullet.png");
+    back_ground_texture =new AATexture(":/background.png");
+    bullet_texture=new AATexture (":/bullet.png");
     game_scene=new Gamescene();
-    diamod_texture = new AGE_Texture(":/diamond.png");
+    diamod_texture = new AATexture(":/diamond.png");
 
-	game_scene->setListenerManager (new AGE_EventMgr());
+    game_scene->setListenerManager (new AEventMgr());
 	hero=new Hero();
 	game_scene->eventMgr ()->addKeyListener (hero);
 
@@ -45,38 +45,38 @@ Game::Game()
 
     game_scene->eventMgr()->addKeyListener(back_ground_actor);
 
-	game_scene->addLayer (new AGE_Layer());
+    game_scene->addLayer (new ALayer());
 	game_scene->layer (1)->addChild (back_ground_actor);
 	game_scene->layer (2)->addChild (hero);
 	game_scene->activate ();
 }
 
-AGE_Scene *Game::getGameScene() const
+AScene *Game::getGameScene() const
 {
 	return game_scene;
 }
 
-void Game::setGameScene(AGE_Scene *value)
+void Game::setGameScene(AScene *value)
 {
     //game_scene = value;
 }
 
-AGE_Texture *Game::getBullet_texture() const
+AATexture *Game::getBullet_texture() const
 {
 	return bullet_texture;
 }
 
-void Game::setBullet_texture(AGE_Texture *value)
+void Game::setBullet_texture(AATexture *value)
 {
 	bullet_texture = value;
 }
 
-AGE_Texture *Game::getDiamond_texture() const
+AATexture *Game::getDiamond_texture() const
 {
     return diamod_texture;
 }
 
-void Game::setDiamond_texture(AGE_Texture *value)
+void Game::setDiamond_texture(AATexture *value)
 {
     diamod_texture = value;
 }

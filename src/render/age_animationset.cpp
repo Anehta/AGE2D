@@ -2,7 +2,7 @@
 #include <qfile.h>
 namespace AGE2D
 {
-AGE_AnimationSet::AGE_AnimationSet(QString fileName)
+AAnimationSet::AAnimationSet(QString fileName)
 {
 	QFile file(fileName);
 	 QDomDocument doc("superdick");
@@ -15,7 +15,7 @@ AGE_AnimationSet::AGE_AnimationSet(QString fileName)
 	   QDomElement child=root.firstChildElement ();
 	   while(!child.isNull ())
 	   {
-		   AGE_Animation animation(child.attribute (QString("name")));
+		   AAnimation animation(child.attribute (QString("name")));
 		   addAnimationFromFile (&animation,child);
 		   m_animationlist.push_back (animation);
 		   child=child.nextSiblingElement ();
@@ -23,9 +23,9 @@ AGE_AnimationSet::AGE_AnimationSet(QString fileName)
 
 }
 
-AGE_Animation *AGE_AnimationSet::findAnimation(QString animationName)
+AAnimation *AAnimationSet::findAnimation(QString animationName)
 {
-	for(list<AGE_Animation>::iterator i= m_animationlist.begin ();i!=m_animationlist.end ();i++)
+	for(list<AAnimation>::iterator i= m_animationlist.begin ();i!=m_animationlist.end ();i++)
 	{
 		if(i->getName ().compare (animationName)==0)//找寻指定的animation
 		{
@@ -34,7 +34,7 @@ AGE_Animation *AGE_AnimationSet::findAnimation(QString animationName)
 	}
 }
 
-void AGE_AnimationSet::addAnimationFromFile(AGE_Animation *animation, QDomElement node)
+void AAnimationSet::addAnimationFromFile(AAnimation *animation, QDomElement node)
 {
 	//加入帧
 	QDomElement child =node.firstChildElement ();
@@ -45,17 +45,17 @@ void AGE_AnimationSet::addAnimationFromFile(AGE_Animation *animation, QDomElemen
 		//左下角
 		double bl_x= rect.attribute (QString("x")).toDouble ();
 		double bl_y= rect.attribute (QString("y")).toDouble ();
-		AGE_Vector2D bl(bl_x,bl_y);
+		AVector2D bl(bl_x,bl_y);
 	//qDebug()<<" bottom left is"<<bl;
 
 		rect=rect.nextSiblingElement ();
 		//右上角
 		double tr_x=rect.attribute (QString("x")).toDouble ();
 		double tr_y=rect.attribute (QString("y")).toDouble ();
-		AGE_Vector2D tr(tr_x,tr_y);
+		AVector2D tr(tr_x,tr_y);
 	//qDebug()<<" top right is"<<tr;
 		//添加一帧
-		animation->addFrame(AGE_Frame(bl,tr));
+		animation->addFrame(AFrame(bl,tr));
 		child=child.nextSiblingElement ();
 	}
 }

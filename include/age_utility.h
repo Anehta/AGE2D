@@ -1,10 +1,10 @@
-#ifndef AGE_UTILITY_H
-#define AGE_UTILITY_H
+#ifndef AUTILITY_H
+#define AUTILITY_H
 namespace AGE2D {
-class AGE_Utility
+class AUtility
 {
 public:
-    AGE_Utility();
+    AUtility();
     static void packageFile();
 private:
 
@@ -12,4 +12,4 @@ private:
 }
 
 
-#endif // AGE_UTILITY_H
+#endif // AUTILITY_H

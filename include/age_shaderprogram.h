@@ -1,15 +1,15 @@
-#ifndef AGE_SHADERPROGRAM_H
-#define AGE_SHADERPROGRAM_H
+#ifndef ASHADERPROGRAM_H
+#define ASHADERPROGRAM_H
 
 #include <QGLShaderProgram>
 #include <QString>
 #include <../include/age_shader.h>
 namespace AGE2D{
-class AGE_ShaderProgram : public QGLShaderProgram
+class AShaderProgram : public QGLShaderProgram
 {
 public:
-    AGE_ShaderProgram();
-    AGE_ShaderProgram(QString vshaderFilename,QString fshaderFilename);
+    AShaderProgram();
+    AShaderProgram(QString vshaderFilename,QString fshaderFilename);
     bool addVertexShader(QString vshaderFilename);
     bool addFragmentShader(QString fshaderFilename);
     void initShaderEffect(int value);
@@ -17,4 +17,4 @@ public:
 }
 
 
-#endif // AGE_SHADERPROGRAM_H
+#endif // ASHADERPROGRAM_H

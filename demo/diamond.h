@@ -2,11 +2,11 @@
 #define DIAMOND_H
 #include "../include/AGE2D.h"
 using namespace AGE2D;
-class Diamond : public AGE_Sprite
+class Diamond : public ASprite
 {
 public:
     Diamond();
-    Diamond(AGE_Texture * tex);
+    Diamond(AATexture * tex);
     bool out_of_the_boundary(double x,double y);
 protected:
     virtual void action();

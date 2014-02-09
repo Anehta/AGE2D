@@ -2,28 +2,28 @@
 
 namespace AGE2D
 {
-AGE_MouseInfo::AGE_MouseInfo()
+AMouseInfo::AMouseInfo()
 {
     m_mouseX = 0;
     m_mouseY = 0;
 }
 
-int AGE_MouseInfo::getMouseX()
+int AMouseInfo::getMouseX()
 {
     return m_mouseX;
 }
 
-int AGE_MouseInfo::getMouseY()
+int AMouseInfo::getMouseY()
 {
     return m_mouseY;
 }
 
-void AGE_MouseInfo::setMouseX(int mouseX)
+void AMouseInfo::setMouseX(int mouseX)
 {
     m_mouseX = mouseX;
 }
 
-void AGE_MouseInfo::setMouseY(int mouseY)
+void AMouseInfo::setMouseY(int mouseY)
 {
     m_mouseY = mouseY;
 }

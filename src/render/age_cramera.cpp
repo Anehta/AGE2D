@@ -2,7 +2,7 @@
 
 namespace AGE2D
 {
-AGE_Cramera::AGE_Cramera()
+ACramera::ACramera()
 {
 }
 

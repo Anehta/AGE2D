@@ -2,10 +2,10 @@
 #define AKEYBOARDEVENT_H
 
 namespace AGE2D {
-class AGE_KeyBoardEvent
+class AKeyBoardEvent
 {
 public:
-    AGE_KeyBoardEvent();
+    AKeyBoardEvent();
     int getKeyBoardEvent();
     void setKeyBoardType(int valueType);
 private:

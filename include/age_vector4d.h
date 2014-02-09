@@ -1,5 +1,5 @@
-#ifndef AGE_VECTOR4D_H
-#define AGE_VECTOR4D_H
+#ifndef AVECTOR4D_H
+#define AVECTOR4D_H
 
 #include <QVector4D>
 #include "age_vector2d.h"
@@ -8,24 +8,24 @@
 #include "age_pointf.h"
 namespace AGE2D
 {
-class AGE_Point;
-class AGE_PointF;
-class AGE_Vector2D;
-class AGE_Vector3D;
-class AGE_Vector4D : public QVector4D
+class APoint;
+class APointF;
+class AVector2D;
+class AVector3D;
+class AVector4D : public QVector4D
 {
 public:
-    AGE_Vector4D();
-    AGE_Vector4D(const QVector4D & vector);
-    AGE_Vector4D(float xpos,float ypos,float zpos,float wpos);
-    AGE_Vector4D(const AGE_Point & point);
-    AGE_Vector4D(const AGE_PointF & point);
-    AGE_Vector4D(const AGE_Vector2D & vector);
-    AGE_Vector4D(const AGE_Vector2D &vector,float zpos,float wpos);
-    AGE_Vector4D(const AGE_Vector3D &vector);
-    AGE_Vector4D(const AGE_Vector3D &vector,float wpos);
+    AVector4D();
+    AVector4D(const QVector4D & vector);
+    AVector4D(float xpos,float ypos,float zpos,float wpos);
+    AVector4D(const APoint & point);
+    AVector4D(const APointF & point);
+    AVector4D(const AVector2D & vector);
+    AVector4D(const AVector2D &vector,float zpos,float wpos);
+    AVector4D(const AVector3D &vector);
+    AVector4D(const AVector3D &vector,float wpos);
 };
 }
 
 
-#endif // AGE_VECTOR4D_H
+#endif // AVECTOR4D_H

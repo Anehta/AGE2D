@@ -1,14 +1,14 @@
-#ifndef AGE_SHADER_H
-#define AGE_SHADER_H
+#ifndef ASHADER_H
+#define ASHADER_H
 
 namespace AGE2D {
-class AGE_Shader
+class AShader
 {
 public:
-    AGE_Shader();
+    AShader();
 };
 
-enum AGE_ShaderEffect
+enum AShaderEffect
 {
     basicEffect,
     warpEffect,
@@ -48,4 +48,4 @@ enum AGE_ShaderEffect
 
 }
 
-#endif // AGE_SHADER_H
+#endif // ASHADER_H

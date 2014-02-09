@@ -3,12 +3,12 @@
 
 namespace AGE2D
 {
-AGE_ShaderProgram::AGE_ShaderProgram()
+AShaderProgram::AShaderProgram()
 {
 
 }
 
-AGE_ShaderProgram::AGE_ShaderProgram(QString vshaderFilename, QString fshaderFilename)
+AShaderProgram::AShaderProgram(QString vshaderFilename, QString fshaderFilename)
 {
     addVertexShader(vshaderFilename);
     addVertexShader(fshaderFilename);
@@ -19,7 +19,7 @@ AGE_ShaderProgram::AGE_ShaderProgram(QString vshaderFilename, QString fshaderFil
     }
 
 }
-bool AGE_ShaderProgram::addVertexShader(QString vshaderFilename)
+bool AShaderProgram::addVertexShader(QString vshaderFilename)
 {
     if(!addShaderFromSourceFile(QGLShader::Vertex,vshaderFilename))
     {
@@ -30,7 +30,7 @@ bool AGE_ShaderProgram::addVertexShader(QString vshaderFilename)
 }
 
 
-bool AGE_ShaderProgram::addFragmentShader(QString fshaderFilename)
+bool AShaderProgram::addFragmentShader(QString fshaderFilename)
 {
     if(!addShaderFromSourceFile(QGLShader::Fragment,fshaderFilename))
     {
@@ -41,7 +41,7 @@ bool AGE_ShaderProgram::addFragmentShader(QString fshaderFilename)
 
 }
 
-void AGE_ShaderProgram::initShaderEffect(int value)
+void AShaderProgram::initShaderEffect(int value)
 {
 
 }

@@ -3,11 +3,11 @@
 #include <../include/age_spriteactor.h>
 #include <../include/age_keylistener.h>
 using namespace AGE2D;
-class BackGround : public AGE_Sprite,public AGE_KeyListener
+class BackGround : public ASprite,public AKeyListener
 {
 public:
     BackGround();
-    BackGround(AGE_Texture *);
+    BackGround(AATexture *);
 protected:
     void shaderAction();
     virtual void onKeyPress(QKeyEvent *event);

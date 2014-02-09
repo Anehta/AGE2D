@@ -2,16 +2,16 @@
 
 namespace AGE2D
 {
-AGE_KeyListener::AGE_KeyListener()
+AKeyListener::AKeyListener()
 {
 }
 
-void AGE_KeyListener::onKeyRelease(QKeyEvent *event)
+void AKeyListener::onKeyRelease(QKeyEvent *event)
 {
 
 }
 
-void AGE_KeyListener::onKeyPress(QKeyEvent *event)
+void AKeyListener::onKeyPress(QKeyEvent *event)
 {
 
 }

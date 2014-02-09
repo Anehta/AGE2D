@@ -1,22 +1,22 @@
-#ifndef AGE_FRAME_H
-#define AGE_FRAME_H
+#ifndef AFRAME_H
+#define AFRAME_H
 #include <../include/age_vector2d.h>
 
 namespace AGE2D {
-class AGE_Frame
+class AFrame
 {
 public:
-	AGE_Frame(AGE_Vector2D bl,AGE_Vector2D tr);
-	AGE_Vector2D bottomLeft();
-	AGE_Vector2D topRight();
+	AFrame(AVector2D bl,AVector2D tr);
+	AVector2D bottomLeft();
+	AVector2D topRight();
 protected:
-	AGE_Vector2D bl;
-	AGE_Vector2D tr;
+	AVector2D bl;
+	AVector2D tr;
 };
 }
 
 
-#endif // AGE_FRAME_H
+#endif // AFRAME_H
 
 
 

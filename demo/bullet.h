@@ -2,10 +2,10 @@
 #define BULLET_H
 #include "../include/age_spriteactor.h"
 using namespace AGE2D;
-class Bullet:public AGE_SpriteActor
+class Bullet:public ASpriteActor
 {
 public:
-	Bullet(AGE_Vector2D pos, double slope, double speed,bool is_turn_right);
+	Bullet(AVector2D pos, double slope, double speed,bool is_turn_right);
 	virtual void action();
 private:
 	double slope;

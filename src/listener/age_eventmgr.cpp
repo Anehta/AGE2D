@@ -5,123 +5,123 @@
 using namespace std;
 
 namespace  AGE2D {
-AGE_EventMgr::AGE_EventMgr()
+AEventMgr::AEventMgr()
 {
 
 }
 
-void AGE_EventMgr::addListener(AGE_BaseListener * baseListener)
+void AEventMgr::addListener(ABaseListener * baseListener)
 {
-    AGE_BaseListener* p =dynamic_cast<AGE_BaseListener*>(baseListener);
+    ABaseListener* p =dynamic_cast<ABaseListener*>(baseListener);
     if(p != NULL)
 	listenerList.push_back(p);
     qDebug()<<"addListener";
 }
 
-void AGE_EventMgr::addFrameListener(AGE_FrameListener *a)
+void AEventMgr::addFrameListener(AFrameListener *a)
 {
-	AGE_FrameListener* p =dynamic_cast<AGE_FrameListener*>(a);
+	AFrameListener* p =dynamic_cast<AFrameListener*>(a);
 	if(p != NULL)
 		m_frame_listener_list.push_back(p);
 }
 
-void AGE_EventMgr::addMouseListener(AGE_MouseListener *a)
+void AEventMgr::addMouseListener(AMouseListener *a)
 {
-	AGE_MouseListener* p =dynamic_cast<AGE_MouseListener*>(a);
+	AMouseListener* p =dynamic_cast<AMouseListener*>(a);
 	if(p != NULL)
 		m_mouse_listener_list.push_back(p);
 
 
 }
 
-void AGE_EventMgr::addKeyListener(AGE_KeyListener *a)
+void AEventMgr::addKeyListener(AKeyListener *a)
 {
-	AGE_KeyListener* p =dynamic_cast<AGE_KeyListener*>(a);
+	AKeyListener* p =dynamic_cast<AKeyListener*>(a);
 	if(p != NULL)
 		m_key_listener_list.push_back(p);
 }
 
 
 
-void AGE_EventMgr::run()
+void AEventMgr::run()
 {
-    for(list<AGE_BaseListener *>::iterator alpha_it = listenerList.begin();
+    for(list<ABaseListener *>::iterator alpha_it = listenerList.begin();
 	alpha_it != listenerList.end();
 	++alpha_it)
     {
-	AGE_BaseListener * temp = * alpha_it;
+	ABaseListener * temp = * alpha_it;
 	temp->handleListener();
     }
 }
 
-void AGE_EventMgr::mouseMoveEvent(QMouseEvent *mouse)
+void AEventMgr::mouseMoveEvent(QMouseEvent *mouse)
 {
 
-    for(list<AGE_MouseListener *>::iterator alpha_it = m_mouse_listener_list.begin();
+    for(list<AMouseListener *>::iterator alpha_it = m_mouse_listener_list.begin();
 	alpha_it != m_mouse_listener_list.end();
 	++alpha_it)
     {
-	AGE_MouseListener *  temp = * alpha_it;
-	AGE_MouseInfo info;
-    info.setMouseX (mouse->x()/*-AGE_System::GetWidthOffset()*/);
-    info.setMouseY (AGE_System::GetHeight ()-mouse->y()/*+AGE_System::GetHeightOffset()*/);
+	AMouseListener *  temp = * alpha_it;
+	AMouseInfo info;
+    info.setMouseX (mouse->x()/*-ASystem::GetWidthOffset()*/);
+    info.setMouseY (ASystem::GetHeight ()-mouse->y()/*+ASystem::GetHeightOffset()*/);
 	temp->onMouseMove(info);
     }
 }
 
-void AGE_EventMgr::mousePressEvent(QMouseEvent *mouse)
+void AEventMgr::mousePressEvent(QMouseEvent *mouse)
 {
-	for(list<AGE_MouseListener *>::iterator alpha_it = m_mouse_listener_list.begin();
+	for(list<AMouseListener *>::iterator alpha_it = m_mouse_listener_list.begin();
 	    alpha_it != m_mouse_listener_list.end();
 	    ++alpha_it)
 	{
-	    AGE_MouseListener *  temp = * alpha_it;
-	    AGE_MouseInfo info;
+	    AMouseListener *  temp = * alpha_it;
+	    AMouseInfo info;
 	    info.setMouseX (mouse->x());
-	    info.setMouseY (AGE_System::GetHeight ()-mouse->y());
+	    info.setMouseY (ASystem::GetHeight ()-mouse->y());
 	    qDebug()<<info.getMouseY ();
 	    temp->onMousePress(info);
 	}
 }
 
-void AGE_EventMgr::mouseReleaseEvent(QMouseEvent *mouse)
+void AEventMgr::mouseReleaseEvent(QMouseEvent *mouse)
 {
-	for(list<AGE_MouseListener *>::iterator alpha_it = m_mouse_listener_list.begin();
+	for(list<AMouseListener *>::iterator alpha_it = m_mouse_listener_list.begin();
 	    alpha_it != m_mouse_listener_list.end();
 	    ++alpha_it)
 	{
-	    AGE_MouseListener *  temp = * alpha_it;
-	    AGE_MouseInfo info;
+	    AMouseListener *  temp = * alpha_it;
+	    AMouseInfo info;
 	info.setMouseX (mouse->x());
-	info.setMouseY (AGE_System::GetHeight() -mouse->y());
+	info.setMouseY (ASystem::GetHeight() -mouse->y());
 	    temp->onMouseRelease(info);
 	}
 }
 
-void AGE_EventMgr::keyReleaseEvent(QKeyEvent *a)
+void AEventMgr::keyReleaseEvent(QKeyEvent *a)
 {
-	for(list<AGE_KeyListener *>::iterator alpha_it = m_key_listener_list.begin();
+	for(list<AKeyListener *>::iterator alpha_it = m_key_listener_list.begin();
 	    alpha_it != m_key_listener_list.end();
 	    ++alpha_it)
 	{
-	    AGE_KeyListener *  temp = * alpha_it;
+	    AKeyListener *  temp = * alpha_it;
 	    temp->onKeyRelease (a);
 	}
 }
 
 
-void AGE_EventMgr::keyPressEvent(QKeyEvent * a)
+void AEventMgr::keyPressEvent(QKeyEvent * a)
 {
-	for(list<AGE_KeyListener *>::iterator alpha_it = m_key_listener_list.begin();
+	for(list<AKeyListener *>::iterator alpha_it = m_key_listener_list.begin();
 	    alpha_it != m_key_listener_list.end();
 	    ++alpha_it)
 	{
-		AGE_KeyListener *  temp = * alpha_it;
+		AKeyListener *  temp = * alpha_it;
 		temp->onKeyPress (a);
 	}
 }
 
-std::list<AGE_BaseListener *> * AGE_EventMgr::getList()
+std::list<ABaseListener *> * AEventMgr::getList()
 {
     return &listenerList;
 }

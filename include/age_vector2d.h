@@ -1,5 +1,5 @@
-#ifndef AGE_VECTOR2D_H
-#define AGE_VECTOR2D_H
+#ifndef AVECTOR2D_H
+#define AVECTOR2D_H
 
 #include <QVector2D>
 #include "age_point.h"
@@ -8,16 +8,16 @@
 #include "age_vector4d.h"
 namespace AGE2D {
 
-class AGE_Vector2D : public QVector2D
+class AVector2D : public QVector2D
 {
 public:
-    AGE_Vector2D();
-    AGE_Vector2D(float xpos,float ypos);
-    AGE_Vector2D(const AGE_Point &point);
-    AGE_Vector2D(const AGE_Vector3D &vector);
-    AGE_Vector2D(const AGE_Vector4D &vector);
+    AVector2D();
+    AVector2D(float xpos,float ypos);
+    AVector2D(const APoint &point);
+    AVector2D(const AVector3D &vector);
+    AVector2D(const AVector4D &vector);
 };
 }
 
 
-#endif // AGE_VECTOR2D_H
+#endif // AVECTOR2D_H
