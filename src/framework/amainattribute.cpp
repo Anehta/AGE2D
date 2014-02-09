@@ -2,7 +2,8 @@
 #include <QMouseEvent>
 #include <QKeyEvent>
 
-
+namespace AGE2D
+{
 AGE_Matrix4x4 viewPortMatrix;
 QGLShaderProgram *program;
 AGE_Scene * scenePointer;
@@ -33,7 +34,7 @@ void setViewPortMatrix(AGE_Matrix4x4 matrix)
 
 QGLShaderProgram * getDefalutShaderProgram()
 {
-        return program;
+	return program;
 }
 
 void initDefalutShaderProgram()
@@ -41,60 +42,60 @@ void initDefalutShaderProgram()
     setlocale(LC_NUMERIC, "C");
     program = new QGLShaderProgram();
     char vhs[] =
-            "uniform mat4 mvp_matrix;\n"
-            "attribute vec4 a_position;\n"
-            "attribute vec2 a_texcoord;\n"
-            "varying vec2 v_texCoord;\n"
-            "void main()\n"
-            "{\n"
-                "gl_Position = mvp_matrix * a_position;\n"
-                "v_texCoord = a_texcoord;\n"
-            "}";
+	    "uniform mat4 mvp_matrix;\n"
+	    "attribute vec4 a_position;\n"
+	    "attribute vec2 a_texcoord;\n"
+	    "varying vec2 v_texCoord;\n"
+	    "void main()\n"
+	    "{\n"
+		"gl_Position = mvp_matrix * a_position;\n"
+		"v_texCoord = a_texcoord;\n"
+	    "}";
     char fsh[] =
-            "uniform sampler2D source;\n"
-            "uniform lowp float qt_Opacity;\n"
-            "varying vec2 v_texCoord;\n"
+	    "uniform sampler2D source;\n"
+	    "uniform lowp float qt_Opacity;\n"
+	    "varying vec2 v_texCoord;\n"
 
-            "void main()\n"
-            "{\n"
-                "gl_FragColor = texture2D(source, v_texCoord);\n"
-            "}\n"
-            ;
+	    "void main()\n"
+	    "{\n"
+		"gl_FragColor = texture2D(source, v_texCoord);\n"
+	    "}\n"
+	    ;
 
     if(!program->addShaderFromSourceCode(QGLShader::Vertex,vhs))
     {
-        qDebug()<<"failed to init DefalutShaderProgram ---Vertex";
-        return;
+	qDebug()<<"failed to init DefalutShaderProgram ---Vertex";
+	return;
     }
 
     if(!program->addShaderFromSourceCode(QGLShader::Fragment,fsh))
     {
-        qDebug()<<"failed to init DefalutShaderProgram ---Fragment";
-        return;
+	qDebug()<<"failed to init DefalutShaderProgram ---Fragment";
+	return;
     }
 
     /*if(!program->addShaderFromSourceFile(QGLShader::Vertex,":/vshader.glsl"))
     {
-        qDebug()<<"failed to init DefalutShaderProgram ---Vertex";
-        return;
+	qDebug()<<"failed to init DefalutShaderProgram ---Vertex";
+	return;
     }
 
     if(!program->addShaderFromSourceFile(QGLShader::Fragment,":/fshader.glsl"))
     {
-        qDebug()<<"failed to init DefalutShaderProgram ---Fragment";
-        return;
+	qDebug()<<"failed to init DefalutShaderProgram ---Fragment";
+	return;
     }*/
 
     if(!program->link())
     {
-        qDebug()<<"failed to init DefaultShaderProgram --- link";
-        return;
+	qDebug()<<"failed to init DefaultShaderProgram --- link";
+	return;
     }
 
     if(!program->bind())
     {
-        qDebug()<<"failed to init DefalutShaderProgram ---bind";
-        return;
+	qDebug()<<"failed to init DefalutShaderProgram ---bind";
+	return;
     }
 
     setlocale(LC_ALL, "");
@@ -139,3 +140,5 @@ int getTimeStep()
 {
     return time_temp;
 }
+}
+

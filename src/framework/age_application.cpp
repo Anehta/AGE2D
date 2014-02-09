@@ -2,6 +2,8 @@
 #include "../include/age_application.h"
 
 #include <QApplication>
+namespace AGE2D
+{
 QApplication * AGE_Application::m_application;
 AGE_Widget * AGE_Application::m_widiget;
 int AGE_Application::m_width;
@@ -15,7 +17,7 @@ int AGE_Application::Go()
 {
     if(!is_init)
     {
-        return -1;
+	return -1;
     }
     return m_application->exec ();
 }
@@ -24,7 +26,7 @@ void AGE_Application::SetSize(int width, int height )
 {
     if(!is_init)
     {
-        return ;
+	return ;
     }
     m_width=width;
     m_height=height;
@@ -43,3 +45,5 @@ void AGE_Application::Init(int argc, char *argv[])
     m_widiget->show();
     is_init=true;
 }
+}
+

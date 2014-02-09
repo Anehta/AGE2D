@@ -1,6 +1,7 @@
 #ifndef AGE_SHADER_H
 #define AGE_SHADER_H
 
+namespace AGE2D {
 class AGE_Shader
 {
 public:
@@ -44,5 +45,7 @@ enum AGE_ShaderEffect
     wobbleEffect,
     woodEffect
 };
+
+}
 
 #endif // AGE_SHADER_H

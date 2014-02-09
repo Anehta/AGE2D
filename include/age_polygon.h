@@ -5,6 +5,9 @@
 #include <vector>
 #include <../include/AGE2D.h>
 
+namespace AGE2D
+{
+class AGE_Vector2D;
 class AGE_Polygon
 {
 public:
@@ -16,5 +19,7 @@ private:
     std::vector<AGE_Vector2D> m_pointList;
     int IsIntersectAnt(double x,double y,double X1,double Y1,double X2,double Y2);
 };
+
+}
 
 #endif // APOLYGON_H

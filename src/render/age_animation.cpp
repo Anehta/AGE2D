@@ -1,5 +1,7 @@
-#include <../include/AGE2D.h>
+#include <../include/age_animation.h>
 #include <qdebug.h>
+namespace AGE2D
+{
 AGE_Animation::AGE_Animation(QString name)
 {
 	this->name=name;
@@ -26,3 +28,5 @@ AGE_Frame AGE_Animation::getFrame(int index)
 {
 	return this->m_list[index];
 }
+}
+

@@ -1,5 +1,7 @@
 #include <../include/AGE2D.h>
 
+namespace AGE2D
+{
 AGE_Vector4D::AGE_Vector4D()
 {
 
@@ -68,3 +70,5 @@ AGE_Vector4D::AGE_Vector4D(const AGE_Vector3D &vector,float wpos)
     setZ(vector.z());
     setW(wpos);
 }
+}
+

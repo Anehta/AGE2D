@@ -4,6 +4,7 @@
 #include <iostream>
 using namespace std;
 
+namespace  AGE2D {
 AGE_EventMgr::AGE_EventMgr()
 {
 
@@ -13,7 +14,7 @@ void AGE_EventMgr::addListener(AGE_BaseListener * baseListener)
 {
     AGE_BaseListener* p =dynamic_cast<AGE_BaseListener*>(baseListener);
     if(p != NULL)
-        listenerList.push_back(p);
+	listenerList.push_back(p);
     qDebug()<<"addListener";
 }
 
@@ -45,11 +46,11 @@ void AGE_EventMgr::addKeyListener(AGE_KeyListener *a)
 void AGE_EventMgr::run()
 {
     for(list<AGE_BaseListener *>::iterator alpha_it = listenerList.begin();
-        alpha_it != listenerList.end();
-        ++alpha_it)
+	alpha_it != listenerList.end();
+	++alpha_it)
     {
 	AGE_BaseListener * temp = * alpha_it;
-        temp->handleListener();
+	temp->handleListener();
     }
 }
 
@@ -58,7 +59,7 @@ void AGE_EventMgr::mouseMoveEvent(QMouseEvent *mouse)
 
     for(list<AGE_MouseListener *>::iterator alpha_it = m_mouse_listener_list.begin();
 	alpha_it != m_mouse_listener_list.end();
-        ++alpha_it)
+	++alpha_it)
     {
 	AGE_MouseListener *  temp = * alpha_it;
 	AGE_MouseInfo info;
@@ -91,8 +92,8 @@ void AGE_EventMgr::mouseReleaseEvent(QMouseEvent *mouse)
 	{
 	    AGE_MouseListener *  temp = * alpha_it;
 	    AGE_MouseInfo info;
-        info.setMouseX (mouse->x());
-        info.setMouseY (AGE_System::GetHeight() -mouse->y());
+	info.setMouseX (mouse->x());
+	info.setMouseY (AGE_System::GetHeight() -mouse->y());
 	    temp->onMouseRelease(info);
 	}
 }
@@ -123,4 +124,6 @@ void AGE_EventMgr::keyPressEvent(QKeyEvent * a)
 std::list<AGE_BaseListener *> * AGE_EventMgr::getList()
 {
     return &listenerList;
+}
+
 }

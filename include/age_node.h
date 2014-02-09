@@ -2,6 +2,7 @@
 #define ANODE_H
 #include <QMatrix4x4>
 
+namespace AGE2D {
 class AGE_Node
 {
 public:
@@ -19,5 +20,7 @@ private:
     float m_y;
     float m_scale;
 };
+}
+
 
 #endif // ANODE_H

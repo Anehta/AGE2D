@@ -4,17 +4,19 @@
 #include <list>
 
 #include <../include/age_baselistener.h>
-
+#include "age_layer.h"
+#include "age_widget.h"
+#include "age_eventmgr.h"
+namespace AGE2D
+{
 class AGE_Layer;
-class AGE_Widget;
 class AGE_EventMgr;
-
 class AGE_Scene
 {
 public:
     AGE_Scene();
     void activate(); //set it to currentscene
-    int addLayer(AGE_Layer *pointer);
+    int addLayer(AGE2D::AGE_Layer *pointer);
     int addLayer();
 
     AGE_Layer * layer(int handle);
@@ -29,5 +31,7 @@ private:
     AGE_EventMgr * m_listenerManager;
     void renderScene();
 };
+}
+
 
 #endif // ASCENE_H

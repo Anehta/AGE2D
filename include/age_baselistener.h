@@ -1,8 +1,7 @@
 #ifndef ABASELISTENER_H
 #define ABASELISTENER_H
-
-class AGE_EventMgr;
-class QMouseEvent;
+#include <QMouseEvent>
+namespace AGE2D {
 class AGE_BaseListener
 {
 public:
@@ -17,5 +16,7 @@ protected:
     virtual void onKeyPress();
 private:
 };
+}
+
 
 #endif // ABASELISTENER_H

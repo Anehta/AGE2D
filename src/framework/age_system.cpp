@@ -3,6 +3,7 @@
 #include <iostream>
 
 using namespace std;
+namespace AGE2D{
 QApplication * AGE_System::m_application;
 AGE_Widget * AGE_System::m_widget;
 int AGE_System::m_width;
@@ -82,4 +83,6 @@ double AGE_System::frameRate()
 {
 	return 1000.0/getTimeStep ();
 }
+}
+
 

@@ -12,9 +12,10 @@
 #include <../include/age_keyboardevent.h>
 #include <../include/age_mouseinfo.h>
 #include <../include/age_baselistener.h>
-
-class AGE_KeyBoardEvent;
-class AGE_MouseInfo;
+#include "age_keyboardevent.h"
+#include "age_mouseinfo.h"
+namespace AGE2D
+{
 
 class AGE_Widget : public QGLWidget ,QGLFunctions
 {
@@ -43,5 +44,7 @@ private:
     void paintGL();
     void timerEvent(QTimerEvent *);
 };
+}
+
 
 #endif // AGEWIDGET_H

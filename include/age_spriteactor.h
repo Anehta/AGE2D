@@ -8,6 +8,8 @@
 #include <QDomDocument>
 #include <../include/age_animationset.h>
 using namespace std;
+namespace AGE2D
+{
 class AGE_SpriteActor : public AGE_Sprite
 {
 public:
@@ -24,5 +26,7 @@ protected:
      AGE_AnimationSet * m_animation_set;
     list <AGE_Animation> m_animationlist;
 };
+}
+
 
 #endif // ASPRITEACTOR_H

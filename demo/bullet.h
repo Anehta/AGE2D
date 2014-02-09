@@ -1,6 +1,7 @@
 #ifndef BULLET_H
 #define BULLET_H
 #include "../include/age_spriteactor.h"
+using namespace AGE2D;
 class Bullet:public AGE_SpriteActor
 {
 public:

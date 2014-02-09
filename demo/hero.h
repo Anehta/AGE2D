@@ -4,6 +4,7 @@
 #include "../include/age_texture.h"
 #include "../include/age_keylistener.h"
 #include "../include/age_accumulator.h"
+using namespace AGE2D;
 class Hero :public AGE_Sprite,public AGE_KeyListener
 {
 public:

@@ -4,6 +4,8 @@
 
 using namespace std;
 
+namespace AGE2D
+{
 AGE_Sprite::~AGE_Sprite()
 {
     glDeleteBuffers(2,m_geometric.getVboId()); //1
@@ -35,7 +37,7 @@ void AGE_Sprite::setShowRect(float lx, float ly, float rx, float ry)
 void AGE_Sprite::setShowDet(int col, int row, int gridWidth, int gridHeigth)
 {
     m_geometric.setShowRect(gridWidth*row,gridHeigth*col,
-                            gridWidth*row+gridWidth,gridHeigth*col+gridHeigth);
+			    gridWidth*row+gridWidth,gridHeigth*col+gridHeigth);
 }
 
 void AGE_Sprite::deleteThis()
@@ -96,59 +98,59 @@ void AGE_Sprite::computeMatrix()
 
     if(isNeedRealTime)
     {
-        AGE_Matrix4x4 ltmatrix = viewMatrix;
-        AGE_Matrix4x4 rbmatrix = viewMatrix;
-        AGE_Matrix4x4 rtmatrix = viewMatrix;
+	AGE_Matrix4x4 ltmatrix = viewMatrix;
+	AGE_Matrix4x4 rbmatrix = viewMatrix;
+	AGE_Matrix4x4 rtmatrix = viewMatrix;
 
-        //ltmatrix.translate(0,m_geometric.height(),0);
-        //rbmatrix.translate(m_geometric.width(),0,0);
-        //rtmatrix.translate(m_geometric.width(),m_geometric.height(),0);
-        //ltmatrix.translate(0,-m_geometric.height(),0);
+	//ltmatrix.translate(0,m_geometric.height(),0);
+	//rbmatrix.translate(m_geometric.width(),0,0);
+	//rtmatrix.translate(m_geometric.width(),m_geometric.height(),0);
+	//ltmatrix.translate(0,-m_geometric.height(),0);
 
-        ltmatrix.translate(mx_offset,my_offset,0);
-        ltmatrix.rotate(m_angle,0,0,1);
-        ltmatrix.translate(-mx_offset,-my_offset,0);
-        ltmatrix.translate(0,m_geometric.height(),0);
+	ltmatrix.translate(mx_offset,my_offset,0);
+	ltmatrix.rotate(m_angle,0,0,1);
+	ltmatrix.translate(-mx_offset,-my_offset,0);
+	ltmatrix.translate(0,m_geometric.height(),0);
 
-        rbmatrix.translate(mx_offset,my_offset,0);
-        rbmatrix.rotate(m_angle,0,0,1);
-        rbmatrix.translate(-mx_offset,-my_offset,0);
-        rbmatrix.translate(m_geometric.width(),0,0);
+	rbmatrix.translate(mx_offset,my_offset,0);
+	rbmatrix.rotate(m_angle,0,0,1);
+	rbmatrix.translate(-mx_offset,-my_offset,0);
+	rbmatrix.translate(m_geometric.width(),0,0);
 
-        rtmatrix.translate(mx_offset,my_offset,0);
-        rtmatrix.rotate(m_angle,0,0,1);
-        rtmatrix.translate(-mx_offset,-my_offset,0);
-        rtmatrix.translate(m_geometric.width(),m_geometric.height(),0);
+	rtmatrix.translate(mx_offset,my_offset,0);
+	rtmatrix.rotate(m_angle,0,0,1);
+	rtmatrix.translate(-mx_offset,-my_offset,0);
+	rtmatrix.translate(m_geometric.width(),m_geometric.height(),0);
 
-        AGE_Matrix4x4 currentMatrix = getViewPortMatrix().inverted();
-        AGE_Matrix4x4 leftBottonMatrix =  currentMatrix * lbmatrix;
-        AGE_Matrix4x4 leftTopMatrix = currentMatrix * ltmatrix;
-        AGE_Matrix4x4 rightBottonMatrix = currentMatrix * rbmatrix;
-        AGE_Matrix4x4 rightTopMatrix = currentMatrix * rtmatrix;
+	AGE_Matrix4x4 currentMatrix = getViewPortMatrix().inverted();
+	AGE_Matrix4x4 leftBottonMatrix =  currentMatrix * lbmatrix;
+	AGE_Matrix4x4 leftTopMatrix = currentMatrix * ltmatrix;
+	AGE_Matrix4x4 rightBottonMatrix = currentMatrix * rbmatrix;
+	AGE_Matrix4x4 rightTopMatrix = currentMatrix * rtmatrix;
 
-        float lbx = leftBottonMatrix.row(0).w();
-        float lby = leftBottonMatrix.row(1).w();
+	float lbx = leftBottonMatrix.row(0).w();
+	float lby = leftBottonMatrix.row(1).w();
 
-        m_leftBottonX = lbx;
-        m_leftBottonY = lby;
+	m_leftBottonX = lbx;
+	m_leftBottonY = lby;
 
-        float ltx = leftTopMatrix.row(0).w();
-        float lty = leftTopMatrix.row(1).w();
+	float ltx = leftTopMatrix.row(0).w();
+	float lty = leftTopMatrix.row(1).w();
 
-        m_leftTopX = ltx;
-        m_leftTopY = lty;
+	m_leftTopX = ltx;
+	m_leftTopY = lty;
 
-        float rbx = rightBottonMatrix.row(0).w();
-        float rby = rightBottonMatrix.row(1).w();
+	float rbx = rightBottonMatrix.row(0).w();
+	float rby = rightBottonMatrix.row(1).w();
 
-        m_rightBottonX = rbx;
-        m_rightBottonY = rby;
+	m_rightBottonX = rbx;
+	m_rightBottonY = rby;
 
-        float rtx = rightTopMatrix.row(0).w();
-        float rty = rightTopMatrix.row(1).w();
+	float rtx = rightTopMatrix.row(0).w();
+	float rty = rightTopMatrix.row(1).w();
 
-        m_rightTopX = rtx;
-        m_rightTopY = rty;
+	m_rightTopX = rtx;
+	m_rightTopY = rty;
     }
 
 }
@@ -164,9 +166,9 @@ void AGE_Sprite::bindTexture(AGE_Texture *fuckyou)
     m_texId = fuckyou->getTextureId();
     bindDefalutProgram();
     m_geometric.initParameter(fuckyou->width(),fuckyou->height(),
-                              fuckyou->width(),fuckyou->height(),
-                              0,0,
-                              fuckyou->width(),fuckyou->height());
+			      fuckyou->width(),fuckyou->height(),
+			      0,0,
+			      fuckyou->width(),fuckyou->height());
     initializeAll();
 }
 
@@ -299,3 +301,5 @@ void AGE_Sprite::shaderAction()
 {
 
 }
+}
+

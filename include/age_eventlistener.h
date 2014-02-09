@@ -2,8 +2,8 @@
 #define AEVENTLISTENER_H
 
 #include <../include/age_baselistener.h>
-class AGE_BaseListener;
-class QMouseEvent;
+#include <QMouseEvent>
+namespace AGE2D {
 
 class AGE_EventListener : public AGE_BaseListener
 {
@@ -18,5 +18,7 @@ protected:
 private:
     virtual void handleListener();
 };
+}
+
 
 #endif // AEVENTLISTENER_H

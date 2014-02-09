@@ -1,5 +1,7 @@
-#include <../include/AGE2D.h>
+#include <../include/age_animationset.h>
 #include <qfile.h>
+namespace AGE2D
+{
 AGE_AnimationSet::AGE_AnimationSet(QString fileName)
 {
 	QFile file(fileName);
@@ -57,3 +59,5 @@ void AGE_AnimationSet::addAnimationFromFile(AGE_Animation *animation, QDomElemen
 		child=child.nextSiblingElement ();
 	}
 }
+}
+

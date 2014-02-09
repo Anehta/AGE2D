@@ -3,6 +3,7 @@
 
 #include "age_mouseinfo.h"
 
+namespace AGE2D {
 class AGE_MouseListener
 {
 	friend class AGE_EventMgr;
@@ -14,5 +15,7 @@ protected:
 	virtual void onMousePress(AGE_MouseInfo info);
 	virtual void onMouseMove(AGE_MouseInfo info);
 };
+}
+
 
 #endif // AGE_MOUSELISTENER_H

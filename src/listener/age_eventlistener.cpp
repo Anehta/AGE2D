@@ -1,6 +1,8 @@
 #include <../include/AGE2D.h>
 #include <QMouseEvent>
 
+namespace AGE2D
+{
 AGE_EventListener::AGE_EventListener()
 {
 }
@@ -29,3 +31,5 @@ void AGE_EventListener::onKeyPress()
 {
 
 }
+}
+

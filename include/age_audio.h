@@ -12,6 +12,7 @@
 #include <QDebug>
 #include <QDir>
 #include <QObjectUserData>
+namespace AGE2D{
 class AGE_Audio
 {
 protected:
@@ -40,13 +41,15 @@ public:
     void pause();
     void Init()
     {
-        this->loopORnot = false;
-        this->Volume = 50;
-        this->mods = 0;
-        music = new QMediaPlayer;
-        medialist=new QMediaPlaylist;
+	this->loopORnot = false;
+	this->Volume = 50;
+	this->mods = 0;
+	music = new QMediaPlayer;
+	medialist=new QMediaPlaylist;
     }
     ~AGE_Audio();
 };
+}
+
 
 #endif // AGE_AUDIO_H

@@ -1,5 +1,6 @@
 #include "../include/age_audio.h"
-
+namespace AGE2D
+{
 AGE_Audio::AGE_Audio(QString audName)
 {
     Init();
@@ -19,13 +20,13 @@ void AGE_Audio::audio()
 {
     if(mods == 0)
     {
-        QFile f(this->audName);
-        f.copy(QDir::currentPath()+"/"+this->audName.remove(":/"));
-        this->medialist->addMedia(QUrl::fromLocalFile(QDir::currentPath()+"/"+this->audName.remove(":/")));
+	QFile f(this->audName);
+	f.copy(QDir::currentPath()+"/"+this->audName.remove(":/"));
+	this->medialist->addMedia(QUrl::fromLocalFile(QDir::currentPath()+"/"+this->audName.remove(":/")));
     }
     else
     {
-        this->medialist->addMedia(QUrl(this->audName));
+	this->medialist->addMedia(QUrl(this->audName));
     }
     this->medialist->setCurrentIndex(1);
     this->medialist->setPlaybackMode(QMediaPlaylist::CurrentItemOnce);
@@ -51,7 +52,7 @@ void AGE_Audio::setLoopORnot(bool loopORnot)
 {
     this->loopORnot=loopORnot;
     if(this->loopORnot == true)
-        this->medialist->setPlaybackMode(QMediaPlaylist::CurrentItemInLoop);
+	this->medialist->setPlaybackMode(QMediaPlaylist::CurrentItemInLoop);
     else this->medialist->setPlaybackMode(QMediaPlaylist::CurrentItemOnce);
 }
 
@@ -92,3 +93,5 @@ AGE_Audio::~AGE_Audio()
     delete this->music;
     delete this->medialist;
 }
+}
+

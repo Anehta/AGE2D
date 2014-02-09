@@ -1,5 +1,7 @@
 #include <../include/AGE2D.h>
 
+namespace AGE2D
+{
 AGE_Vector2D::AGE_Vector2D()
 {
 }
@@ -27,3 +29,5 @@ AGE_Vector2D::AGE_Vector2D(float xpos, float ypos)
     setX(xpos);
     setY(ypos);
 }
+}
+

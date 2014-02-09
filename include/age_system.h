@@ -2,7 +2,8 @@
 #define AGE_APPLICATION_H
 #include <QApplication>
 #include <../include/age_widget.h>
-
+namespace AGE2D
+{
 class AGE_System
 {
 public:
@@ -31,7 +32,7 @@ private:
 	static AGE_Widget * m_widget;
 
 };
-
+}
 #endif // AGE_APPLICATION_H
 
 

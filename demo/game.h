@@ -10,6 +10,8 @@
 #include "background.h"
 #include <QGLShaderProgram>
 #include <gamescene.h>
+
+using namespace AGE2D;
 //管理整个游戏的资源
 class Game : public QGLFunctions
 {

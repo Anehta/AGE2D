@@ -3,6 +3,8 @@
 
 #include <QGLFunctions>
 
+namespace AGE2D
+{
 class AGE_Geometric : public QGLFunctions
 {
 public:
@@ -30,5 +32,7 @@ private:
     int m_imageHeight;
     void initializeAll();
 };
+}
+
 
 #endif // AGEOMETRIC_H

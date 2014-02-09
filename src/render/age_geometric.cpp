@@ -1,5 +1,7 @@
-#include <../include/AGE2D.h>
-
+#include <../include/age_geometric.h>
+#include <../include/amainattribute.h>
+namespace AGE2D
+{
 AGE_Geometric::AGE_Geometric()
 {
 
@@ -24,15 +26,15 @@ void AGE_Geometric::initializeAll()
 void AGE_Geometric::initRectGeometric()
 {
     VertexData vertices[] ={
-        {AGE_Vector3D(0,0,0),AGE_Vector2D((double)m_leftTopX/(double)m_imageWidth , (double)m_leftTopY/(double)m_imageHeight)},
-        {AGE_Vector3D(m_width,0,0),AGE_Vector2D((double)m_rightBottonX/(double)m_imageWidth , (double)m_leftTopY/(double)m_imageHeight)},
-        {AGE_Vector3D(m_width,m_height,0),AGE_Vector2D((double)m_rightBottonX/(double)m_imageWidth,(double)m_rightBottonY/(double)m_imageHeight)},
-        {AGE_Vector3D(0,m_height,0),AGE_Vector2D((double)m_leftTopX/m_imageWidth,(double)m_rightBottonY/m_imageHeight)}
+	{AGE_Vector3D(0,0,0),AGE_Vector2D((double)m_leftTopX/(double)m_imageWidth , (double)m_leftTopY/(double)m_imageHeight)},
+	{AGE_Vector3D(m_width,0,0),AGE_Vector2D((double)m_rightBottonX/(double)m_imageWidth , (double)m_leftTopY/(double)m_imageHeight)},
+	{AGE_Vector3D(m_width,m_height,0),AGE_Vector2D((double)m_rightBottonX/(double)m_imageWidth,(double)m_rightBottonY/(double)m_imageHeight)},
+	{AGE_Vector3D(0,m_height,0),AGE_Vector2D((double)m_leftTopX/m_imageWidth,(double)m_rightBottonY/m_imageHeight)}
     };
 
 
     GLushort indices[] = {
-          0,1,2,3//一个面
+	  0,1,2,3//一个面
     };
 
     glBindBuffer(GL_ARRAY_BUFFER,m_vboId[0]);
@@ -90,4 +92,6 @@ void AGE_Geometric::initParameter(int width, int height, int imageWidth,int imag
     m_vboId = new GLuint[2];
     initializeAll();
     initRectGeometric();
+}
+
 }

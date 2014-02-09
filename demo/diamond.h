@@ -1,7 +1,7 @@
 #ifndef DIAMOND_H
 #define DIAMOND_H
 #include "../include/AGE2D.h"
-
+using namespace AGE2D;
 class Diamond : public AGE_Sprite
 {
 public:

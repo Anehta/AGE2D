@@ -4,6 +4,9 @@
 #include <../include/age_animation.h>
 #include <QDomDocument>
 #include <qstring.h>
+using namespace std;
+namespace AGE2D {
+class AGE_Animation;
 class AGE_AnimationSet
 {
 public:
@@ -13,5 +16,7 @@ protected:
 void addAnimationFromFile(AGE_Animation * animation,QDomElement node);
     list <AGE_Animation> m_animationlist;
 };
+}
+
 
 #endif // AGE_ANIMATIONSET_H

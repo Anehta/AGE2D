@@ -2,8 +2,8 @@
 #define AGE_POINTF_H
 
 #include <QPointF>
-#include <../include/AGE2D.h>
 
+namespace AGE2D{
 class AGE_PointF : public QPointF
 {
 public:
@@ -11,5 +11,7 @@ public:
     AGE_PointF(float x,float y);
     AGE_PointF(const AGE_Point point);
 };
+
+}
 
 #endif // AGE_POINTF_H

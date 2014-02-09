@@ -1,6 +1,7 @@
 #ifndef AKEYBOARDEVENT_H
 #define AKEYBOARDEVENT_H
 
+namespace AGE2D {
 class AGE_KeyBoardEvent
 {
 public:
@@ -10,5 +11,7 @@ public:
 private:
     int m_KeyBoardEvent;
 };
+}
+
 
 #endif // AEVENT_H

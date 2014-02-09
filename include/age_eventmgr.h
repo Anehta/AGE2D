@@ -5,9 +5,10 @@
 #include "age_mouselistener.h"
 #include "age_keylistener.h"
 #include "age_system.h"
-class AGE_BaseListener;
-class AGE_Scene;
-class QMouseEvent;
+#include "age_baselistener.h"
+#include "age_scene.h"
+#include <QMouseEvent>
+namespace AGE2D{
 
 class AGE_EventMgr
 {
@@ -32,5 +33,7 @@ private:
     std::list<AGE_FrameListener *> m_frame_listener_list;
     std::list<AGE_KeyListener*> m_key_listener_list;
 };
+}
+
 
 #endif // ALISTENERMANAGER_H

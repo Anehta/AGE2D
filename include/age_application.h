@@ -4,7 +4,7 @@
 #include <QApplication>
 #include "AGE2D.h"
 #include "age_widget.h"
-
+namespace AGE2D {
 class AGE_Wdiget;
 
 class AGE_Application
@@ -22,6 +22,8 @@ private:
 	static QApplication * m_application;
     static AGE_Widget * m_widiget;
 };
+
+}
 
 #endif // AGE_APPLICATION_H
 

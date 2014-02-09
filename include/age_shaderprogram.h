@@ -4,7 +4,7 @@
 #include <QGLShaderProgram>
 #include <QString>
 #include <../include/age_shader.h>
-
+namespace AGE2D{
 class AGE_ShaderProgram : public QGLShaderProgram
 {
 public:
@@ -14,5 +14,7 @@ public:
     bool addFragmentShader(QString fshaderFilename);
     void initShaderEffect(int value);
 };
+}
+
 
 #endif // AGE_SHADERPROGRAM_H

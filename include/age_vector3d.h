@@ -2,10 +2,11 @@
 #define AGE_VECTOR3D_H
 
 #include <QVector3D>
-class AGE_Point;
-class AGE_PointF;
-class AGE_Vector2D;
-class AGE_Vector4D;
+#include "age_point.h"
+#include "age_pointf.h"
+#include "age_vector2d.h"
+#include "age_vector4d.h"
+namespace AGE2D{
 
 class AGE_Vector3D : public QVector3D
 {
@@ -18,5 +19,7 @@ public:
     AGE_Vector3D(const AGE_Vector2D & vector,float zpos);
     AGE_Vector3D(const AGE_Vector4D & vector);
 };
+}
+
 
 #endif // AGE_VECTOR3D_H

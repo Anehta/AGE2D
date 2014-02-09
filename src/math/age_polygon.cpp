@@ -4,6 +4,8 @@
 #include <QDebug>
 
 using namespace std;
+namespace AGE2D
+{
 #define EPSILON 0.00001
 
 AGE_Polygon::AGE_Polygon()
@@ -17,49 +19,49 @@ void AGE_Polygon::addPoint(double x, double y)
 
 int AGE_Polygon::pointInPolygon(AGE_Vector2D poPoint)
 {
-        //计算该点向左方向的射线与各个边的交点个数
-        int nCount = 0;
-        double X = poPoint.x();
-        double Y = poPoint.y();
+	//计算该点向左方向的射线与各个边的交点个数
+	int nCount = 0;
+	double X = poPoint.x();
+	double Y = poPoint.y();
     qDebug()<<"x is :"<<X<<" y is :"<<Y;
     qDebug()<<"the polygon is";
     for(std::vector<AGE_Vector2D>::iterator it = m_pointList.begin();
-        it!= m_pointList.end();
-        ++it)
+	it!= m_pointList.end();
+	++it)
     {
-        qDebug()<<"x is :"<<it->x()<<" y is :"<<it->y();
+	qDebug()<<"x is :"<<it->x()<<" y is :"<<it->y();
     }
-        int nFlag = 0;
+	int nFlag = 0;
 
-        for(std::vector<AGE_Vector2D>::iterator it = m_pointList.begin();
-        it!= m_pointList.end();
-            ++it)
-        {
-        if(it!=m_pointList.end()-1)
-        {
-            nFlag = IsIntersectAnt(X,Y,it->x(),it->y(),
-                (it+1)->x(),(it+1)->y());
-        }
-        else
-        {
-            nFlag = IsIntersectAnt(X,Y,it->x(),it->y(),
-                (m_pointList.begin())->x(),(m_pointList.begin())->y());
-        }
+	for(std::vector<AGE_Vector2D>::iterator it = m_pointList.begin();
+	it!= m_pointList.end();
+	    ++it)
+	{
+	if(it!=m_pointList.end()-1)
+	{
+	    nFlag = IsIntersectAnt(X,Y,it->x(),it->y(),
+		(it+1)->x(),(it+1)->y());
+	}
+	else
+	{
+	    nFlag = IsIntersectAnt(X,Y,it->x(),it->y(),
+		(m_pointList.begin())->x(),(m_pointList.begin())->y());
+	}
 
-        qDebug()<<"the flag"<<nFlag;
-                if (nCount < 0)
-                {
-                    return 2;   //点在边上
-        }
-                nCount += nFlag;
-        }
+	qDebug()<<"the flag"<<nFlag;
+		if (nCount < 0)
+		{
+		    return 2;   //点在边上
+	}
+		nCount += nFlag;
+	}
 
-        if (nCount % 2 == 1)   //点在多边形内
-        {
-            return 1;
-        }
-        else
-            return 0;
+	if (nCount % 2 == 1)   //点在多边形内
+	{
+	    return 1;
+	}
+	else
+	    return 0;
 }
 
 int AGE_Polygon::IsIntersectAnt(double x, double y, double X1, double Y1, double X2, double Y2)
@@ -87,15 +89,15 @@ int AGE_Polygon::IsIntersectAnt(double x, double y, double X1, double Y1, double
 
      if(result2<-EPSILON&& result1<-EPSILON)//相互跨立,所以线段相交
      {
-         return 1;
+	 return 1;
      }
      else if(fabs(result1)<EPSILON ||fabs(result2)<EPSILON ) //点在线上
      {
-         return -1;
+	 return -1;
      }
      else
      {
-         return 0;
+	 return 0;
      }
 
 }
@@ -104,6 +106,8 @@ int AGE_Polygon::pointInPolygon2(AGE_Vector2D poPoint)
 {
     QVector3D p(poPoint.x(),poPoint.y(),0);
     for(std::vector<AGE_Vector2D>::iterator it = m_pointList.begin();
-        it!= m_pointList.end()-1;
-        ++it);
+	it!= m_pointList.end()-1;
+	++it);
 }
+}
+

@@ -2,7 +2,8 @@
 #include <QVector3D>
 #include <QVector2D>
 #include <QDebug>
-
+namespace AGE2D
+{
 AGE_Texture::AGE_Texture()
 {
 }
@@ -29,9 +30,9 @@ void AGE_Texture::bindTexture()
     QImage buf;
     if(!buf.load(m_fileName))
     {
-        qWarning("Could not read image file,using single-color instead");
-        QImage dummy(128,128,QImage::Format_RGB32);
-        buf = dummy;
+	qWarning("Could not read image file,using single-color instead");
+	QImage dummy(128,128,QImage::Format_RGB32);
+	buf = dummy;
     }
     QImage timage = QGLWidget::convertToGLFormat(buf);
 
@@ -42,7 +43,7 @@ void AGE_Texture::bindTexture()
     //qDebug()<<"m_texID="<<m_texID;
     glBindTexture(GL_TEXTURE_2D, m_texID);
     glTexImage2D(GL_TEXTURE_2D,0,GL_RGBA,timage.width(),timage.height(),0,
-            GL_RGBA,GL_UNSIGNED_BYTE,timage.bits());
+	    GL_RGBA,GL_UNSIGNED_BYTE,timage.bits());
 
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
@@ -79,3 +80,5 @@ int AGE_Texture::height()
 {
     return m_height;
 }
+}
+

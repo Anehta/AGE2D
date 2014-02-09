@@ -1,4 +1,5 @@
-#include <../include/AGE2D.h>
+#include <../include/age_accumulator.h>
+namespace AGE2D {
 AGE_Accumulator::AGE_Accumulator(double init_value, double end_value, double speed, bool is_cycled)
 {
 	this->init_value=init_value;
@@ -81,4 +82,6 @@ void AGE_Accumulator::rewind()
 {
 	is_touched=false;
 	value=init_value;
+}
+
 }

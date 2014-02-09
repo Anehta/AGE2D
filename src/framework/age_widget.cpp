@@ -10,6 +10,8 @@
 
 using namespace std;
 
+namespace AGE2D
+{
 AGE_Widget::AGE_Widget(QWidget *parent)
     : QGLWidget(QGLFormat(QGL::DoubleBuffer))
 {
@@ -79,11 +81,11 @@ void AGE_Widget::display()
 
     if(temp != NULL)
     {
-        temp->renderScene();
-        if(temp->m_listenerManager != NULL)
-        {
-            temp->m_listenerManager->run();
-        }
+	temp->renderScene();
+	if(temp->m_listenerManager != NULL)
+	{
+	    temp->m_listenerManager->run();
+	}
     }
 
 }
@@ -99,10 +101,10 @@ void AGE_Widget::mouseMoveEvent(QMouseEvent * mouse)
     AGE_Scene * temp = getCurrentScene();
     if(temp != NULL)
     {
-        if(temp->m_listenerManager != NULL)
-        {
-            temp->m_listenerManager->mouseMoveEvent(mouse);
-        }
+	if(temp->m_listenerManager != NULL)
+	{
+	    temp->m_listenerManager->mouseMoveEvent(mouse);
+	}
     }
 }
 
@@ -111,10 +113,10 @@ void AGE_Widget::mousePressEvent(QMouseEvent *mouse)
     AGE_Scene * temp = getCurrentScene();
     if(temp != NULL)
     {
-        if(temp->m_listenerManager != NULL)
-        {
-            temp->m_listenerManager->mousePressEvent(mouse);
-        }
+	if(temp->m_listenerManager != NULL)
+	{
+	    temp->m_listenerManager->mousePressEvent(mouse);
+	}
 
     }
 }
@@ -124,10 +126,10 @@ void AGE_Widget::mouseReleaseEvent(QMouseEvent *mouse)
     AGE_Scene * temp = getCurrentScene();
     if(temp != NULL)
     {
-        if(temp->m_listenerManager != NULL)
-        {
-            temp->m_listenerManager->mouseReleaseEvent(mouse);
-        }
+	if(temp->m_listenerManager != NULL)
+	{
+	    temp->m_listenerManager->mouseReleaseEvent(mouse);
+	}
 
     }
 }
@@ -163,3 +165,5 @@ void AGE_Widget::keyPressEvent(QKeyEvent *event)
 
 	}
 }
+}
+

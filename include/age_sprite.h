@@ -6,12 +6,12 @@
 #include <../include/age_geometric.h>
 #include <../include/age_texture.h>
 #include <memory>
+#include "age_layer.h"
+#include "age_texture.h"
+#include "age_geometric.h"
+#include "age_node.h"
 
-class AGE_Layer;
-class AGE_Texture;
-class AGE_Geometric;
-class AGE_Node;
-
+namespace AGE2D {
 class AGE_Sprite : public AGE_Node,protected QGLFunctions
 {
 public:
@@ -83,5 +83,7 @@ private:
 
 
 };
+}
+
 
 #endif // ASPRITE_H

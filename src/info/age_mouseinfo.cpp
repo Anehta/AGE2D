@@ -1,5 +1,7 @@
 #include <../include/AGE2D.h>
 
+namespace AGE2D
+{
 AGE_MouseInfo::AGE_MouseInfo()
 {
     m_mouseX = 0;
@@ -25,4 +27,6 @@ void AGE_MouseInfo::setMouseY(int mouseY)
 {
     m_mouseY = mouseY;
 }
+}
+
 

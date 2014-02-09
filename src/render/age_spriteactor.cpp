@@ -4,6 +4,8 @@
 #include <qfile.h>
 #include <qdebug.h>
 
+namespace AGE2D
+{
 AGE_SpriteActor::AGE_SpriteActor()
 {
     initializeAll();
@@ -79,14 +81,14 @@ void AGE_SpriteActor::addAnimationFromFile(AGE_Animation *animation, QDomElement
 		double bl_x= rect.attribute (QString("x")).toDouble ();
 		double bl_y= rect.attribute (QString("y")).toDouble ();
 		AGE_Vector2D bl(bl_x,bl_y);
-        //qDebug()<<" bottom left is"<<bl;
+	//qDebug()<<" bottom left is"<<bl;
 
 		rect=rect.nextSiblingElement ();
 		//右上角
 		double tr_x=rect.attribute (QString("x")).toDouble ();
 		double tr_y=rect.attribute (QString("y")).toDouble ();
 		AGE_Vector2D tr(tr_x,tr_y);
-        //qDebug()<<" top right is"<<tr;
+	//qDebug()<<" top right is"<<tr;
 		//添加一帧
 		animation->addFrame(AGE_Frame(bl,tr));
 		child=child.nextSiblingElement ();
@@ -95,5 +97,7 @@ void AGE_SpriteActor::addAnimationFromFile(AGE_Animation *animation, QDomElement
 
 void AGE_SpriteActor::action()
 {
+
+}
 
 }

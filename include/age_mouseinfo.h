@@ -1,6 +1,7 @@
 #ifndef AMOUSEEVENT_H
 #define AMOUSEEVENT_H
 
+namespace AGE2D{
 class AGE_MouseInfo
 {
 public:
@@ -13,5 +14,7 @@ private:
     int m_mouseX;
     int m_mouseY;
 };
+
+}
 
 #endif // AMOUSEEVENT_H

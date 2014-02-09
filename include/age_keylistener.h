@@ -2,6 +2,7 @@
 #define AGE_KEYLISTENER_H
 
 #include <QKeyEvent>
+namespace AGE2D{
 class AGE_KeyListener
 {
 public:
@@ -9,5 +10,7 @@ public:
 	virtual void onKeyRelease(QKeyEvent * event);
 	virtual void onKeyPress (QKeyEvent *event);
 };
+}
+
 
 #endif // AGE_KEYLISTENER_H

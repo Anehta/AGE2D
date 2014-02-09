@@ -1,7 +1,8 @@
 #ifndef AGE_ACCUMULATOR_H
 #define AGE_ACCUMULATOR_H
 
-
+namespace AGE2D
+{
 //累加器
 class AGE_Accumulator
 {
@@ -28,5 +29,7 @@ protected:
 	bool is_cycled;
 	bool is_touched;
 };
+}
+
 
 #endif // AGE_ACCUMULATOR_H

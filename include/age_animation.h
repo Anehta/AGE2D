@@ -5,6 +5,7 @@
 #include <../include/age_frame.h>
 #include <qstring.h>
 using namespace std;
+namespace AGE2D {
 class AGE_Animation
 {
 public:
@@ -17,5 +18,7 @@ protected:
 	QString name;
 	vector<AGE_Frame> m_list;
 };
+}
+
 
 #endif // AGE_ANIMATION_H

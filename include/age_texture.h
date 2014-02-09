@@ -4,6 +4,8 @@
 #include <QGLFunctions>
 #include <QImage>
 
+namespace AGE2D
+{
 class AGE_Texture : public QGLFunctions,public QImage
 {
 public:
@@ -20,5 +22,7 @@ private:
     void bindTexture();
     QString m_fileName;
 };
+}
+
 
 #endif // ATEXTURE2D_H

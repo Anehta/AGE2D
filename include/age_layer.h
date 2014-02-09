@@ -1,10 +1,11 @@
 #ifndef ALAYER_H
 #define ALAYER_H
 #include <list>
+#include "age_scene.h"
+#include "age_sprite.h"
+namespace AGE2D {
 
-class AGE_Scene;
 class AGE_Sprite;
-
 class AGE_Layer
 {
 public:
@@ -18,5 +19,7 @@ private:
     std::list<AGE_Sprite *> m_spriteList;
     void renderLayer();
 };
+}
+
 
 #endif // ALAYER_H

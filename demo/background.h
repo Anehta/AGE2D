@@ -2,7 +2,7 @@
 #define BACKGROUND_H
 #include <../include/age_spriteactor.h>
 #include <../include/age_keylistener.h>
-
+using namespace AGE2D;
 class BackGround : public AGE_Sprite,public AGE_KeyListener
 {
 public:

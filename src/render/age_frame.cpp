@@ -1,5 +1,6 @@
-#include <../include/AGE2D.h>
-
+#include <../include/age_frame.h>
+namespace AGE2D
+{
 AGE_Frame::AGE_Frame(AGE_Vector2D bl,AGE_Vector2D tr)
 {
 	this->bl=bl;
@@ -14,4 +15,6 @@ AGE_Vector2D AGE_Frame::bottomLeft()
 AGE_Vector2D AGE_Frame::topRight()
 {
 	return tr;
+}
+
 }

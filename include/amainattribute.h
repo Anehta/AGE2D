@@ -6,11 +6,13 @@
 #include <../include/age_vector2d.h>
 #include <../include/age_vector3d.h>
 #include <../include/age_matrix4x4.h>
-
+namespace AGE2D
+{
 class AGE_Scene;
 class AGE_KeyBoardEvent;
 class AGE_MouseInfo;
-
+class AGE_Vector2D;
+class AGE_Vector3D;
 struct VertexData
 {
     AGE_Vector3D postion;
@@ -35,4 +37,6 @@ int getTimeStep();
 
 AGE_Widget * getCurrentWidget();
 void setCurrentWidget(AGE_Widget *);
+}
+
 #endif // AVIEWPORTMATRIX_H

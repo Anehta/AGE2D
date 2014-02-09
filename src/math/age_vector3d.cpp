@@ -1,5 +1,6 @@
 #include <../include/AGE2D.h>
-
+namespace AGE2D
+{
 AGE_Vector3D::AGE_Vector3D()
 {
 }
@@ -44,4 +45,6 @@ AGE_Vector3D::AGE_Vector3D(const AGE_Vector4D &vector)
     setX(vector.x());
     setY(vector.y());
     setZ(0);
+}
+
 }

@@ -2,7 +2,7 @@
 
 using namespace std;
 
-
+namespace AGE2D{
 AGE_Scene::AGE_Scene()
 {
     m_listenerManager = NULL;
@@ -40,12 +40,12 @@ AGE_Layer *AGE_Scene::layer(int handle)
 void AGE_Scene::renderScene()
 {
     for(list<AGE_Layer *>::iterator alpha_it = m_layerList.begin();
-        alpha_it != m_layerList.end();
-        ++alpha_it)
+	alpha_it != m_layerList.end();
+	++alpha_it)
     {
-        AGE_Layer * temp = *alpha_it;
-        temp->renderLayer();
-        temp->action();
+	AGE_Layer * temp = *alpha_it;
+	temp->renderLayer();
+	temp->action();
     }
 
     action();
@@ -64,4 +64,6 @@ void AGE_Scene::setListenerManager(AGE_EventMgr * listenerManager)
 AGE_EventMgr *AGE_Scene::eventMgr()
 {
 	return m_listenerManager;
+}
+
 }

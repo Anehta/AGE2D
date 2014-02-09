@@ -1,5 +1,7 @@
 #include <../include/AGE2D.h>
 
+namespace AGE2D
+{
 AGE_Node::~AGE_Node()
 {
 
@@ -45,4 +47,6 @@ QMatrix4x4 AGE_Node::getMatrix()
     temp.translate(m_x,m_y,0);
     //m_matrix.scale(m_scale);
     return temp;
+}
+
 }
