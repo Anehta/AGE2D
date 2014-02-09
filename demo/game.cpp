@@ -2,13 +2,6 @@
 #include "../include/age_layer.h"
 #include <QGLFunctions>
 
-#include <ft2build.h>
-#include FT_FREETYPE_H
-#include <freetype/freetype.h>
-#include <freetype/ftglyph.h>
-#include <freetype/ftoutln.h>
-#include <freetype/fttrigon.h>
-
 Game * Game::game;
 Game *Game::single()
 {
@@ -28,10 +21,10 @@ Game::Game()
     background_music->audio();
     background_music->play();
 
-    back_ground_texture =new AATexture(":/background.png");
-    bullet_texture=new AATexture (":/bullet.png");
+    back_ground_texture =new ATexture(":/background.png");
+    bullet_texture=new ATexture (":/bullet.png");
     game_scene=new Gamescene();
-    diamod_texture = new AATexture(":/diamond.png");
+    diamod_texture = new ATexture(":/diamond.png");
 
     game_scene->setListenerManager (new AEventMgr());
 	hero=new Hero();
@@ -56,27 +49,27 @@ AScene *Game::getGameScene() const
 	return game_scene;
 }
 
-void Game::setGameScene(AScene *value)
+void Game::setGameScene(AScene *)
 {
     //game_scene = value;
 }
 
-AATexture *Game::getBullet_texture() const
+ATexture *Game::getBullet_texture() const
 {
 	return bullet_texture;
 }
 
-void Game::setBullet_texture(AATexture *value)
+void Game::setBullet_texture(ATexture *value)
 {
 	bullet_texture = value;
 }
 
-AATexture *Game::getDiamond_texture() const
+ATexture *Game::getDiamond_texture() const
 {
     return diamod_texture;
 }
 
-void Game::setDiamond_texture(AATexture *value)
+void Game::setDiamond_texture(ATexture *value)
 {
     diamod_texture = value;
 }

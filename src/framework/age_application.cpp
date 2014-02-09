@@ -1,4 +1,4 @@
-#include <../include/AGE2D.h>
+#include <../include/age_widget.h>
 #include "../include/age_application.h"
 
 #include <QApplication>

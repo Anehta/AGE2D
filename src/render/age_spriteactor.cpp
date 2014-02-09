@@ -11,7 +11,7 @@ ASpriteActor::ASpriteActor()
     initializeAll();
 }
 
-ASpriteActor::ASpriteActor(AATexture * bigDick)
+ASpriteActor::ASpriteActor(ATexture * bigDick)
 {
     bindTexture(bigDick);
     initializeAll();

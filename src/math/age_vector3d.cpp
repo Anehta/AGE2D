@@ -1,4 +1,9 @@
-#include <../include/AGE2D.h>
+#include <../include/age_vector3d.h>
+#include <../include/age_point.h>
+#include <../include/age_pointf.h>
+#include <../include/age_vector2d.h>
+#include <../include/age_vector3d.h>
+#include <../include/age_vector4d.h>
 namespace AGE2D
 {
 AVector3D::AVector3D()

@@ -1,26 +1,25 @@
-#include <../include/AGE2D.h>
+#include <../include/age_mouselistener.h>
 
 
 namespace AGE2D
 {
-AMouseListener::AMouseListener()
-{
+    AMouseListener::AMouseListener()
+    {
 
-}
+    }
 
-void AMouseListener::onMouseRelease(AMouseInfo info)
-{
-    info;
-}
+    void AMouseListener::onMouseRelease(AMouseInfo)
+    {
 
-void AMouseListener::onMousePress(AMouseInfo info)
-{
-    info;
-}
+    }
 
-void AMouseListener::onMouseMove(AMouseInfo info)
-{
-    info;
-}
+    void AMouseListener::onMousePress(AMouseInfo)
+    {
+
+    }
+
+    void AMouseListener::onMouseMove(AMouseInfo)
+    {
+    }
 
 }

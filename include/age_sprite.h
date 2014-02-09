@@ -18,12 +18,11 @@ public:
     ~ASprite();
     friend class ALayer;
     ASprite();
-    ASprite(AATexture *);
+    ASprite(ATexture *);
     void setShowRect(float lx,float ly,float rx,float ry);
     void setShowDet(int row,int col,int gridWidth,int gridHeigth);
 
-
-    void bindTexture(AATexture * fuckyou);
+    void bindTexture(ATexture * fuckyou);
     void bindTexture(int textureId);
     int getTextureId();
     void loadShaderProgram(QGLShaderProgram *);
@@ -51,7 +50,7 @@ public:
     void setWidth(float);
     void setHeight(float);
     //friend class ALayer;
-
+    void release();
 protected:
     virtual void action();
     virtual void shaderAction();
@@ -64,7 +63,7 @@ private:
     QGLShaderProgram *m_program;
     GLuint m_texId = 0;
 
-    AATexture m_texture;
+    ATexture m_texture;
     float mx_offset,my_offset;
     float m_angle;
 

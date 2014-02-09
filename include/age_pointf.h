@@ -4,6 +4,8 @@
 #include <QPointF>
 
 namespace AGE2D{
+class APoint;
+
 class APointF : public QPointF
 {
 public:

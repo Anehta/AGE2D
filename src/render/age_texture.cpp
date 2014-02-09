@@ -4,28 +4,28 @@
 #include <QDebug>
 namespace AGE2D
 {
-AATexture::AATexture()
+ATexture::ATexture()
 {
 }
 
-AATexture::AATexture(QString filename)
+ATexture::ATexture(QString filename)
 {
     loadFile(filename);
 }
 
-void AATexture::loadFile(QString filename)
+void ATexture::loadFile(QString filename)
 {
     initializeGLFunctions();
     m_fileName = filename;
     bindTexture();
 }
 
-GLuint AATexture::getTextureId()
+GLuint ATexture::getTextureId()
 {
     return m_texID;
 }
 
-void AATexture::bindTexture()
+void ATexture::bindTexture()
 {
     QImage buf;
     if(!buf.load(m_fileName))
@@ -57,10 +57,12 @@ void AATexture::bindTexture()
     glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_BORDER);
     glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_BORDER);
 #endif
-    float color[4] = { 1.0f, 1.0f, 1.0f, 0.0f };
+
 #ifdef GL_ES
+    float color[4] = { 1.0f, 1.0f, 1.0f, 0.0f };
     glTexParameterfv( GL_TEXTURE_2D, GL_TEXTURE_BORDER_COLOR_NV, color);
 #elseif
+    float color[4] = { 1.0f, 1.0f, 1.0f, 0.0f };
     glTexParameterfv( GL_TEXTURE_2D, GL_TEXTURE_BORDER_COLOR, color);
 #endif
 
@@ -71,12 +73,12 @@ void AATexture::bindTexture()
     //delete(&buf);
 }
 
-int AATexture::width()
+int ATexture::width()
 {
     return m_width;
 }
 
-int AATexture::height()
+int ATexture::height()
 {
     return m_height;
 }

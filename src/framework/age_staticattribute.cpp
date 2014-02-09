@@ -1,4 +1,6 @@
-#include <../include/AGE2D.h>
+#include <../include/age_matrix4x4.h>
+#include <../include/age_scene.h>
+#include <../include/age_widget.h>
 #include <QMouseEvent>
 #include <QKeyEvent>
 

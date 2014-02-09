@@ -1,4 +1,5 @@
-#include <../include/AGE2D.h>
+#include <../include/age_matrix4x4.h>
+#include <../include/age_node.h>
 
 namespace AGE2D
 {
@@ -41,9 +42,9 @@ float ANode::getScale()
     return m_scale;
 }
 
-QMatrix4x4 ANode::getMatrix()
+AMatrix4x4 ANode::getMatrix()
 {
-    QMatrix4x4 temp;
+    AMatrix4x4 temp;
     temp.translate(m_x,m_y,0);
     //m_matrix.scale(m_scale);
     return temp;

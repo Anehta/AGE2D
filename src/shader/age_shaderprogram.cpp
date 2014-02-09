@@ -41,7 +41,7 @@ bool AShaderProgram::addFragmentShader(QString fshaderFilename)
 
 }
 
-void AShaderProgram::initShaderEffect(int value)
+void AShaderProgram::initShaderEffect(int)
 {
 
 }

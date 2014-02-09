@@ -7,7 +7,7 @@ class BackGround : public ASprite,public AKeyListener
 {
 public:
     BackGround();
-    BackGround(AATexture *);
+    BackGround(ATexture *);
 protected:
     void shaderAction();
     virtual void onKeyPress(QKeyEvent *event);

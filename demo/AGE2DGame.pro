@@ -44,7 +44,6 @@ SOURCES += \
     ../src/listener/age_keyboardevent.cpp \
     ../src/listener/age_keylistener.cpp \
     ../src/listener/age_mouselistener.cpp \
-    ../src/listener/agewidgetevent.cpp \
     ../src/info/age_mouseinfo.cpp \
     ../src/framework/age_application.cpp \
     ../src/framework/age_layer.cpp \
@@ -52,11 +51,12 @@ SOURCES += \
     ../src/framework/age_utility.cpp \
     ../src/framework/age_widget.cpp \
     ../src/framework/age_widgetevent.cpp \
-    ../src/framework/amainattribute.cpp \
     ../src/framework/age_system.cpp \
+    ../src/framework/age_staticattribute.cpp \
     diamond.cpp \
     gamescene.cpp \
-    ../src/audio/age_audio.cpp
+    ../src/audio/age_audio.cpp \
+    ../include/age_font.cpp
 
 HEADERS  += \
     ../include/age_accumulator.h \
@@ -93,7 +93,6 @@ HEADERS  += \
     ../include/age_vector3d.h \
     ../include/age_vector4d.h \
     ../include/age_widget.h \
-    ../include/amainattribute.h \
     ../include/background.h \
     ../include/bullet.h \
     ../include/game.h \
@@ -108,7 +107,9 @@ HEADERS  += \
     ../include/AGE2D.h \
     diamond.h \
     gamescene.h \
-    ../include/age_audio.h
+    ../include/age_audio.h \
+    ../include/age_staticattribute.h \
+    ../include/age_font.h
 
 CONFIG += mobility c++11
 MOBILITY =

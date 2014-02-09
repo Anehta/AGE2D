@@ -12,7 +12,7 @@ using namespace std;
 
 namespace AGE2D
 {
-AWidget::AWidget(QWidget *parent)
+AWidget::AWidget(QWidget *)
     : QGLWidget(QGLFormat(QGL::DoubleBuffer))
 {
     setWindowTitle("fucker");

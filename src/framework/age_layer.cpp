@@ -23,7 +23,10 @@ void ALayer::renderLayer()
     {
 	if((*alpha_it)->isDeath == true)
 	{
-	    delete (*alpha_it);
+        ASprite *temp = *alpha_it;
+        temp->release();
+        free(temp);
+        //delete temp;
 	    alpha_it = m_spriteList.erase(alpha_it);
 	}
 	else

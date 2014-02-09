@@ -8,8 +8,6 @@ namespace AGE2D
 {
 ASprite::~ASprite()
 {
-    glDeleteBuffers(2,m_geometric.getVboId()); //1
-    delete m_geometric.getVboId(); //2
     //delete &m_geometric; //3
 }
 
@@ -18,10 +16,16 @@ ASprite::ASprite()
     initializeAll();
 }
 
-ASprite::ASprite(AATexture * bigDick)
+ASprite::ASprite(ATexture * bigDick)
 {
     bindTexture(bigDick);
     initializeAll();
+}
+
+void ASprite::release()
+{
+    glDeleteBuffers(2,m_geometric.getVboId()); //1
+    delete m_geometric.getVboId(); //2
 }
 
 void ASprite::action()
@@ -160,7 +164,7 @@ void ASprite::bindDefalutProgram()
     m_program = getDefalutShaderProgram();
 }
 
-void ASprite::bindTexture(AATexture *fuckyou)
+void ASprite::bindTexture(ATexture *fuckyou)
 {
     initializeGLFunctions();
     m_texId = fuckyou->getTextureId();

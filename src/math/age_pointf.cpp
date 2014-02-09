@@ -1,4 +1,5 @@
-#include <../include/AGE2D.h>
+#include <../include/age_pointf.h>
+#include <../include/age_point.h>
 
 namespace AGE2D
 {

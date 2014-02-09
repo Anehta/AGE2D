@@ -36,5 +36,5 @@
 #include "age_vector3d.h"
 #include "age_vector4d.h"
 #include "age_widget.h"
-#include "amainattribute.h"
+#include "age_staticattribute.h"
 #endif // AGE2D_H

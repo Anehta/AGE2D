@@ -1,4 +1,5 @@
 #include <../include/age_accumulator.h>
+
 namespace AGE2D {
 AAccumulator::AAccumulator(double init_value, double end_value, double speed, bool is_cycled)
 {

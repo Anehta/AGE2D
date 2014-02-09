@@ -9,7 +9,7 @@
 const double speed=0.3;
 Hero::Hero()
 {
-    m_texture=new AATexture(":/hero.png");
+    m_texture=new ATexture(":/hero.png");
 	this->bindTexture (m_texture);
 	 turn_left=false;
 	 turn_right=false;

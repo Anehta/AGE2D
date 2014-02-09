@@ -1,4 +1,4 @@
-#include <../include/AGE2D.h>
+#include <../include/age_polygon.h>
 #include <math.h>
 #include <QVector3D>
 #include <QDebug>
@@ -108,6 +108,8 @@ int APolygon::pointInPolygon2(AVector2D poPoint)
     for(std::vector<AVector2D>::iterator it = m_pointList.begin();
 	it!= m_pointList.end()-1;
 	++it);
+    return 0;
 }
+
 }
 

@@ -14,7 +14,7 @@ class ASpriteActor : public ASprite
 {
 public:
     ASpriteActor();
-    ASpriteActor(AATexture *);
+    ASpriteActor(ATexture *);
     ~ASpriteActor();
     void animate(QString actionName,int frames,bool isCycle); //执行动作
     void addAnimation(AAnimation);

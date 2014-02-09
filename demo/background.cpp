@@ -4,7 +4,7 @@ BackGround::BackGround()
 {
 }
 
-BackGround::BackGround(AATexture * tex)
+BackGround::BackGround(ATexture * tex)
 {
     bindTexture(tex);
 }

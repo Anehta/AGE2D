@@ -9,7 +9,7 @@ Diamond::Diamond()
 {
 }
 
-Diamond::Diamond(AATexture *tex)
+Diamond::Diamond(ATexture *tex)
 {
     bindTexture(tex);
 }

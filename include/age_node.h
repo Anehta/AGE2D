@@ -1,14 +1,16 @@
 #ifndef ANODE_H
 #define ANODE_H
-#include <QMatrix4x4>
+
+
 
 namespace AGE2D {
+class AMatrix4x4;
 class ANode
 {
 public:
     ANode();
     ~ANode();
-    virtual QMatrix4x4 getMatrix();
+    virtual AMatrix4x4 getMatrix();
     virtual void setX(float x);
     virtual void setY(float y);
     virtual void setScale(float value);

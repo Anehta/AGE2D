@@ -3,10 +3,12 @@
 #include <list>
 #include "age_scene.h"
 #include "age_sprite.h"
+#include <qglfunctions.h>
+
 namespace AGE2D {
 
 class ASprite;
-class ALayer
+class ALayer : public QGLFunctions
 {
 public:
     ALayer();

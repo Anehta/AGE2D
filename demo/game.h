@@ -18,11 +18,11 @@ class Game : public QGLFunctions
 public:
 	static Game * single();
 	static void Init();
-	AATexture *getBullet_texture() const;
-	void setBullet_texture(AATexture *value);
+    ATexture *getBullet_texture() const;
+    void setBullet_texture(ATexture *value);
 
-    AATexture *getDiamond_texture() const;
-    void setDiamond_texture(AATexture *value);
+    ATexture *getDiamond_texture() const;
+    void setDiamond_texture(ATexture *value);
 
 	AScene *getGameScene() const;
 	void setGameScene(AScene *value);
@@ -34,10 +34,10 @@ private:
 	static Game *game;
 
 	AEventMgr * event_mgr;
-	//AATexture * hero_texture;
-	AATexture * back_ground_texture;
-	AATexture * bullet_texture;
-    AATexture * diamod_texture;
+    //ATexture * hero_texture;
+    ATexture * back_ground_texture;
+    ATexture * bullet_texture;
+    ATexture * diamod_texture;
     AAudio *background_music;
     Gamescene * game_scene;
 

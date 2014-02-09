@@ -2,11 +2,12 @@
 #define AVECTOR3D_H
 
 #include <QVector3D>
-#include "age_point.h"
-#include "age_pointf.h"
-#include "age_vector2d.h"
-#include "age_vector4d.h"
 namespace AGE2D{
+
+class AVector2D;
+class AVector4D;
+class APointF;
+class APoint;
 
 class AVector3D : public QVector3D
 {

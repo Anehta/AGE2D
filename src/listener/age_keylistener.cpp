@@ -1,4 +1,4 @@
-#include <../include/AGE2D.h>
+#include <../include/age_keylistener.h>
 
 namespace AGE2D
 {
@@ -6,12 +6,12 @@ AKeyListener::AKeyListener()
 {
 }
 
-void AKeyListener::onKeyRelease(QKeyEvent *event)
+void AKeyListener::onKeyRelease(QKeyEvent *)
 {
 
 }
 
-void AKeyListener::onKeyPress(QKeyEvent *event)
+void AKeyListener::onKeyPress(QKeyEvent *)
 {
 
 }

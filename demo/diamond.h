@@ -6,7 +6,7 @@ class Diamond : public ASprite
 {
 public:
     Diamond();
-    Diamond(AATexture * tex);
+    Diamond(ATexture * tex);
     bool out_of_the_boundary(double x,double y);
 protected:
     virtual void action();

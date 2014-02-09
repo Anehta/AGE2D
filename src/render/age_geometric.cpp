@@ -1,5 +1,6 @@
 #include <../include/age_geometric.h>
-#include <../include/amainattribute.h>
+#include <../include/age_staticattribute.h>
+
 namespace AGE2D
 {
 AGeometric::AGeometric()

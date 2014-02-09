@@ -14,7 +14,7 @@ public:
 	virtual void action();
 protected:
 	bool is_in_the_boundary(double x, double y);
-	AATexture* m_texture;
+    ATexture* m_texture;
 	bool turn_left;
 	bool turn_right;
 	bool fore_ward;
