@@ -3,6 +3,8 @@
 
 using namespace AGE2D;
 
+void repairChar(wchar_t i,ASprite* sprite);
+
 AFont::AFont()
 {
 }
@@ -178,7 +180,11 @@ void AFont::print(QString str,int x , int y,ALayer * layer)
             g_FreeTypeLib->loadChar(_strText[i],width,height);
             xCharTexture* pCharTex = &g_TexID[_strText[i]];
             ASprite * sprite = new ASprite();
-            sprite->bindTexture(pCharTex->m_texID,width,height);
+            sprite->bindTexture(pCharTex->m_texID,g_TexID[_strText[i]].m_Width,g_TexID[_strText[i]].m_Height);
+            sprite->setX(sx);
+            sprite->setY(y);
+            repairChar(_strText[i],sprite);
+            sx+=sprite->width();
             m_spriteBuffer.push_back(sprite);
             sprite = NULL;
         }
@@ -188,9 +194,6 @@ void AFont::print(QString str,int x , int y,ALayer * layer)
             ++it)
         {
             ASprite * sprite = *it;
-            sprite->setX(sx);
-            sprite->setY(y);
-            sx+=sprite->width();
             layer->addChild(sprite);
             sprite = NULL;
         }
@@ -210,4 +213,27 @@ void AFont::init(int size,int maxw,int maxh,const char* ttfFileName)
 AFont::~AFont()
 {
     delete g_TexID;
+}
+
+void repairChar(wchar_t i,ASprite* sprite)
+{
+    switch (i) {
+    case '+':
+        sprite->setY(sprite->getY());
+        break;
+    case '-':
+        sprite->setY(sprite->height()*3+sprite->getY());
+        break;
+    case '*':
+        sprite->setY(sprite->height()+sprite->getY());
+        break;
+    case '`':
+        sprite->setY(sprite->height()/2+sprite->getY());
+        break;
+    case '\"':
+        sprite->setY(sprite->height()*3+sprite->getY());
+        break;
+    default:
+        break;
+    }
 }

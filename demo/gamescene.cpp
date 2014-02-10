@@ -4,7 +4,7 @@
 
 Gamescene::Gamescene()
 {
-    font = new AFont(10,50,50,":/STXINGKA.TTF");
+    font = new AFont(10,50,0,":/fzjzjt.ttf");
 }
 
 void Gamescene::init()
@@ -14,7 +14,7 @@ void Gamescene::init()
 
 void Gamescene::action()
 {
-    font->print("\"！@#￥%……&*&（）\"",100,100,Game::single()->getGameScene()->layer(2));
+    font->print("\"呵呵(nimabi)\"",100,100,Game::single()->getGameScene()->layer(2));
     static float value = 0;
     static bool fuck = true;
 
