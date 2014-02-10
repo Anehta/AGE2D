@@ -43,6 +43,14 @@ public:
     GLuint loadChar(wchar_t ch,int &w,int &h);
 };
 
+class AFontSprite : public ASprite
+{
+public:
+    AFontSprite();
+protected:
+    void release();
+};
+
 class AFont
 {
 public:
@@ -58,7 +66,10 @@ private:
     int m_size;
     QString m_strbuffer;
     const char * m_ttfFileName;
-    std::vector<ASprite*> m_spriteBuffer;
+    std::vector<AFontSprite*> m_spriteBuffer;
 };
+
+
+
 }
 #endif // AGE_FONT_H

@@ -3,7 +3,7 @@
 
 using namespace AGE2D;
 
-void repairChar(wchar_t i,ASprite* sprite);
+void repairChar(wchar_t i,AFontSprite* sprite);
 
 AFont::AFont()
 {
@@ -163,23 +163,23 @@ void AFont::print(QString str,int x , int y,ALayer * layer)
     else
     {
         m_strbuffer = str;
-        for(std::vector<ASprite*>::iterator it = m_spriteBuffer.begin();
+        for(std::vector<AFontSprite*>::iterator it = m_spriteBuffer.begin();
             it != m_spriteBuffer.end();
             ++it)
         {
-            ASprite * temp = *it;
-            //temp->destroy();
-            qDebug()<<"删除字符";
+            AFontSprite * temp = *it;
+            temp->destroy();
+            //qDebug()<<"删除字符";
         }
 
         m_spriteBuffer.clear();
-        qDebug()<<str;
+        //qDebug()<<str;
         for(unsigned int i = 0 ; i < wcslen(_strText) ; i++)
         {
             int width = 0,height =0;
             g_FreeTypeLib->loadChar(_strText[i],width,height);
             xCharTexture* pCharTex = &g_TexID[_strText[i]];
-            ASprite * sprite = new ASprite();
+            AFontSprite * sprite = new AFontSprite();
             sprite->bindTexture(pCharTex->m_texID,g_TexID[_strText[i]].m_Width,g_TexID[_strText[i]].m_Height);
             sprite->setX(sx);
             sprite->setY(y);
@@ -188,12 +188,12 @@ void AFont::print(QString str,int x , int y,ALayer * layer)
             m_spriteBuffer.push_back(sprite);
             sprite = NULL;
         }
-        qDebug()<<m_spriteBuffer.size();
-        for(std::vector<ASprite*>::iterator it = m_spriteBuffer.begin();
+        //qDebug()<<m_spriteBuffer.size();
+        for(std::vector<AFontSprite*>::iterator it = m_spriteBuffer.begin();
             it != m_spriteBuffer.end();
             ++it)
         {
-            ASprite * sprite = *it;
+            AFontSprite * sprite = *it;
             layer->addChild(sprite);
             sprite = NULL;
         }
@@ -215,7 +215,17 @@ AFont::~AFont()
     delete g_TexID;
 }
 
-void repairChar(wchar_t i,ASprite* sprite)
+AFontSprite::AFontSprite()
+{
+
+}
+
+void AFontSprite::release()
+{
+
+}
+
+void repairChar(wchar_t i,AFontSprite* sprite)
 {
     switch (i) {
     case '+':

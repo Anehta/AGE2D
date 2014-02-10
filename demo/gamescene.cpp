@@ -4,7 +4,7 @@
 
 Gamescene::Gamescene()
 {
-    font = new AFont(10,50,0,":/fzjzjt.ttf");
+    font = new AFont(10,30,0,":/fzjzjt.ttf");
 }
 
 void Gamescene::init()
@@ -14,7 +14,11 @@ void Gamescene::init()
 
 void Gamescene::action()
 {
-    font->print("\"呵呵(nimabi)\"",100,100,Game::single()->getGameScene()->layer(2));
+    static int str_num = 0;
+    str_num++;
+    QString strtemp;
+    strtemp = QString::number(str_num);
+    font->print("\"呵呵(nimabi)\""+strtemp,100,100,Game::single()->getGameScene()->layer(2));
     static float value = 0;
     static bool fuck = true;
 
