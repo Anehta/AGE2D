@@ -16,7 +16,6 @@ AWidget::AWidget(QWidget *)
     : QGLWidget(QGLFormat(QGL::DoubleBuffer))
 {
     setFixedSize(640,480);
-    setWindowOpacity(0.005);
 }
 
 AWidget::~AWidget()

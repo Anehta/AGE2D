@@ -56,7 +56,7 @@ SOURCES += \
     diamond.cpp \
     gamescene.cpp \
     ../src/audio/age_audio.cpp \
-    ../include/age_font.cpp
+    ../src/font/age_font.cpp
 
 HEADERS  += \
     ../include/age_accumulator.h \

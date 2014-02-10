@@ -37,7 +37,8 @@ void ALayer::renderLayer()
 	    alpha_it++;
 	}
     }
-   // qDebug()<<m_spriteList.size();
+
+    //qDebug()<<m_spriteList.size();
 }
 
 void ALayer::action()

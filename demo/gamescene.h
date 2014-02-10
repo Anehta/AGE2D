@@ -2,6 +2,8 @@
 #define GAMESCENE_H
 
 #include "../include/AGE2D.h"
+#include "../include/age_font.h"
+
 using namespace AGE2D;
 class Gamescene : public AScene
 {
@@ -14,6 +16,7 @@ protected:
 
 private:
     int value = 0;
+    AFont *font;
 };
 
 #endif // GAMESCENE_H

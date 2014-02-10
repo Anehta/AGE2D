@@ -5,11 +5,13 @@
 #include <../include/age_node.h>
 #include <../include/age_geometric.h>
 #include <../include/age_texture.h>
+
 #include <memory>
 #include "age_layer.h"
 #include "age_texture.h"
 #include "age_geometric.h"
 #include "age_node.h"
+#include "age_vector2d.h"
 
 namespace AGE2D {
 class ASprite : public ANode,protected QGLFunctions
@@ -23,7 +25,7 @@ public:
     void setShowDet(int row,int col,int gridWidth,int gridHeigth);
 
     void bindTexture(ATexture * fuckyou);
-    void bindTexture(int textureId);
+    void bindTexture(int textureId,int width,int height);
     int getTextureId();
     void loadShaderProgram(QGLShaderProgram *);
     void initGeometric();
@@ -32,33 +34,41 @@ public:
     void rotate(float angle);
 
     float leftTopX();
-    float rightTopX();
-    float leftBottonX();
-    float rightBottonX();
     float leftTopY();
+    AVector2D leftTop();
+
+    float rightTopX();
     float rightTopY();
+    AVector2D rightTop();
+
+    float leftBottonX();
     float leftBottonY();
+    AVector2D leftBotton();
+
+    float rightBottonX();
     float rightBottonY();
+    AVector2D rightBotton();
+
     float middleX();
     float middleY();
+    AVector2D middle();
 
     float width();
     float height();
-
+    AVector2D size();
     void destroy();
     QGLShaderProgram *getShaderProgram();
     void setWidth(float);
     void setHeight(float);
     //friend class ALayer;
-    void release();
 protected:
     virtual void action();
     virtual void shaderAction();
+    virtual void release();
+    virtual void render();
     AGeometric m_geometric;
     void initializeAll();
-
 private:
-    void render();
     void computeMatrix();
     QGLShaderProgram *m_program;
     GLuint m_texId = 0;

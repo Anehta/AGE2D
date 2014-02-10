@@ -176,10 +176,16 @@ void ASprite::bindTexture(ATexture *fuckyou)
     initializeAll();
 }
 
-void ASprite::bindTexture(int textureId)
+void ASprite::bindTexture(int textureId,int width,int height)
 {
+    initializeGLFunctions();
     m_texId = textureId;
-
+    bindDefalutProgram();
+    m_geometric.initParameter(width,height,
+                  width,height,
+                  0,0,
+                  width,height);
+    initializeAll();
 }
 
 int ASprite::getTextureId()
@@ -194,7 +200,15 @@ float ASprite::width()
 
 float ASprite::height()
 {
-    return m_geometric.height();
+	return m_geometric.height();
+}
+
+AVector2D ASprite::size()
+{
+	AVector2D size;
+	size.setX (width());
+	size.setY (height());
+	return size;
 }
 
 void ASprite::setWidth(float width)
@@ -258,10 +272,26 @@ float ASprite::leftTopY()
     return m_leftTopY;
 }
 
+AVector2D ASprite::leftTop()
+{
+	AVector2D a;
+	a.setX (leftTopX());
+	a.setY (leftTopY());
+	return a;
+}
+
 float ASprite::rightTopY()
 {
     isNeedRealTime = true;
     return m_rightTopY;
+}
+
+AVector2D ASprite::rightTop()
+{
+	AVector2D a;
+	a.setX (rightTopX());
+	a.setY (rightTopY());
+	return a;
 }
 
 float ASprite::leftBottonY()
@@ -270,10 +300,26 @@ float ASprite::leftBottonY()
     return m_leftBottonY;
 }
 
+AVector2D ASprite::leftBotton()
+{
+	AVector2D a;
+	a.setX (leftBottonX());
+	a.setY (leftBottonY());
+	return a;
+}
+
 float ASprite::rightBottonY()
 {
     isNeedRealTime = true;
     return m_rightBottonY;
+}
+
+AVector2D ASprite::rightBotton()
+{
+	AVector2D a;
+	a.setX (rightBottonX());
+	a.setY (rightBottonY());
+	return a;
 }
 
 void ASprite::destroy()
@@ -288,7 +334,15 @@ float ASprite::middleX()
 
 float ASprite::middleY()
 {
-    return getY()+height()/2;
+	return getY()+height()/2;
+}
+
+AVector2D ASprite::middle()
+{
+	AVector2D a;
+    a.setX (this->middleX());
+    a.setY (this->middleY());
+	return a;
 }
 
 void ASprite::loadShaderProgram(QGLShaderProgram * program)

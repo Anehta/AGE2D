@@ -19,7 +19,13 @@ void ANode::setX(float x)
 
 void ANode::setY(float y)
 {
-    m_y = y;
+	m_y = y;
+}
+
+void ANode::setPos(AVector2D pos)
+{
+	m_x=pos.x ();
+	m_y=pos.y ();
 }
 
 void ANode::setScale(float value)
@@ -34,7 +40,15 @@ float ANode::getX()
 
 float ANode::getY()
 {
-    return m_y;
+	return m_y;
+}
+
+AVector2D ANode::pos()
+{
+	AVector2D a;
+	a.setX (getX());
+	a.setY (getY());
+	return a;
 }
 
 float ANode::getScale()

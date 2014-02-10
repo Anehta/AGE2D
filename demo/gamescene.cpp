@@ -4,7 +4,7 @@
 
 Gamescene::Gamescene()
 {
-
+    font = new AFont(10,50,50,":/STXINGKA.TTF");
 }
 
 void Gamescene::init()
@@ -14,6 +14,7 @@ void Gamescene::init()
 
 void Gamescene::action()
 {
+    font->print("\"！@#￥%……&*&（）\"",100,100,Game::single()->getGameScene()->layer(2));
     static float value = 0;
     static bool fuck = true;
 
@@ -34,7 +35,7 @@ void Gamescene::action()
         }
     }
 
-    ASystem::GetWidget()->setWindowOpacity(value);
+    //ASystem::GetWidget()->setWindowOpacity(value);
     /*if(value%2 == 1)
     {
         Diamond * fucker = new Diamond(Game::single()->getDiamond_texture());
