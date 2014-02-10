@@ -1,7 +1,7 @@
 #include "gamescene.h"
 #include "diamond.h"
 #include "game.h"
-
+#include "../include/age_baseentity.h"
 Gamescene::Gamescene()
 {
     font = new AFont(10,30,0,":/fzjzjt.ttf");
@@ -14,6 +14,14 @@ void Gamescene::init()
 
 void Gamescene::action()
 {
+    ABaseEntity * temp = Game::single()->getGameScene()->getBaseEntity("fucker");
+
+    if(temp->type() == ABaseEntityType::LAYER_ENTITY)
+    {
+        qDebug()<<"取出fucker";
+    }
+
+
     static int str_num = 0;
     str_num++;
     QString strtemp;

@@ -35,10 +35,13 @@ Game::Game()
     back_ground_actor->setX(-100);
     back_ground_actor->setY(-100);
     back_ground_actor->loadShaderProgram(m_program);
+    //back_ground_actor->setName("background");
 
     game_scene->eventMgr()->addKeyListener(back_ground_actor);
 
     game_scene->addLayer (new ALayer());
+    game_scene->layer(1)->setName("fucker");
+
     game_scene->layer (1)->addChild (back_ground_actor);
 	game_scene->layer (2)->addChild (hero);
 	game_scene->activate ();

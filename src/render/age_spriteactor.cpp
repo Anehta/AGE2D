@@ -1,4 +1,4 @@
-#include <../include/AGE2D.h>
+#include <../include/age_spriteactor.h>
 
 #include <QDomDocument>
 #include <qfile.h>
@@ -8,11 +8,13 @@ namespace AGE2D
 {
 ASpriteActor::ASpriteActor()
 {
+	this->m_type=SPRITE_ACTOR_ENTITY;
     initializeAll();
 }
 
 ASpriteActor::ASpriteActor(ATexture * bigDick)
 {
+	this->m_type=SPRITE_ACTOR_ENTITY;
     bindTexture(bigDick);
     initializeAll();
 }

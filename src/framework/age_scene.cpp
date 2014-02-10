@@ -1,5 +1,6 @@
-#include <../include/AGE2D.h>
-
+#include "../include/age_scene.h"
+#include "../include/age_staticattribute.h"
+#include <utility>
 using namespace std;
 
 namespace AGE2D{
@@ -18,14 +19,41 @@ void AScene::activate()
 int AScene::addLayer()
 {
 	ALayer *layerPointer =new ALayer();
+	layerPointer->m_parent=this;
     m_layerList.push_back(layerPointer);
+    insertBaseEntity(layerPointer);
     return m_layerList.size ();
+}
+
+ABaseEntity *AScene::getBaseEntity(string name)
+{
+	std::map<std::string,ABaseEntity *>::iterator i= this->m_name_pool.find (name);
+	std::pair<std::string,ABaseEntity *> result_pair =(*i);
+	return result_pair.second;
+}
+
+void AScene::insertBaseEntity(ABaseEntity *entity)
+{
+	std::pair<std::string,ABaseEntity *> handle(entity->name (),entity);
+	this->m_name_pool.insert (handle);
+}
+
+void AScene::updateBaseEntity(string old_name, string new_name)
+{
+	std::map<std::string,ABaseEntity *>::iterator i;
+	i=this->m_name_pool.find (old_name);
+	ABaseEntity * e=i->second;
+	this->m_name_pool.erase (i);
+	std::pair<std::string,ABaseEntity *> handle(new_name,e);
+	this->m_name_pool.insert (handle);
 }
 
 
 int AScene::addLayer (ALayer * pointer)
 {
+	pointer->m_parent=this;
 	m_layerList.push_back(pointer);
+	insertBaseEntity(pointer);
 	return m_layerList.size ();
 }
 

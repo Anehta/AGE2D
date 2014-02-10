@@ -1,4 +1,5 @@
-#include <../include/AGE2D.h>
+#include <../include/age_widget.h>
+#include <../include/age_staticattribute.h>
 #include <QMouseEvent>
 #include <QTouchEvent>
 #include <QKeyEvent>

@@ -1,5 +1,5 @@
-#include "../include/AGE2D.h"
 #include "../include/age_system.h"
+#include "../include/age_staticattribute.h"
 #include <iostream>
 
 using namespace std;

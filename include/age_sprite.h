@@ -5,7 +5,7 @@
 #include <../include/age_node.h>
 #include <../include/age_geometric.h>
 #include <../include/age_texture.h>
-
+#include <../include/age_baseentity.h>
 #include <memory>
 #include "age_layer.h"
 #include "age_texture.h"
@@ -14,7 +14,8 @@
 #include "age_vector2d.h"
 
 namespace AGE2D {
-class ASprite : public ANode,protected QGLFunctions
+class ALayer;
+class ASprite : public ANode,protected QGLFunctions,public ABaseEntity
 {
 public:
     ~ASprite();
@@ -60,8 +61,14 @@ public:
     QGLShaderProgram *getShaderProgram();
     void setWidth(float);
     void setHeight(float);
+
+    ALayer * parent();
+
+    virtual void setName(std::string new_name);
+
     //friend class ALayer;
 protected:
+    ALayer * m_parent;
     virtual void action();
     virtual void shaderAction();
     virtual void release();

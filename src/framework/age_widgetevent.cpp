@@ -1,1 +1,1 @@
-#include <../include/AGE2D.h>
+#include <../include/age_widget.h>

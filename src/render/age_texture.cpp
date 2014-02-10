@@ -1,4 +1,4 @@
-#include <../include/AGE2D.h>
+#include <../include/age_texture.h>
 #include <QVector3D>
 #include <QVector2D>
 #include <QDebug>

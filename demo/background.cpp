@@ -1,4 +1,5 @@
 #include "background.h"
+#include "game.h"
 
 BackGround::BackGround()
 {
@@ -11,6 +12,7 @@ BackGround::BackGround(ATexture * tex)
 
 void BackGround::shaderAction()
 {
+
     t+=0.07416/2+ts;
 
     if(up)

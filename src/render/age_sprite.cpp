@@ -1,4 +1,5 @@
-#include <../include/AGE2D.h>
+#include <../include/age_sprite.h>
+#include <../include/age_staticattribute.h>
 #include <memory>
 #include <QGLShader>
 
@@ -13,11 +14,13 @@ ASprite::~ASprite()
 
 ASprite::ASprite()
 {
+	this->m_type=SPRITE_ENTITY;
     initializeAll();
 }
 
 ASprite::ASprite(ATexture * bigDick)
 {
+	this->m_type=SPRITE_ENTITY;
     bindTexture(bigDick);
     initializeAll();
 }
@@ -218,7 +221,19 @@ void ASprite::setWidth(float width)
 
 void ASprite::setHeight(float height)
 {
-    m_geometric.setHeight(height);
+	m_geometric.setHeight(height);
+}
+
+ALayer *ASprite::parent()
+{
+	return m_parent;
+}
+
+void ASprite::setName(string new_name)
+{
+	AScene *scene=m_parent->parent ();
+	scene->updateBaseEntity (this->name (),new_name);
+	this->identity_name=new_name;
 }
 
 void ASprite::setPivotOffset(float x_offset, float y_offset)
@@ -234,6 +249,7 @@ void ASprite::rotate(float angle)
 
 void ASprite::initializeAll()
 {
+
     setPivotOffset(0,0);
     rotate(0);
     setX(0);

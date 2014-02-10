@@ -57,7 +57,8 @@ SOURCES += \
     diamond.cpp \
     gamescene.cpp \
     ../src/audio/age_audio.cpp \
-    ../src/font/age_font.cpp
+    ../src/font/age_font.cpp \
+    ../src/framework/age_baseentity.cpp
 
 HEADERS  += \
     ../include/age_accumulator.h \
@@ -110,7 +111,8 @@ HEADERS  += \
     gamescene.h \
     ../include/age_audio.h \
     ../include/age_staticattribute.h \
-    ../include/age_font.h
+    ../include/age_font.h \
+    ../include/age_baseentity.h
 
 CONFIG += mobility c++11
 MOBILITY =

@@ -1,19 +1,38 @@
-#include <../include/AGE2D.h>
+#include "../include/age_layer.h"
 using namespace std;
 namespace AGE2D{
 ALayer::ALayer()
 {
-
+	this->m_type=LAYER_ENTITY;
 }
 
 ALayer::ALayer(ASprite *spritePointer)
 {
+	this->m_type=LAYER_ENTITY;
     addChild(spritePointer);
 }
 
 void ALayer::addChild(ASprite *spritePointer)
 {
-    m_spriteList.push_back(spritePointer);
+	AScene *scene =m_parent;
+    if(m_parent)
+	{
+		scene->insertBaseEntity (spritePointer);
+		spritePointer->m_parent=this;
+        m_spriteList.push_back(spritePointer);
+	}
+}
+
+void ALayer::setName(string new_name)
+{
+    AScene *scene=m_parent;
+    scene->updateBaseEntity (this->name (),new_name);
+    this->identity_name=new_name;
+}
+
+AScene *ALayer::parent()
+{
+	return m_parent;
 }
 
 void ALayer::renderLayer()
