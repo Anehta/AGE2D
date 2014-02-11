@@ -12,7 +12,7 @@
 #include "age_geometric.h"
 #include "age_node.h"
 #include "age_vector2d.h"
-
+#include <stdlib.h>
 namespace AGE2D {
 class ALayer;
 class ASprite : public ANode,protected QGLFunctions,public ABaseEntity

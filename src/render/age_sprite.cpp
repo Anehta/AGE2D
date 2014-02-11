@@ -15,12 +15,14 @@ ASprite::~ASprite()
 ASprite::ASprite()
 {
 	this->m_type=SPRITE_ENTITY;
+	this->m_parent=NULL;
     initializeAll();
 }
 
 ASprite::ASprite(ATexture * bigDick)
 {
 	this->m_type=SPRITE_ENTITY;
+	this->m_parent=NULL;
     bindTexture(bigDick);
     initializeAll();
 }
@@ -231,8 +233,11 @@ ALayer *ASprite::parent()
 
 void ASprite::setName(string new_name)
 {
-	AScene *scene=m_parent->parent ();
-	scene->updateBaseEntity (this->name (),new_name);
+	if(m_parent && m_parent->parent ())
+	{
+		AScene *scene=m_parent->parent ();
+		scene->updateBaseEntity (this->name (),new_name);
+	}
 	this->identity_name=new_name;
 }
 

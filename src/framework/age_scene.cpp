@@ -1,6 +1,7 @@
 #include "../include/age_scene.h"
 #include "../include/age_staticattribute.h"
 #include <utility>
+#include <stdlib.h>
 using namespace std;
 
 namespace AGE2D{
@@ -28,8 +29,15 @@ int AScene::addLayer()
 ABaseEntity *AScene::getBaseEntity(string name)
 {
 	std::map<std::string,ABaseEntity *>::iterator i= this->m_name_pool.find (name);
-	std::pair<std::string,ABaseEntity *> result_pair =(*i);
-	return result_pair.second;
+	if(i!=this->m_name_pool.end ())
+	{
+		std::pair<std::string,ABaseEntity *> result_pair =(*i);
+		return result_pair.second;
+	}else
+	{
+		return NULL;
+	}
+
 }
 
 void AScene::insertBaseEntity(ABaseEntity *entity)

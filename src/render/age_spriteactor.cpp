@@ -3,18 +3,20 @@
 #include <QDomDocument>
 #include <qfile.h>
 #include <qdebug.h>
-
+#include <stdlib.h>
 namespace AGE2D
 {
 ASpriteActor::ASpriteActor()
 {
 	this->m_type=SPRITE_ACTOR_ENTITY;
     initializeAll();
+    this->m_parent=NULL;
 }
 
 ASpriteActor::ASpriteActor(ATexture * bigDick)
 {
 	this->m_type=SPRITE_ACTOR_ENTITY;
+	this->m_parent=NULL;
     bindTexture(bigDick);
     initializeAll();
 }

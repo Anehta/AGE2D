@@ -1,7 +1,7 @@
 #include "game.h"
 #include "../include/age_layer.h"
 #include <QGLFunctions>
-
+#include "../include/age_baseentity.h"
 Game * Game::game;
 Game *Game::single()
 {
@@ -35,7 +35,7 @@ Game::Game()
     back_ground_actor->setX(-100);
     back_ground_actor->setY(-100);
     back_ground_actor->loadShaderProgram(m_program);
-    //back_ground_actor->setName("background");
+    back_ground_actor->setName("background");
 
     game_scene->eventMgr()->addKeyListener(back_ground_actor);
 
@@ -44,6 +44,15 @@ Game::Game()
 
     game_scene->layer (1)->addChild (back_ground_actor);
 	game_scene->layer (2)->addChild (hero);
+
+
+	ABaseEntity * a= game_scene->getBaseEntity ("background");
+	if(a!=NULL)
+	{
+		qDebug()<<"the type is"<<a->type ();
+		ASprite * result=(ASprite *)a;
+	}
+
 	game_scene->activate ();
 
     ASystem::GetWidget()->setWindowTitle("AGE");

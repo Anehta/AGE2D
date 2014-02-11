@@ -14,14 +14,6 @@ void Gamescene::init()
 
 void Gamescene::action()
 {
-    ABaseEntity * temp = Game::single()->getGameScene()->getBaseEntity("fucker");
-
-    if(temp->type() == ABaseEntityType::LAYER_ENTITY)
-    {
-        qDebug()<<"取出fucker";
-    }
-
-
     static int str_num = 0;
     str_num++;
     QString strtemp;
