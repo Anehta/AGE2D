@@ -36,7 +36,7 @@ Game::Game()
     back_ground_actor->setY(-100);
     back_ground_actor->loadShaderProgram(m_program);
     back_ground_actor->setName("background");
-
+    back_ground_actor->setColor(0,1,0);
     game_scene->eventMgr()->addKeyListener(back_ground_actor);
 
     game_scene->addLayer (new ALayer());

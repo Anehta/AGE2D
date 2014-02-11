@@ -18,6 +18,7 @@ xCharTexture::xCharTexture()
 }
 
 xCharTexture * g_TexID = new xCharTexture[65536];
+//AFontSprite * sprite = new AFontSprite[65536];
 
 xFreeTypeLib::xFreeTypeLib()
 {
@@ -178,7 +179,7 @@ void AFont::print(QString str,int x , int y,ALayer * layer)
         {
             int width = 0,height =0;
             g_FreeTypeLib->loadChar(_strText[i],width,height);
-            xCharTexture* pCharTex = &g_TexID[_strText[i]];
+            xCharTexture * pCharTex = &g_TexID[_strText[i]];
             AFontSprite * sprite = new AFontSprite();
             sprite->bindTexture(pCharTex->m_texID,g_TexID[_strText[i]].m_Width,g_TexID[_strText[i]].m_Height);
             sprite->setX(sx);
@@ -212,7 +213,7 @@ void AFont::init(int size,int maxw,int maxh,const char* ttfFileName)
 
 AFont::~AFont()
 {
-    delete g_TexID;
+    //delete g_TexID;
 }
 
 AFontSprite::AFontSprite()
@@ -222,7 +223,8 @@ AFontSprite::AFontSprite()
 
 void AFontSprite::release()
 {
-
+    glDeleteBuffers(2,m_geometric.getVboId()); //1
+    free(m_geometric.getVboId()); //2
 }
 
 void repairChar(wchar_t i,AFontSprite* sprite)

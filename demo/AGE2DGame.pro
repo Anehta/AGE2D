@@ -112,7 +112,9 @@ HEADERS  += \
     ../include/age_audio.h \
     ../include/age_staticattribute.h \
     ../include/age_font.h \
-    ../include/age_baseentity.h
+    ../include/age_baseentity.h \
+    age_rgb.h \
+    ../include/age_color.h
 
 CONFIG += mobility c++11
 MOBILITY =

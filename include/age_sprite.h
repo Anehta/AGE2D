@@ -12,6 +12,7 @@
 #include "age_geometric.h"
 #include "age_node.h"
 #include "age_vector2d.h"
+#include "age_color.h"
 #include <stdlib.h>
 namespace AGE2D {
 class ALayer;
@@ -33,6 +34,9 @@ public:
 
     void setPivotOffset(float x_offset,float y_offset); //Set the axis
     void rotate(float angle);
+    void setColor(float r,float g,float b);
+    void setColor(long int rgb);
+    void setAlpha(float alpha);
 
     float leftTopX();
     float leftTopY();
@@ -83,7 +87,8 @@ private:
     ATexture m_texture;
     float mx_offset,my_offset;
     float m_angle;
-
+    GLfloat m_alpha;
+    AColor m_color;
     bool isDeath = false;
     bool isNeedRealTime = false;
     void bindDefalutProgram();

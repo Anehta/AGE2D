@@ -15,7 +15,6 @@ protected:
 };
 }
 
-
 #endif // AFRAME_H
 
 

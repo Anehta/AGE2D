@@ -50,8 +50,7 @@ void ALayer::renderLayer()
 	{
         ASprite *temp = *alpha_it;
         temp->release();
-        free(temp);
-        //delete temp;
+        delete temp;
 	    alpha_it = m_spriteList.erase(alpha_it);
 	}
 	else

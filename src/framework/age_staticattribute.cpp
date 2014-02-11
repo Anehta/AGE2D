@@ -55,12 +55,14 @@ void initDefalutShaderProgram()
 	    "}";
     char fsh[] =
 	    "uniform sampler2D source;\n"
-	    "uniform lowp float qt_Opacity;\n"
+            "uniform float red;\n"
+            "uniform float green;\n"
+            "uniform float blue;\n"
 	    "varying vec2 v_texCoord;\n"
-
+        "uniform lowp float age_Opacity;\n"
 	    "void main()\n"
 	    "{\n"
-		"gl_FragColor = texture2D(source, v_texCoord);\n"
+        "gl_FragColor = texture2D(source, v_texCoord)*vec4(red,green,blue,age_Opacity);\n"
 	    "}\n"
 	    ;
 

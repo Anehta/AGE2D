@@ -27,10 +27,10 @@ void AGeometric::initializeAll()
 void AGeometric::initRectGeometric()
 {
     VertexData vertices[] ={
-	{AVector3D(0,0,0),AVector2D((double)m_leftTopX/(double)m_imageWidth , (double)m_leftTopY/(double)m_imageHeight)},
-	{AVector3D(m_width,0,0),AVector2D((double)m_rightBottonX/(double)m_imageWidth , (double)m_leftTopY/(double)m_imageHeight)},
-	{AVector3D(m_width,m_height,0),AVector2D((double)m_rightBottonX/(double)m_imageWidth,(double)m_rightBottonY/(double)m_imageHeight)},
-	{AVector3D(0,m_height,0),AVector2D((double)m_leftTopX/m_imageWidth,(double)m_rightBottonY/m_imageHeight)}
+    {AVector3D(0,0,-0.011),AVector2D((double)m_leftTopX/(double)m_imageWidth , (double)m_leftTopY/(double)m_imageHeight)},
+    {AVector3D(m_width,0,-0.011),AVector2D((double)m_rightBottonX/(double)m_imageWidth , (double)m_leftTopY/(double)m_imageHeight)},
+    {AVector3D(m_width,m_height,-0.011),AVector2D((double)m_rightBottonX/(double)m_imageWidth,(double)m_rightBottonY/(double)m_imageHeight)},
+    {AVector3D(0,m_height,-0.011),AVector2D((double)m_leftTopX/m_imageWidth,(double)m_rightBottonY/m_imageHeight)}
     };
 
 

@@ -58,7 +58,6 @@ void ASprite::render()
 {
     m_program->bind();
     shaderAction();
-
     glDepthMask(GL_FALSE);
 
     computeMatrix();
@@ -82,15 +81,18 @@ void ASprite::render()
     m_program->enableAttributeArray(texcoordLocation);
     glVertexAttribPointer(texcoordLocation, 2, GL_FLOAT, GL_FALSE, sizeof(VertexData), (const void *)offset);
 
-
     m_program->setUniformValue("source",0);
+    m_program->setUniformValue("age_Opacity",m_alpha);
+    m_program->setUniformValue("red",m_color.red);
+    m_program->setUniformValue("green",m_color.green);
+    m_program->setUniformValue("blue",m_color.blue);
+
     glDrawElements(GL_TRIANGLE_STRIP, 5, GL_UNSIGNED_SHORT, 0);
 
     glDepthMask(GL_TRUE);
 
     glBindBuffer(GL_ARRAY_BUFFER,0);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,0);
-
 }
 
 void ASprite::computeMatrix()
@@ -254,12 +256,13 @@ void ASprite::rotate(float angle)
 
 void ASprite::initializeAll()
 {
-
     setPivotOffset(0,0);
     rotate(0);
     setX(0);
     setY(0);
     setScale(0);
+    m_color.setColor(1.0,1.0,1.0);
+    m_alpha = 1.0;
 }
 
 
@@ -379,6 +382,20 @@ QGLShaderProgram * ASprite::getShaderProgram()
 void ASprite::shaderAction()
 {
 
+}
+
+void ASprite::setColor(float r, float g, float b)
+{
+    m_color.red = r;
+    m_color.green = g;
+    m_color.blue = b;
+}
+
+void ASprite::setColor(long int rgb)
+{
+    m_color.red = AGE_GetRValue(rgb);
+    m_color.green = AGE_GetGValue(rgb);
+    m_color.blue = AGE_GetBValue(rgb);
 }
 }
 
