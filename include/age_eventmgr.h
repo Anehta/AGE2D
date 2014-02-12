@@ -19,6 +19,7 @@ public:
     void addMouseListener(AMouseListener * a);
     void addKeyListener(AKeyListener *a);
     friend class AWidget;
+    friend class AScene;
     std::list<ABaseListener *> * getList();
 protected:
     virtual void run();
@@ -27,6 +28,8 @@ protected:
     virtual void mouseReleaseEvent(QMouseEvent *);
     virtual void keyReleaseEvent (QKeyEvent *a);
     virtual void keyPressEvent(QKeyEvent *);
+    virtual void beforeFrameEvent();
+    virtual void afterFrameEvent();
 private:
     std::list<ABaseListener *> listenerList;
     std::list<AMouseListener *> m_mouse_listener_list;

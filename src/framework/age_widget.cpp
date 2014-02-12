@@ -50,7 +50,6 @@ void AWidget::resizeGL(int w, int h)
     projection.setToIdentity();
     qDebug()<<"widget:"<<w<<"height:"<<h;
     static int wi = w, he = h;
-
     //projection.ortho(0,wi,0,he,-1,1);
     projection.frustum (0,wi,0,he,0.01,50);
 

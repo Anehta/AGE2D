@@ -10,6 +10,7 @@ const double speed=0.3;
 Hero::Hero()
 {
     m_texture=new ATexture(":/hero.png");
+    this->setPos(AVector2D(200,200));
 	this->bindTexture (m_texture);
 	 turn_left=false;
 	 turn_right=false;
@@ -80,19 +81,19 @@ void Hero::action()
 	AVector2D velocity(0,0);
 	if(turn_left==true)
 	{
-        velocity.setX (velocity.x ()-speed*ASystem::timeStep ());
+        velocity.setX (velocity.x ()-speed*ASystem::TimeStep ());
 	}
 	if(turn_right==true)
 	{
-        velocity.setX (velocity.x ()+speed*ASystem::timeStep ());
+        velocity.setX (velocity.x ()+speed*ASystem::TimeStep ());
 	}
 	if(fore_ward==true)
 	{
-        velocity.setY (velocity.y ()+speed*ASystem::timeStep ());
+        velocity.setY (velocity.y ()+speed*ASystem::TimeStep ());
 	}
 	if(back_ward==true)
 	{
-        velocity.setY (velocity.y ()-speed*ASystem::timeStep ());
+        velocity.setY (velocity.y ()-speed*ASystem::TimeStep ());
 	}
 	if(sneak)
 	{
@@ -105,7 +106,7 @@ void Hero::action()
 	}
 
 
-    fire_cd->step (ASystem::timeStep ());
+    fire_cd->step (ASystem::TimeStep ());
 
     if(fire_cd->isTouched ())
     {
@@ -123,7 +124,6 @@ void Hero::action()
             //game_scene->layer (2)->addChild (new Bullet(AVector2D(this->middleX()-15,this->middleY()-15),0.3,0.1,true));
            // game_scene->layer (2)->addChild (new Bullet(AVector2D(this->middleX()-15,this->middleY()-15),0.5,0.1,false));
             //game_scene->layer (2)->addChild (new Bullet(AVector2D(this->middleX()-15,this->middleY()-15),0.3,0.1,false));
-
         }
 
      }

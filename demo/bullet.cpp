@@ -33,7 +33,7 @@ bool Bullet::out_of_the_boundary(double x,double y)
 void Bullet::action()
 {
 
-    AVector2D vec(speed*ASystem::timeStep (),speed*ASystem::timeStep ());
+    AVector2D vec(speed*ASystem::TimeStep (),speed*ASystem::TimeStep ());
 
 	if(!is_turn_right)
 	{

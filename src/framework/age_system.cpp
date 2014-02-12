@@ -1,7 +1,7 @@
 #include "../include/age_system.h"
 #include "../include/age_staticattribute.h"
 #include <iostream>
-
+#include <stdlib.h>
 using namespace std;
 namespace AGE2D{
 QApplication * ASystem::m_application;
@@ -37,7 +37,12 @@ void ASystem::SetSize(int width, int height )
 	{
 		return ;
 	}
-    m_widget->resize(width,height);
+	m_widget->resize(width,height);
+}
+
+int ASystem::Random(int min, int max)
+{
+ return (min + rand()% (max-min+1));
 }
 
 int ASystem::GetWidth()
@@ -74,12 +79,12 @@ void ASystem::Init(int argc, char *argv[])
 	is_init=true;
 }
 
-int ASystem::timeStep()
+int ASystem::TimeStep()
 {
 	return getTimeStep();
 }
 
-double ASystem::frameRate()
+double ASystem::FrameRate()
 {
 	return 1000.0/getTimeStep ();
 }

@@ -38,7 +38,6 @@ void Gamescene::action()
             fuck = true;
         }
     }
-
     //ASystem::GetWidget()->setWindowOpacity(value);
     /*if(value%2 == 1)
     {

@@ -54,10 +54,15 @@ void initDefalutShaderProgram()
 		"v_texCoord = a_texcoord;\n"
 	    "}";
     char fsh[] =
+        "#ifdef GL_ES\n"
+        "// Set default precision to medium\n"
+        "precision mediump int;\n"
+        "precision mediump float;\n"
+        "#endif\n"
 	    "uniform sampler2D source;\n"
-            "uniform float red;\n"
-            "uniform float green;\n"
-            "uniform float blue;\n"
+        "uniform float red;\n"
+        "uniform float green;\n"
+        "uniform float blue;\n"
 	    "varying vec2 v_texCoord;\n"
         "uniform lowp float age_Opacity;\n"
 	    "void main()\n"

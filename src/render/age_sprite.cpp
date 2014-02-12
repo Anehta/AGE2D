@@ -258,8 +258,8 @@ void ASprite::initializeAll()
 {
     setPivotOffset(0,0);
     rotate(0);
-    setX(0);
-    setY(0);
+    //setX(0);
+    //setY(0);
     setScale(0);
     m_color.setColor(1.0,1.0,1.0);
     m_alpha = 1.0;

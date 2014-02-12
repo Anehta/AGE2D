@@ -10,6 +10,8 @@ ANode::~ANode()
 
 ANode::ANode()
 {
+    m_x = 0;
+    m_y = 0;
 }
 
 void ANode::setX(float x)

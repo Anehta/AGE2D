@@ -11,14 +11,15 @@ public:
 	static int Go();
 	static void SetSize(int width, int height);
 
+	static int Random(int min,int max);
 	static int GetWidth();
 	static int GetHeight();
 	static int GetWidthOffset();
 	static int GetHeightOffset();
 	static AWidget * GetWidget();
 	static int IsEngineInitialized();
-	static int timeStep();
-	static double frameRate();
+	static int TimeStep();
+	static double FrameRate();
 	friend class AWidget;
 
 private:

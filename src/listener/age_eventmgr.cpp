@@ -121,6 +121,28 @@ void AEventMgr::keyPressEvent(QKeyEvent * a)
 	}
 }
 
+void AEventMgr::beforeFrameEvent()
+{
+	for(list<AFrameListener *>::iterator alpha_it = m_frame_listener_list.begin();
+	    alpha_it != m_frame_listener_list.end();
+	    ++alpha_it)
+	{
+		AFrameListener *  temp = * alpha_it;
+		temp->beforeFrameRender ();
+	}
+}
+
+void AEventMgr::afterFrameEvent()
+{
+	for(list<AFrameListener *>::iterator alpha_it = m_frame_listener_list.begin();
+	    alpha_it != m_frame_listener_list.end();
+	    ++alpha_it)
+	{
+		AFrameListener *  temp = * alpha_it;
+		temp->afterFrameRender ();
+	}
+}
+
 std::list<ABaseListener *> * AEventMgr::getList()
 {
     return &listenerList;
