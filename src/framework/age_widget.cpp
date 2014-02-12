@@ -52,7 +52,6 @@ void AWidget::resizeGL(int w, int h)
     static int wi = w, he = h;
     //projection.ortho(0,wi,0,he,-1,1);
     projection.frustum (0,wi,0,he,0.01,50);
-
     ASystem::m_widthOffset = w-wi;
     ASystem::m_heightOffset = h-he;
 

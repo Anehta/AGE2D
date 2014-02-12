@@ -27,8 +27,9 @@ Game::Game()
     diamod_texture = new ATexture(":/diamond.png");
 
     game_scene->setListenerManager (new AEventMgr());
-	hero=new Hero();
-	game_scene->eventMgr ()->addKeyListener (hero);
+
+    hero=new Hero();
+    game_scene->eventMgr ()->addKeyListener (hero);
 
     back_ground_actor =new BackGround;
 	back_ground_actor->bindTexture (back_ground_texture);

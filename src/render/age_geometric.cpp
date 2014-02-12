@@ -42,7 +42,7 @@ void AGeometric::initRectGeometric()
     glBufferData(GL_ARRAY_BUFFER,4*sizeof(VertexData),vertices,GL_STATIC_DRAW);
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,m_vboId[1]);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER,5*sizeof(GLushort),indices,GL_STATIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER,4*sizeof(GLushort),indices,GL_STATIC_DRAW);
 
 }
 
@@ -94,5 +94,4 @@ void AGeometric::initParameter(int width, int height, int imageWidth,int imageHe
     initializeAll();
     initRectGeometric();
 }
-
 }
