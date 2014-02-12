@@ -87,7 +87,7 @@ void ASprite::render()
     m_program->setUniformValue("green",m_color.green);
     m_program->setUniformValue("blue",m_color.blue);
 
-    glDrawElements(GL_TRIANGLE_STRIP, 5, GL_UNSIGNED_SHORT, 0);
+    glDrawElements(GL_TRIANGLE_FAN, 4, GL_UNSIGNED_SHORT, 0);
 
     glDepthMask(GL_TRUE);
 

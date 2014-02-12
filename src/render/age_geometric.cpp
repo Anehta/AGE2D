@@ -34,7 +34,7 @@ void AGeometric::initRectGeometric()
     };
 
 
-    GLushort indices[] = {
+    GLushort indices[4] = {
 	  0,1,2,3//一个面
     };
 
@@ -43,7 +43,6 @@ void AGeometric::initRectGeometric()
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,m_vboId[1]);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER,4*sizeof(GLushort),indices,GL_STATIC_DRAW);
-
 }
 
 void AGeometric::setWidth(int w)
