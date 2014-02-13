@@ -15,6 +15,7 @@ void Game::Init()
 
 Game::Game()
 {
+    ASystem::SetSize(1080,1920);
     testShaderProgram();
     background_music = new AAudio(":/123.mp3",0);
     background_music->setVolume(30);
@@ -27,15 +28,14 @@ Game::Game()
     diamod_texture = new ATexture(":/diamond.png");
 
     game_scene->setListenerManager (new AEventMgr());
-
-    hero=new Hero();
-    game_scene->eventMgr ()->addKeyListener (hero);
+	hero=new Hero();
+	game_scene->eventMgr ()->addKeyListener (hero);
 
     back_ground_actor =new BackGround;
 	back_ground_actor->bindTexture (back_ground_texture);
     back_ground_actor->setX(-100);
     back_ground_actor->setY(-100);
-    back_ground_actor->loadShaderProgram(m_program);
+    //back_ground_actor->loadShaderProgram(m_program);
     back_ground_actor->setName("background");
     back_ground_actor->setColor(1,1,1);
     game_scene->eventMgr()->addKeyListener(back_ground_actor);

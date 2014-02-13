@@ -24,6 +24,21 @@ public:
     AWidget(QWidget *parent = 0);
     ~AWidget();
 
+    double getScaleFactor() const;
+    void setScaleFactor(double value);
+
+    int getScreenOffsetX() const;
+    void setScreenOffsetX(int value);
+
+    int getScreenOffsetY() const;
+    void setScreenOffsetY(int value);
+
+    int getReal_width() const;
+    void setReal_width(int value);
+
+    int getReal_height() const;
+    void setReal_height(int value);
+
 protected:
     virtual void display();
     virtual void initResources();
@@ -38,7 +53,11 @@ private:
     QMatrix4x4 projection;
     AKeyBoardEvent m_keyBoardEvent;
     AMouseInfo m_mouseEvent;
-
+    double scale_factor;
+    int screen_offset_x;
+    int screen_offset_y;
+    int real_width;
+    int real_height;
     void initializeGL();
     void resizeGL(int w, int h);
     void paintGL();

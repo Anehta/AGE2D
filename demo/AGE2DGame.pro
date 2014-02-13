@@ -122,7 +122,8 @@ MOBILITY =
 OTHER_FILES += \
     fshader.glsl \
     vshader.glsl \
-    fshader2.fsh
+    fshader2.fsh \
+    android/AndroidManifest.xml
 
 RESOURCES += \
 shader.qrc
@@ -139,3 +140,5 @@ else:win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/../src/free
 else:win32:!win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$PWD/../src/freetype/freetype.lib
 else:win32:!win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/../src/freetype/freetyped.lib
 else:unix: PRE_TARGETDEPS += $$PWD/../src/freetype/libfreetype.a
+
+ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android

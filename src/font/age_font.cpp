@@ -17,7 +17,7 @@ xCharTexture::xCharTexture()
     m_Height = 0;
 }
 
-static xCharTexture * g_TexID = new xCharTexture[65536];
+xCharTexture * g_TexID = new xCharTexture[65536];
 //AFontSprite * sprite = new AFontSprite[65536];
 
 xFreeTypeLib::xFreeTypeLib()

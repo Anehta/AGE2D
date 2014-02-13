@@ -16,7 +16,10 @@ namespace AGE2D
 AWidget::AWidget(QWidget *)
     : QGLWidget(QGLFormat(QGL::DoubleBuffer))
 {
-    setFixedSize(640,480);
+    //setFixedSize(640,480);
+    scale_factor=1;
+    screen_offset_x=0;
+    screen_offset_y=0;
 }
 
 AWidget::~AWidget()
@@ -45,13 +48,26 @@ void AWidget::initializeGL()
 
 void AWidget::resizeGL(int w, int h)
 {
-    glViewport(0,0,w,h);
-
+     screen_offset_x=0;
+     screen_offset_y=0;
+    scale_factor=w*1.0/ASystem::GetWidth();
+    if(ASystem::GetHeight()*scale_factor>h)
+    {
+        scale_factor=h*1.0/ASystem::GetHeight();
+    }
+    screen_offset_x=(w-ASystem::GetWidth()*scale_factor)/2;
+    screen_offset_y=(h-ASystem::GetHeight()*scale_factor)/2;
+     int wi = ASystem::GetWidth()*scale_factor, he = ASystem::GetHeight()*scale_factor;
+     qDebug()<<"weight:"<<wi<<"height:"<<he<<"offset_x"<<screen_offset_x<<"offset_y"<<screen_offset_y;
+    glViewport(screen_offset_x,screen_offset_y,wi,he);
+    real_width=w;
+    real_height=h;
     projection.setToIdentity();
-    qDebug()<<"widget:"<<w<<"height:"<<h;
-    static int wi = w, he = h;
+
+
     //projection.ortho(0,wi,0,he,-1,1);
-    projection.frustum (0,wi,0,he,0.01,50);
+    projection.frustum (0,ASystem::GetWidth(),0,ASystem::GetHeight(),0.01,50);
+
     ASystem::m_widthOffset = w-wi;
     ASystem::m_heightOffset = h-he;
 
@@ -162,8 +178,57 @@ void AWidget::keyPressEvent(QKeyEvent *event)
 	    {
 		temp->m_listenerManager->keyPressEvent (event);
 	    }
-
 	}
 }
+int AWidget::getReal_height() const
+{
+    return real_height;
+}
+
+void AWidget::setReal_height(int value)
+{
+    real_height = value;
+}
+
+int AWidget::getReal_width() const
+{
+    return real_width;
+}
+
+void AWidget::setReal_width(int value)
+{
+    real_width = value;
+}
+
+int AWidget::getScreenOffsetY() const
+{
+    return screen_offset_y;
+}
+
+void AWidget::setScreenOffsetY(int value)
+{
+    screen_offset_y = value;
+}
+
+int AWidget::getScreenOffsetX() const
+{
+    return screen_offset_x;
+}
+
+void AWidget::setScreenOffsetX(int value)
+{
+    screen_offset_x = value;
+}
+
+double AWidget::getScaleFactor() const
+{
+    return scale_factor;
+}
+
+void AWidget::setScaleFactor(double value)
+{
+    scale_factor = value;
+}
+
 }
 

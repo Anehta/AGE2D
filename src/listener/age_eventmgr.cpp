@@ -57,43 +57,58 @@ void AEventMgr::run()
 void AEventMgr::mouseMoveEvent(QMouseEvent *mouse)
 {
 
-    for(list<AMouseListener *>::iterator alpha_it = m_mouse_listener_list.begin();
-	alpha_it != m_mouse_listener_list.end();
-	++alpha_it)
+    AMouseInfo info;
+    info.setMouseX ((mouse->x()-ASystem::GetWidget()->getScreenOffsetX())/ASystem::GetWidget()->getScaleFactor());
+    info.setMouseY (((ASystem::GetWidget()->getReal_height()-mouse->y())-ASystem::GetWidget()->getScreenOffsetY())/ASystem::GetWidget()->getScaleFactor());
+    if(info.getMouseX()<0 || info.getMouseY()>ASystem::GetWidth() || info.getMouseY()<0 || info.getMouseY()>ASystem::GetHeight())
     {
-	AMouseListener *  temp = * alpha_it;
-	AMouseInfo info;
-    info.setMouseX (mouse->x()/*-ASystem::GetWidthOffset()*/);
-    info.setMouseY (ASystem::GetHeight ()-mouse->y()/*+ASystem::GetHeightOffset()*/);
-	temp->onMouseMove(info);
+        return ;
     }
+        for(list<AMouseListener *>::iterator alpha_it = m_mouse_listener_list.begin();
+        alpha_it != m_mouse_listener_list.end();
+        ++alpha_it)
+        {
+        AMouseListener *  temp = * alpha_it;
+
+        temp->onMouseMove(info);
+        }
+
 }
 
 void AEventMgr::mousePressEvent(QMouseEvent *mouse)
 {
+    AMouseInfo info;
+    info.setMouseX ((mouse->x()-ASystem::GetWidget()->getScreenOffsetX())/ASystem::GetWidget()->getScaleFactor());
+    info.setMouseY (((ASystem::GetWidget()->getReal_height()-mouse->y())-ASystem::GetWidget()->getScreenOffsetY())/ASystem::GetWidget()->getScaleFactor());
+    if(info.getMouseX()<0 || info.getMouseY()>ASystem::GetWidth() || info.getMouseY()<0 || info.getMouseY()>ASystem::GetHeight())
+    {
+        qDebug()<<"invalid";
+        return ;
+    }
+    qDebug()<<"the mouse postion ("<<info.getMouseX()<<" , "<<info.getMouseY()<<")";
 	for(list<AMouseListener *>::iterator alpha_it = m_mouse_listener_list.begin();
 	    alpha_it != m_mouse_listener_list.end();
 	    ++alpha_it)
 	{
 	    AMouseListener *  temp = * alpha_it;
-	    AMouseInfo info;
-	    info.setMouseX (mouse->x());
-	    info.setMouseY (ASystem::GetHeight ()-mouse->y());
-	    qDebug()<<info.getMouseY ();
 	    temp->onMousePress(info);
 	}
 }
 
 void AEventMgr::mouseReleaseEvent(QMouseEvent *mouse)
 {
+    AMouseInfo info;
+    info.setMouseX ((mouse->x()-ASystem::GetWidget()->getScreenOffsetX())/ASystem::GetWidget()->getScaleFactor());
+    info.setMouseY (((ASystem::GetWidget()->getReal_height()-mouse->y())-ASystem::GetWidget()->getScreenOffsetY())/ASystem::GetWidget()->getScaleFactor());
+    if(info.getMouseX()<0 || info.getMouseY()>ASystem::GetWidth() || info.getMouseY()<0 || info.getMouseY()>ASystem::GetHeight())
+    {
+        return ;
+    }
 	for(list<AMouseListener *>::iterator alpha_it = m_mouse_listener_list.begin();
 	    alpha_it != m_mouse_listener_list.end();
 	    ++alpha_it)
 	{
 	    AMouseListener *  temp = * alpha_it;
-	    AMouseInfo info;
-	info.setMouseX (mouse->x());
-	info.setMouseY (ASystem::GetHeight() -mouse->y());
 	    temp->onMouseRelease(info);
 	}
 }
