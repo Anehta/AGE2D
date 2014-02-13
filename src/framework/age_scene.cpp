@@ -75,7 +75,11 @@ ALayer *AScene::layer(int handle)
 
 void AScene::renderScene()
 {
+    if(eventMgr())
+    {
 this->eventMgr ()->beforeFrameEvent ();
+    }
+
     for(list<ALayer *>::iterator alpha_it = m_layerList.begin();
 	alpha_it != m_layerList.end();
 	++alpha_it)
@@ -84,7 +88,11 @@ this->eventMgr ()->beforeFrameEvent ();
 	temp->renderLayer();
 	temp->action();
     }
+    if(eventMgr())
+    {
 this->eventMgr ()->afterFrameEvent ();
+    }
+
     action();
 }
 

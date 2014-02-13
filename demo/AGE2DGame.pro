@@ -14,10 +14,7 @@ TARGET = AGE2DGame
 TEMPLATE = app
 
 SOURCES += \
-    background.cpp \
-    bullet.cpp \
     game.cpp \
-    hero.cpp \
     main.cpp \
     ../src/shader/age_shader.cpp \
     ../src/shader/age_shaderprogram.cpp \
@@ -54,11 +51,10 @@ SOURCES += \
     ../src/framework/age_widgetevent.cpp \
     ../src/framework/age_system.cpp \
     ../src/framework/age_staticattribute.cpp \
-    diamond.cpp \
-    gamescene.cpp \
     ../src/audio/age_audio.cpp \
     ../src/font/age_font.cpp \
-    ../src/framework/age_baseentity.cpp
+    ../src/framework/age_baseentity.cpp \
+    menu/menuscene.cpp
 
 HEADERS  += \
     ../include/age_accumulator.h \
@@ -102,19 +98,14 @@ HEADERS  += \
     ../include/herolistener.h \
     ../include/mylayer.h \
     ../include/mylayerlistener.h \
-    background.h \
-    bullet.h \
     game.h \
-    hero.h \
     ../include/AGE2D.h \
-    diamond.h \
-    gamescene.h \
     ../include/age_audio.h \
     ../include/age_staticattribute.h \
     ../include/age_font.h \
     ../include/age_baseentity.h \
-    age_rgb.h \
-    ../include/age_color.h
+    ../include/age_color.h \
+    menu/menuscene.h
 
 CONFIG += mobility c++11
 MOBILITY =

@@ -48,32 +48,7 @@ void AWidget::initializeGL()
 
 void AWidget::resizeGL(int w, int h)
 {
-     screen_offset_x=0;
-     screen_offset_y=0;
-    scale_factor=w*1.0/ASystem::GetWidth();
-    if(ASystem::GetHeight()*scale_factor>h)
-    {
-        scale_factor=h*1.0/ASystem::GetHeight();
-    }
-    screen_offset_x=(w-ASystem::GetWidth()*scale_factor)/2;
-    screen_offset_y=(h-ASystem::GetHeight()*scale_factor)/2;
-     int wi = ASystem::GetWidth()*scale_factor, he = ASystem::GetHeight()*scale_factor;
-     qDebug()<<"weight:"<<wi<<"height:"<<he<<"offset_x"<<screen_offset_x<<"offset_y"<<screen_offset_y;
-    glViewport(screen_offset_x,screen_offset_y,wi,he);
-    real_width=w;
-    real_height=h;
-    projection.setToIdentity();
-
-
-    //projection.ortho(0,wi,0,he,-1,1);
-    projection.frustum (0,ASystem::GetWidth(),0,ASystem::GetHeight(),0.01,50);
-
-    ASystem::m_widthOffset = w-wi;
-    ASystem::m_heightOffset = h-he;
-
-    qDebug()<<ASystem::GetWidthOffset();
-    qDebug()<<ASystem::GetHeightOffset();
-    setViewPortMatrix(projection);
+    updateWindow(w,h);
 }
 
 void AWidget::paintGL()
@@ -188,6 +163,35 @@ int AWidget::getReal_height() const
 void AWidget::setReal_height(int value)
 {
     real_height = value;
+}
+
+void AWidget::updateWindow(int w, int h)
+{
+
+     screen_offset_x=0;
+     screen_offset_y=0;
+    scale_factor=w*1.0/ASystem::GetWidth();
+    if(ASystem::GetHeight()*scale_factor>h)
+    {
+        scale_factor=h*1.0/ASystem::GetHeight();
+    }
+    screen_offset_x=(w-ASystem::GetWidth()*scale_factor)/2;
+    screen_offset_y=(h-ASystem::GetHeight()*scale_factor)/2;
+     int wi = ASystem::GetWidth()*scale_factor, he = ASystem::GetHeight()*scale_factor;
+     qDebug()<<"weight:"<<wi<<"height:"<<he<<"offset_x"<<screen_offset_x<<"offset_y"<<screen_offset_y;
+    glViewport(screen_offset_x,screen_offset_y,wi,he);
+    real_width=w;
+    real_height=h;
+    projection.setToIdentity();
+
+
+    //projection.ortho(0,wi,0,he,-1,1);
+    qDebug()<< " w " <<ASystem::GetWidth() << " h "<<ASystem::GetHeight();
+    projection.frustum (0,ASystem::GetWidth(),0,ASystem::GetHeight(),0.01,50);
+
+    ASystem::m_widthOffset = w-wi;
+    ASystem::m_heightOffset = h-he;
+    setViewPortMatrix(projection);
 }
 
 int AWidget::getReal_width() const

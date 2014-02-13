@@ -38,7 +38,7 @@ public:
 
     int getReal_height() const;
     void setReal_height(int value);
-
+    void updateWindow(int w,int h);
 protected:
     virtual void display();
     virtual void initResources();

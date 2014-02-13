@@ -30,14 +30,13 @@ void ASystem::SetSize(int width, int height )
 
 	m_width=width;
 	m_height=height;
-    m_widthOffset = 0;
-    m_widthOffset = 0;
-    cout<<"set"<<m_height;
 	if(!is_init)
 	{
 		return ;
 	}
 	m_widget->resize(width,height);
+    m_widget->updateWindow(width,height);
+    qDebug()<<"dingdong"<<width<<"   "<<height;
 }
 
 int ASystem::Random(int min, int max)
@@ -73,10 +72,11 @@ int ASystem::IsEngineInitialized()
 void ASystem::Init(int argc, char *argv[])
 {
 	m_application=new QApplication(argc,argv);
+    is_init=true;
 	m_widget=new AWidget();
 	SetSize(640,480);
 	m_widget->show();
-	is_init=true;
+
 }
 
 int ASystem::TimeStep()
