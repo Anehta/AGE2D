@@ -1,5 +1,6 @@
 #include "../include/age_system.h"
 #include "../include/age_staticattribute.h"
+#include "../include/age_widget.h"
 #include <iostream>
 #include <stdlib.h>
 using namespace std;
@@ -34,7 +35,7 @@ void ASystem::SetSize(int width, int height )
 	{
 		return ;
 	}
-	m_widget->resize(width,height);
+    m_widget->resize(width,height);
     m_widget->updateWindow(width,height);
     qDebug()<<"dingdong"<<width<<"   "<<height;
 }

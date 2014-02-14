@@ -54,7 +54,8 @@ SOURCES += \
     ../src/audio/age_audio.cpp \
     ../src/font/age_font.cpp \
     ../src/framework/age_baseentity.cpp \
-    menu/menuscene.cpp
+    menu/menuscene.cpp \
+    ../src/math/age_regexp.cpp
 
 HEADERS  += \
     ../include/age_accumulator.h \
@@ -105,7 +106,8 @@ HEADERS  += \
     ../include/age_font.h \
     ../include/age_baseentity.h \
     ../include/age_color.h \
-    menu/menuscene.h
+    menu/menuscene.h \
+    ../include/age_regexp.h
 
 CONFIG += mobility c++11
 MOBILITY =

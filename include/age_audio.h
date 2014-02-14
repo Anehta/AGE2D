@@ -12,7 +12,7 @@
 #include <QDebug>
 #include <QDir>
 #include <QObjectUserData>
-namespace AGE2D{
+#include "age_regexp.h"
 class AAudio
 {
 protected:
@@ -21,6 +21,7 @@ protected:
     QMediaPlaylist *medialist;
     QString objName;
     QString audName;
+    ARegExp *abcd;
     bool loopORnot;
     int Volume;
     int mods;
@@ -41,15 +42,13 @@ public:
     void pause();
     void Init()
     {
-	this->loopORnot = false;
-	this->Volume = 50;
-	this->mods = 0;
-	music = new QMediaPlayer;
-	medialist=new QMediaPlaylist;
+        this->loopORnot = false;
+        this->Volume = 50;
+        this->mods = 0;
+        music = new QMediaPlayer;
+        medialist=new QMediaPlaylist;
     }
     ~AAudio();
 };
-}
-
 
 #endif // AAUDIO_H

@@ -4,6 +4,7 @@
 #include "../include/age_scene.h"
 #include "../include/age_texture.h"
 #include "../include/age_sprite.h"
+#include "../include/age_audio.h"
 
 using namespace AGE2D;
 
@@ -31,6 +32,8 @@ private:
     /*effect sprite*/
     ASprite * menuFrame_sprite;
     ASprite * menuBackGround_sprite;
+
+    AAudio * background_music;
 
     float background_rotate;
     float botton_rotate;

@@ -4,5 +4,6 @@
         <file>image/menu_choose.png</file>
         <file>image/menu_earth.png</file>
         <file>image/menu_frame.png</file>
+        <file>music/earth.mp3</file>
     </qresource>
 </RCC>

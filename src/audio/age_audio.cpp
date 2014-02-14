@@ -1,6 +1,6 @@
 #include "../include/age_audio.h"
-namespace AGE2D
-{
+#include "../include/age_regexp.h"
+
 AAudio::AAudio(QString audName)
 {
     Init();
@@ -20,13 +20,18 @@ void AAudio::audio()
 {
     if(mods == 0)
     {
-	QFile f(this->audName);
-	f.copy(QDir::currentPath()+"/"+this->audName.remove(":/"));
-	this->medialist->addMedia(QUrl::fromLocalFile(QDir::currentPath()+"/"+this->audName.remove(":/")));
-    }
+
+           QString pattern("(.*)/(.*.(mp3|mp4|ogg|flac|wav|ape|vqf|aac|mid|md|asf|m4a|aac|wma))");
+           QFile f(this->audName);
+           abcd = new ARegExp(pattern,audName);
+           audName =abcd->getexitstr();
+           delete abcd;
+           f.copy(QDir::currentPath()+"/"+this->audName);
+           this->medialist->addMedia(QUrl::fromLocalFile(QDir::currentPath()+"/"+this->audName));
+       }
     else
     {
-	this->medialist->addMedia(QUrl(this->audName));
+        this->medialist->addMedia(QUrl(this->audName));
     }
     this->medialist->setCurrentIndex(1);
     this->medialist->setPlaybackMode(QMediaPlaylist::CurrentItemOnce);
@@ -52,7 +57,7 @@ void AAudio::setLoopORnot(bool loopORnot)
 {
     this->loopORnot=loopORnot;
     if(this->loopORnot == true)
-	this->medialist->setPlaybackMode(QMediaPlaylist::CurrentItemInLoop);
+        this->medialist->setPlaybackMode(QMediaPlaylist::CurrentItemInLoop);
     else this->medialist->setPlaybackMode(QMediaPlaylist::CurrentItemOnce);
 }
 
@@ -93,5 +98,3 @@ AAudio::~AAudio()
     delete this->music;
     delete this->medialist;
 }
-}
-

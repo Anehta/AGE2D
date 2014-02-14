@@ -13,6 +13,7 @@ void MenuScene::initResource()
     menuCircle_texture = new ATexture(":/image/menu_choose.png");
     menuFrame_texture = new ATexture(":/image/menu_frame.png");
     menuBackGround_texture = new ATexture(":/image/menu_earth.png");
+    background_music = new AAudio(":/music/earth.mp3");
 }
 
 void MenuScene::initActor()
@@ -64,6 +65,7 @@ void MenuScene::initActor()
     menu_set_button_sprite->setPivotOffset(menu_game_button_sprite->width()/2,
                                             menu_game_button_sprite->height()/2);
 
+    background_music->play();
     this->setListenerManager(new AEventMgr);
     this->eventMgr()->addMouseListener(this);
 }
