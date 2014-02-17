@@ -61,7 +61,7 @@ void ASprite::render()
     glDepthMask(GL_FALSE);
 
     computeMatrix();
-
+    computePolygon();
     GLuint * vboId = m_geometric.getVboId();
 
     glBindBuffer(GL_ARRAY_BUFFER,vboId[0]);
@@ -166,6 +166,16 @@ void ASprite::computeMatrix()
 
 }
 
+void ASprite::computePolygon()
+{
+    APolygon polygon_tmp;
+    polygon_tmp.addPoint(this->leftTop());
+    polygon_tmp.addPoint(this->rightTop());
+    polygon_tmp.addPoint(this->rightBotton());
+    polygon_tmp.addPoint(this->leftBotton());
+    this->polygon=polygon_tmp;
+}
+
 void ASprite::bindDefalutProgram()
 {
     m_program = getDefalutShaderProgram();
@@ -263,6 +273,17 @@ void ASprite::initializeAll()
     setScale(0);
     m_color.setColor(1.0,1.0,1.0);
     m_alpha = 1.0;
+    this->is_touchable=false;
+}
+
+void ASprite::OnTouchedPress(AVector2D pos)
+{
+    qDebug()<<"touch!!";
+}
+
+void ASprite::OnTouchedrelease(AVector2D pos)
+{
+
 }
 
 
@@ -396,6 +417,37 @@ void ASprite::setColor(long int rgb)
     m_color.red = AGE_GetRValue(rgb);
     m_color.green = AGE_GetGValue(rgb);
     m_color.blue = AGE_GetBValue(rgb);
+}
+
+APolygon ASprite::getPolygon()
+{
+    return this->polygon;
+}
+
+void ASprite::setIsTouchable(bool is_touchable)
+{
+    this->is_touchable=is_touchable;
+}
+
+bool ASprite::isTouchable()
+{
+    return this->is_touchable;
+}
+
+AColor ASprite::getColor()
+{
+    AColor color(m_color.red,m_color.green,m_color.blue);
+    return color;
+}
+
+void ASprite::setAlpha(float alpha)
+{
+    this->m_alpha=alpha;
+}
+
+float ASprite::getAlpha()
+{
+        return m_alpha;
 }
 }
 

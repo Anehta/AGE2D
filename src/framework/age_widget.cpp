@@ -4,8 +4,9 @@
 #include <QTouchEvent>
 #include <QKeyEvent>
 #include <list>
+#include <../include/age_mouseinfo.h>
 //#include <iostream>
-#include <ctime>
+#include <QElapsedTimer>
 #include <QFont>
 #include <QDebug>
 
@@ -61,9 +62,10 @@ void AWidget::paintGL()
 
 void AWidget::timerEvent(QTimerEvent *)
 {
-	clock_t time_temp = clock();
+    QElapsedTimer timer;
+    timer.start();
     updateGL();
-    setTimeStep(clock()-time_temp+15);
+    setTimeStep(timer.elapsed()+15);
 }
 
 void AWidget::display()
@@ -72,12 +74,14 @@ void AWidget::display()
 
     if(temp != NULL)
     {
-	temp->renderScene();
+    temp->renderScene(is_release,is_press,mouse_pos);
 	if(temp->m_listenerManager != NULL)
 	{
 	    temp->m_listenerManager->run();
 	}
     }
+    is_release=false;
+    is_press=false;
 
 }
 
@@ -94,19 +98,26 @@ void AWidget::mouseMoveEvent(QMouseEvent * mouse)
     {
 	if(temp->m_listenerManager != NULL)
 	{
-	    temp->m_listenerManager->mouseMoveEvent(mouse);
+        AMouseInfo a=temp->m_listenerManager->mouseMoveEvent(mouse);
+        mouse_pos.setX(a.getMouseX());
+        mouse_pos.setY(a.getMouseY());
 	}
     }
+
 }
 
 void AWidget::mousePressEvent(QMouseEvent *mouse)
 {
+    is_press=true;
     AScene * temp = getCurrentScene();
     if(temp != NULL)
     {
 	if(temp->m_listenerManager != NULL)
 	{
-	    temp->m_listenerManager->mousePressEvent(mouse);
+        AMouseInfo a=temp->m_listenerManager->mousePressEvent(mouse);
+
+        mouse_pos.setX(a.getMouseX());
+        mouse_pos.setY(a.getMouseY());
 	}
 
     }
@@ -114,16 +125,23 @@ void AWidget::mousePressEvent(QMouseEvent *mouse)
 
 void AWidget::mouseReleaseEvent(QMouseEvent *mouse)
 {
+    is_release=true;
     AScene * temp = getCurrentScene();
     if(temp != NULL)
     {
 	if(temp->m_listenerManager != NULL)
 	{
-	    temp->m_listenerManager->mouseReleaseEvent(mouse);
+        AMouseInfo a=temp->m_listenerManager->mouseReleaseEvent(mouse);
+        mouse_pos.setX(a.getMouseX());
+        mouse_pos.setY(a.getMouseY());
 	}
 
     }
 }
+
+
+
+
 
 void AWidget::mouseDoubleClickEvent(QMouseEvent *mouse)
 {
@@ -185,8 +203,6 @@ void AWidget::updateWindow(int w, int h)
     projection.setToIdentity();
 
 
-    //projection.ortho(0,wi,0,he,-1,1);
-    qDebug()<< " w " <<ASystem::GetWidth() << " h "<<ASystem::GetHeight();
     projection.frustum (0,ASystem::GetWidth(),0,ASystem::GetHeight(),0.01,50);
 
     ASystem::m_widthOffset = w-wi;

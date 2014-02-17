@@ -12,6 +12,7 @@
 #include <../include/age_keyboardevent.h>
 #include <../include/age_mouseinfo.h>
 #include <../include/age_baselistener.h>
+#include <../include/age_vector2d.h>
 #include "age_keyboardevent.h"
 #include "age_mouseinfo.h"
 namespace AGE2D
@@ -52,12 +53,14 @@ private:
     QBasicTimer m_timer;
     QMatrix4x4 projection;
     AKeyBoardEvent m_keyBoardEvent;
-    AMouseInfo m_mouseEvent;
+    AVector2D mouse_pos;
     double scale_factor;
     int screen_offset_x;
     int screen_offset_y;
     int real_width;
     int real_height;
+    bool is_release;
+    bool is_press;
     void initializeGL();
     void resizeGL(int w, int h);
     void paintGL();

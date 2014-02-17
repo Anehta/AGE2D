@@ -20,6 +20,8 @@ public:
     virtual void setName(std::string new_name);
     friend class AScene;
     AScene * parent();
+    void checkPress(AVector2D pos);
+    void checkRelease(AVector2D pos);
 protected:
     virtual void action();
     AScene * m_parent;

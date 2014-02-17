@@ -7,6 +7,7 @@
 #include <../include/age_texture.h>
 #include <../include/age_baseentity.h>
 #include <memory>
+#include "age_polygon.h"
 #include "age_layer.h"
 #include "age_texture.h"
 #include "age_geometric.h"
@@ -36,8 +37,12 @@ public:
     void rotate(float angle);
     void setColor(float r,float g,float b);
     void setColor(long int rgb);
+    APolygon getPolygon();
+    void setIsTouchable(bool is_touchable);
+    bool isTouchable();
+    AColor getColor();
     void setAlpha(float alpha);
-
+    float getAlpha();
     float leftTopX();
     float leftTopY();
     AVector2D leftTop();
@@ -72,6 +77,7 @@ public:
 
     //friend class ALayer;
 protected:
+    bool is_touchable;
     ALayer * m_parent;
     virtual void action();
     virtual void shaderAction();
@@ -79,8 +85,12 @@ protected:
     virtual void render();
     AGeometric m_geometric;
     void initializeAll();
+    APolygon polygon;
+    virtual void OnTouchedPress(AVector2D pos);
+    virtual void OnTouchedrelease(AVector2D pos);
 private:
     void computeMatrix();
+    void computePolygon();
     QGLShaderProgram *m_program;
     GLuint m_texId = 0;
 

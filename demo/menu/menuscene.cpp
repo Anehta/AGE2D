@@ -1,5 +1,7 @@
 #include "menuscene.h"
-
+#include "particle.h"
+#include "particlelauncher.h"
+#include "game.h"
 MenuScene::MenuScene()
 {
     initData();
@@ -14,6 +16,7 @@ void MenuScene::initResource()
     menuFrame_texture = new ATexture(":/image/menu_frame.png");
     menuBackGround_texture = new ATexture(":/image/menu_earth.png");
     background_music = new AAudio(":/music/earth.mp3");
+    touch_effect_texture = new ATexture(":/effect/effect2.png");
 }
 
 void MenuScene::initActor()
@@ -31,6 +34,7 @@ void MenuScene::initActor()
     menuBackGround_sprite->setName("菜单背景");
     menuFrame_sprite->setName("菜单框架");
     menu_game_button_sprite->setName("菜单游戏按钮");
+    menu_game_button_sprite->setIsTouchable(true);
     menu_achievement_button_sprite->setName("菜单成就按钮");
     menu_set_button_sprite->setName("菜单设置按钮");
 
@@ -87,6 +91,10 @@ void MenuScene::action()
     menu_game_button_sprite->rotate(-botton_rotate);
     menu_achievement_button_sprite->rotate(-botton_rotate-0.1);
     menu_set_button_sprite->rotate(-botton_rotate-0.3);
+    ParticleLauncher(this->layer(1),touch_effect_texture,2,AVector2D(mouseX,mouseY),
+                     AVector2D(100,100),AVector2D(0,0),AColor(1,1,1),
+                     AColor(0,1,1),0,300,1,0,4,AVector2D(0,-1),10);
+
     //menu_game_button_sprite->setPos(AVector2D(mouseX,mouseY));
 }
 
@@ -94,11 +102,15 @@ void MenuScene::onMouseMove(AMouseInfo info)
 {
     mouseX = info.getMouseX();
     mouseY = info.getMouseY();
+
 }
 
 void MenuScene::onMousePress(AMouseInfo info)
 {
 
+    this->background_music->stop();
+    Game::single()->getGame_scene()->activate();
+    Game::single()->getGame_scene_music()->play();
 }
 
 void MenuScene::onMouseRelease(AMouseInfo info)

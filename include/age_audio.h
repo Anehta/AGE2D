@@ -1,18 +1,11 @@
-#ifndef AAUDIO_H
-#define AAUDIO_H
+#ifndef AGE_AUDIO_H
+#define AGE_AUDIO_H
 #include <QString>
 #include <QtMultimedia/qmediaplayer.h>
-#include <QtMultimedia/QMediaResource>
-#include <QtMultimedia/QAudioBuffer>
-#include <QtMultimedia/QAbstractAudioInput>
-#include <QtMultimedia/QAbstractAudioOutput>
 #include <QtMultimedia/qmediaplaylist.h>
-#include <QFile>
-#include <QUrl>
-#include <QDebug>
 #include <QDir>
-#include <QObjectUserData>
 #include "age_regexp.h"
+namespace AGE2D{
 class AAudio
 {
 protected:
@@ -29,26 +22,26 @@ protected:
 public:
     AAudio(QString audName);
     AAudio(QString audName,int mods);
-    void setObjectName(QString objName);
-    QString getObjectName();
-    QString getAudioName();
-    int getVolume();
-    void setLoopORnot(bool loopORnot);
-    bool getLoopORnot();
-    void setVolume(int Volume);
     void audio();
     void play();
     void stop();
     void pause();
-    void Init()
-    {
-        this->loopORnot = false;
-        this->Volume = 50;
-        this->mods = 0;
-        music = new QMediaPlayer;
-        medialist=new QMediaPlaylist;
-    }
     ~AAudio();
+    QMediaPlayer *getMusic() const;
+    void setMusic(QMediaPlayer *value);
+    QMediaPlaylist *getMedialist() const;
+    void setMedialist(QMediaPlaylist *value);
+    QString getObjName() const;
+    void setObjName(const QString &value);
+    QString getAudName() const;
+    void setAudName(const QString &value);
+    bool getLoopORnot() const;
+    void setLoopORnot(bool value);
+    int getVolume() const;
+    void setVolume(int value);
+    int getMods() const;
+    void setMods(int value);
 };
+}
 
-#endif // AAUDIO_H
+#endif // AGE_AUDIO_H

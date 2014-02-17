@@ -24,7 +24,8 @@ private:
     ATexture * menuCircle_texture;
     ATexture * menuFrame_texture;
     ATexture * menuBackGround_texture;
-
+    ATexture * particle_texture;
+    ATexture * touch_effect_texture;
     /*button sprite*/
     ASprite * menu_game_button_sprite;
     ASprite * menu_achievement_button_sprite;

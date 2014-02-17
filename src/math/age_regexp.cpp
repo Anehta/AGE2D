@@ -1,6 +1,5 @@
 #include "../include/age_regexp.h"
-
-
+namespace AGE2D{
 QString ARegExp::getPattern() const
 {
     return pattern;
@@ -36,6 +35,8 @@ QString ARegExp::getexitstr()
 
         //qDebug() << rx.capturedTexts();
 
+
+
         //qDebug() << rx.cap(0);
         //qDebug() << rx.cap(1);
         return rx.cap(2);
@@ -44,4 +45,4 @@ QString ARegExp::getexitstr()
         //qDebug() << rx.cap(5);
     }
 }
-
+}

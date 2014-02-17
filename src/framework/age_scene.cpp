@@ -73,26 +73,42 @@ ALayer *AScene::layer(int handle)
 	return (*i);
 }
 
-void AScene::renderScene()
+void AScene::renderScene(bool is_release, bool is_press, AVector2D mousePos)
 {
-    if(eventMgr())
-    {
-this->eventMgr ()->beforeFrameEvent ();
-    }
+        if(eventMgr())
+        {
+    this->eventMgr ()->beforeFrameEvent ();
+        }
 
-    for(list<ALayer *>::iterator alpha_it = m_layerList.begin();
-	alpha_it != m_layerList.end();
-	++alpha_it)
-    {
-	ALayer * temp = *alpha_it;
-	temp->renderLayer();
-	temp->action();
-    }
-    if(eventMgr())
-    {
-this->eventMgr ()->afterFrameEvent ();
-    }
+        for(list<ALayer *>::iterator alpha_it = m_layerList.begin();
+        alpha_it != m_layerList.end();
+        ++alpha_it)
+        {
+        ALayer * temp = *alpha_it;
+        temp->renderLayer();
+        temp->action();
+        }
+        if(is_release)
+        {
+            for(list<ALayer *>::reverse_iterator i=m_layerList.rbegin();i!=m_layerList.rend();i++)
+            {
+                ALayer * tmp= (*i);
+                tmp->checkRelease(mousePos);
+            }
+        }
+        if(is_press)
+        {
+            for(list<ALayer *>::reverse_iterator i=m_layerList.rbegin();i!=m_layerList.rend();i++)
+            {
+                ALayer * tmp= (*i);
+                tmp->checkPress(mousePos);
+            }
+        }
 
+        if(eventMgr())
+        {
+    this->eventMgr ()->afterFrameEvent ();
+        }
     action();
 }
 

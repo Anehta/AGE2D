@@ -23,9 +23,9 @@ public:
     std::list<ABaseListener *> * getList();
 protected:
     virtual void run();
-    virtual void mouseMoveEvent(QMouseEvent *);
-    virtual void mousePressEvent(QMouseEvent *);
-    virtual void mouseReleaseEvent(QMouseEvent *);
+    virtual AMouseInfo mouseMoveEvent(QMouseEvent *);
+    virtual AMouseInfo mousePressEvent(QMouseEvent *);
+    virtual AMouseInfo mouseReleaseEvent(QMouseEvent *);
     virtual void keyReleaseEvent (QKeyEvent *a);
     virtual void keyPressEvent(QKeyEvent *);
     virtual void beforeFrameEvent();

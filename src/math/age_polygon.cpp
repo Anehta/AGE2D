@@ -17,51 +17,78 @@ void APolygon::addPoint(double x, double y)
     m_pointList.push_back(AVector2D(x,y));
 }
 
+void APolygon::addPoint(AVector2D vec)
+{
+    m_pointList.push_back(vec);
+}
+
+// Globals which should be set before calling this function:
+//
+// int    polySides  =  how many corners the polygon has
+// float  polyX[]    =  horizontalcoordinates of corners
+// float  polyY[]    =  verticalcoordinates of corners
+// float  x,y       =  point to be tested
+//
+// (Globals are used in this example for purposes of speed.  Change as
+// desired.)
+//
+//  Thefunction will return YES if the point x,y is inside the polygon, or
+//  NOif it is not.  If the point is exactly on the edge of the polygon,
+// then the function may return YES or NO.
+//
+// Note that division by zero is avoided because the division is protected
+//  bythe "if" clause which surrounds it.
+
+bool point_in_polygon(float x, float y,float polyX[],float polyY[],int polySides) {
+
+  int   i,j=polySides-1 ;
+  bool  oddNodes=false;
+
+  for (i=0;i<4; i++) {
+    if((polyY[i]< y && polyY[j]>=y
+    ||   polyY[j]<y && polyY[i]>=y)
+    && (polyX[i]<=x || polyX[j]<=x))
+    {
+      oddNodes^=(polyX[i]+(y-polyY[i])/(polyY[j]-polyY[i])*(polyX[j]-polyX[i])<x);
+    }
+    j=i;}
+  return oddNodes;
+}
+
+
+float polyX[100];
+float polyY[100];
 int APolygon::pointInPolygon(AVector2D poPoint)
 {
+  //  qDebug()<<"fuck"<<this->m_pointList.size()<<poPoint;
 	//计算该点向左方向的射线与各个边的交点个数
-	int nCount = 0;
 	double X = poPoint.x();
 	double Y = poPoint.y();
-    qDebug()<<"x is :"<<X<<" y is :"<<Y;
-    qDebug()<<"the polygon is";
+
+    for(std::vector<AVector2D>::iterator it = m_pointList.begin();
+    it!= m_pointList.end();
+        ++it)
+    {
+  //      qDebug()<<(*it);
+    }
+    int i=0;
     for(std::vector<AVector2D>::iterator it = m_pointList.begin();
 	it!= m_pointList.end();
-	++it)
+        ++it,++i)
+	{
+        AVector2D tmp=(*it);
+    polyX[i]=tmp.x();
+    polyY[i]=tmp.y();
+	}
+
+    if(point_in_polygon(X,Y,polyX,polyY,this->m_pointList.size()))
     {
-	qDebug()<<"x is :"<<it->x()<<" y is :"<<it->y();
+        return 1;
     }
-	int nFlag = 0;
-
-	for(std::vector<AVector2D>::iterator it = m_pointList.begin();
-	it!= m_pointList.end();
-	    ++it)
-	{
-	if(it!=m_pointList.end()-1)
-	{
-	    nFlag = IsIntersectAnt(X,Y,it->x(),it->y(),
-		(it+1)->x(),(it+1)->y());
-	}
-	else
-	{
-	    nFlag = IsIntersectAnt(X,Y,it->x(),it->y(),
-		(m_pointList.begin())->x(),(m_pointList.begin())->y());
-	}
-
-	qDebug()<<"the flag"<<nFlag;
-		if (nCount < 0)
-		{
-		    return 2;   //点在边上
-	}
-		nCount += nFlag;
-	}
-
-	if (nCount % 2 == 1)   //点在多边形内
-	{
-	    return 1;
-	}
-	else
-	    return 0;
+    else
+    {
+        return 0;
+    }
 }
 
 int APolygon::IsIntersectAnt(double x, double y, double X1, double Y1, double X2, double Y2)

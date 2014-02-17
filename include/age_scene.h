@@ -35,7 +35,7 @@ private:
     std::list<ALayer *> m_layerList;
     std::map <std::string,ABaseEntity *> m_name_pool;
     AEventMgr * m_listenerManager;
-    void renderScene();
+    void renderScene(bool is_release, bool is_press,AVector2D mousePos);
 };
 }
 

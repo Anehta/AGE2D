@@ -2,7 +2,7 @@
 #define AGE_REGEXP_H
 #include <QRegExp>
 #include <QString>
-
+namespace AGE2D{
 class ARegExp
 {
 protected:
@@ -18,5 +18,6 @@ public:
     QString getStr() const;
     void setStr(const QString &value);
 };
+}
 
 #endif // AGE_REGEXP_H

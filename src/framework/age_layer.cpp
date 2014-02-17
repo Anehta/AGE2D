@@ -1,5 +1,6 @@
 #include "../include/age_layer.h"
 #include <stdlib.h>
+#include <qdebug.h>
 using namespace std;
 namespace AGE2D{
 ALayer::ALayer()
@@ -38,7 +39,42 @@ void ALayer::setName(string new_name)
 
 AScene *ALayer::parent()
 {
-	return m_parent;
+    return m_parent;
+}
+
+void ALayer::checkPress(AVector2D pos)
+{
+    for(list<ASprite*>::reverse_iterator i = m_spriteList.rbegin();i!=m_spriteList.rend();i++)
+    {
+        ASprite * tmp=(*i);
+        if(tmp->isTouchable())
+        {
+            APolygon polygon=tmp->getPolygon();
+            if(polygon.pointInPolygon(pos)==1)
+            {
+
+                tmp->OnTouchedPress(pos);
+                return;
+            }
+        }
+    }
+}
+
+void ALayer::checkRelease(AVector2D pos)
+{
+    for(list<ASprite*>::reverse_iterator i = m_spriteList.rbegin();i!=m_spriteList.rend();i++)
+    {
+        ASprite * tmp=(*i);
+        if(tmp->isTouchable())
+        {
+            APolygon polygon=tmp->getPolygon();
+            if(polygon.pointInPolygon(pos)==1)
+            {
+                tmp->OnTouchedrelease(pos);
+                return;
+            }
+        }
+    }
 }
 
 void ALayer::renderLayer()
