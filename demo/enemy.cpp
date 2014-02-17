@@ -1,6 +1,7 @@
 #include "enemy.h"
 
-#include "game.h"
+#include "game.h“
+//修改测试
 using namespace AGE2D;
 Enemy::Enemy(AVector2D pos, int enemy_type)
 {
